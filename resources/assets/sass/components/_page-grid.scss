@@ -1,0 +1,127 @@
+.PageGrid {
+  color: $white;
+  position: relative;
+
+  &__inner {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+
+    @include contentWidth();
+  }
+
+  &--collapseImages {
+    @include breakpointMaxWidth($phablet) {
+      .PageGrid__inner {
+        padding: 0;
+      }
+
+      .PageGridItem {
+        padding: 35px 25px;
+        margin-bottom: 0;
+        border-top: 1px solid #7b7b7b;
+
+        &:last-child {
+          border-bottom: 1px solid #7b7b7b;
+        }
+
+        img {
+          display: none;
+        }
+
+        &__title {
+          margin-top: 0;
+        }
+      }
+    }
+  }
+}
+
+.PageGridItem {
+  margin-bottom: 70px;
+  width: 100%;
+  text-align: center;
+
+  @include breakpoint($phablet) {
+    width: calc(33% - 22px);
+
+    &--half {
+      width: calc(50% - 22px);
+    }
+  }
+
+  &__image {
+    max-width: 100%;
+    height: auto;
+
+    &--mobile {
+      display: none;
+    }
+  }
+
+  &--half {
+    .PageGridItem {
+      &__image {
+        display: none;
+
+        @include breakpoint($phablet) {
+          display: inline;
+        }
+
+        &--mobile {
+          display: inline;
+
+          @include breakpoint($phablet) {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+
+  &__title {
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    text-align: left;
+
+    @include futuraDemi(32px);
+
+    .Meta {
+      width: calc(100% - 35px);
+    }
+
+    .Icon {
+      color: $white;
+      width: 13px;
+      height: 20px;
+      transform: rotate(180deg);
+    }
+  }
+
+  &__description {
+    line-height: 1.56;
+    text-shadow: 0 2px 10px rgba(71, 71, 71, 0.35);
+    margin-top: 15px;
+    width: 80%;
+    text-align: left;
+
+    @include futuraBook(18px);
+
+    a {
+      position: relative;
+
+      &:after {
+        position: absolute;
+        content: "";
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 2px;
+        background: $red;
+      }
+    }
+  }
+}

@@ -1,0 +1,246 @@
+.BoardMembers {
+  position: relative;
+  background-color: #f4f3f0;
+  padding: 80px 0 100px;
+
+  &__header {
+    @include contentWidth();
+
+    margin-bottom: 70px;
+    justify-content: space-between;
+    display: block;
+
+    @include breakpoint($phablet) {
+      display: flex;
+    }
+
+    &__title {
+      color: $darkgrey;
+
+      @include futuraDemi(40px);
+
+      @include breakpoint($md) {
+        @include futuraDemi(48px);
+      }
+
+      &:after {
+        content: "";
+        width: 45px;
+        height: 6px;
+        background: $red;
+        margin-top: 28px;
+        display: block;
+
+        @include breakpoint($md) {
+          width: 25px;
+          height: 2px;
+        }
+      }
+    }
+
+    &__nav {
+      display: flex;
+      top: 0;
+      right: 0;
+      margin-top: 40px;
+
+      @include breakpoint($phablet) {
+        margin-top: 0;
+      }
+
+      &__button {
+        width: 50px;
+        height: 50px;
+        background: $brand-color;
+        border-radius: 50%;
+        border: 0;
+        display: block;
+
+        &--prev {
+          margin-right: 30px;
+
+          &:hover {
+            .Icon {
+              transform: translateX(-2px);
+            }
+          }
+
+          .Icon {
+            left: -2px;
+          }
+        }
+
+        &--next {
+          &:hover {
+            .Icon {
+              transform: rotate(180deg) translateX(2px);
+            }
+          }
+
+          .Icon {
+            left: 2px;
+            transform: rotate(180deg);
+          }
+        }
+
+        .Icon {
+          color: $white;
+          width: 14px;
+          height: 20px;
+          transition: all 0.2s ease-in-out;
+          position: relative;
+        }
+      }
+    }
+  }
+
+  &__carousel {
+    z-index: 2;
+
+    .slick-slide {
+      outline: none;
+      margin-right: 10px;
+      padding-bottom: 200px;
+    }
+
+    .MemberBlock {
+      max-width: 100%;
+      box-shadow: -0.3px 5px 19.8px 0.2px rgba(39, 39, 39, 0.1);
+      background: #f4f3f0;
+      transition: all 0.3s ease-in-out;
+      position: relative;
+      cursor: pointer;
+
+      @include breakpoint($phablet) {
+        max-width: 300px;
+      }
+
+      &__image {
+        width: 100%;
+        height: 310px;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+      }
+
+      &--active {
+        background: $brand-color;
+        transform: translateY(160px);
+
+        .MemberBlock {
+          &__content {
+            &__position,
+            &__name {
+              color: $white;
+            }
+
+            &__button {
+              .Icon {
+                transform: rotate(45deg);
+              }
+            }
+          }
+        }
+      }
+
+      &__content {
+        padding: 28px 25px 40px;
+
+        @include breakpoint($phablet) {
+          padding: 28px 30px 50px;
+        }
+
+        &__position {
+          color: #1c1817;
+
+          @include mont(15px);
+
+          font-weight: $weight-light;
+          letter-spacing: 0.6px;
+          text-transform: uppercase;
+          margin-bottom: 10px;
+
+          @include breakpoint($phablet) {
+            margin-bottom: 12px;
+          }
+        }
+
+        &__name {
+          color: $darkgrey;
+
+          @include futuraMedium(20px);
+
+          @include breakpoint($phablet) {
+            font-size: 25px;
+          }
+        }
+
+        &__button {
+          bottom: 0;
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          box-shadow: -0.3px 5px 19.8px 0.2px rgba(39, 39, 39, 0.2);
+          background: $white;
+          transform: translateY(50%);
+          position: absolute;
+
+          @include breakpoint($phablet) {
+            width: 50px;
+            height: 50px;
+          }
+
+          .Icon {
+            color: $brand-color;
+            width: 15px;
+            height: 15px;
+
+            @include breakpoint($phablet) {
+              width: 20px;
+              height: 20px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &__bio {
+    z-index: 1;
+    top: -60px;
+    position: relative;
+
+    &__content {
+      max-width: 1000px;
+      margin: 0 auto;
+      box-shadow: -0.3px 5px 19.8px 0.2px rgba(39, 39, 39, 0.1);
+      background: #f4f3f0;
+      padding: 100px 30px 30px;
+      position: relative;
+
+      @include breakpoint($md) {
+        padding: 70px 80px 100px;
+      }
+
+      &::before {
+        content: "";
+        top: -5px;
+        left: 0;
+        width: 100%;
+        height: 5px;
+        display: block;
+        background: $brand-color;
+        position: absolute;
+      }
+
+      p {
+        color: $darkgrey;
+
+        @include futuraBook(20px);
+
+        line-height: 1.5;
+        margin-bottom: 24px;
+      }
+    }
+  }
+}

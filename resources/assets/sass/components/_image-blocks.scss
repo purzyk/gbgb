@@ -1,0 +1,361 @@
+.SingleImage,
+.DoubleImage {
+  color: $white;
+  padding-top: 100px;
+  padding-bottom: 100px;
+
+  &:last-child {
+    @include breakpoint($md) {
+      margin-bottom: 200px;
+    }
+  }
+
+  &__inner {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: flex-start;
+
+    @include contentWidth();
+
+    @include breakpoint($md) {
+      flex-flow: row nowrap;
+      align-items: center;
+    }
+  }
+
+  &__title {
+    @include futuraDemi(40px);
+
+    margin-bottom: 25px;
+    position: relative;
+
+    @include breakpoint($md) {
+      font-size: 48px;
+    }
+
+    &:after {
+      content: "";
+      width: 15px;
+      height: 2px;
+      background: $red;
+      margin-top: 28px;
+      display: block;
+      position: relative;
+    }
+  }
+
+  &__content {
+    z-index: 2;
+    width: 100%;
+    order: 2;
+    position: relative;
+
+    @include breakpoint($md) {
+      width: 50%;
+    }
+  }
+
+  &__description {
+    line-height: 1.5;
+    margin-bottom: 35px;
+
+    @include futuraBook(20px);
+
+    @include breakpoint($md) {
+      margin-bottom: 55px;
+    }
+
+    p {
+      &:not(:last-child) {
+        margin-bottom: 30px;
+      }
+    }
+
+    a {
+      position: relative;
+      display: inline-block;
+
+      &::after {
+        content: "";
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 2px;
+        background: $red;
+        position: absolute;
+      }
+    }
+  }
+
+  &__image {
+    position: relative;
+    width: 100%;
+
+    @include breakpoint($md) {
+      width: 50%;
+    }
+
+    img {
+      width: calc(100% + 200px);
+      height: auto;
+    }
+  }
+
+  &__images {
+    width: 100%;
+
+    img {
+      width: 100%;
+
+      @include breakpoint($md) {
+        width: initial;
+      }
+    }
+
+    @include breakpoint($md) {
+      width: 50%;
+    }
+  }
+
+  &.--isblack {
+    .SingleImage {
+      &__fade {
+        background:
+          linear-gradient(
+            to right,
+            rgba(27, 27, 27, 1) 3%,
+            rgba(27, 27, 27, 0.5) 15%,
+            rgba(27, 27, 27, 0) 30%,
+            rgba(27, 27, 27, 0) 70%,
+            rgba(27, 27, 27, 0.5) 85%,
+            rgba(27, 27, 27, 1) 98%
+          ),
+          linear-gradient(
+            rgba(27, 27, 27, 1) 5%,
+            rgba(27, 27, 27, 0.5) 17%,
+            rgba(27, 27, 27, 0) 32%,
+            rgba(27, 27, 27, 0) 72%,
+            rgba(27, 27, 27, 0.5) 87%,
+            rgba(27, 27, 27, 1) 97%
+          );
+      }
+    }
+  }
+
+  &.--iswhite {
+    color: $black;
+    background: $white;
+
+    .SingleImage {
+      &__fade {
+        background:
+          linear-gradient(
+            to right,
+            rgba(255, 255, 255, 1) 3%,
+            rgba(255, 255, 255, 0.5) 15%,
+            rgba(255, 255, 255, 0) 30%,
+            rgba(255, 255, 255, 0) 70%,
+            rgba(255, 255, 255, 0.5) 85%,
+            rgba(255, 255, 255, 1) 98%
+          ),
+          linear-gradient(
+            rgba(255, 255, 255, 1) 5%,
+            rgba(255, 255, 255, 0.5) 17%,
+            rgba(255, 255, 255, 0) 32%,
+            rgba(255, 255, 255, 0) 72%,
+            rgba(255, 255, 255, 0.5) 87%,
+            rgba(255, 255, 255, 1) 97%
+          );
+      }
+
+      &__transparent_button {
+        border: 1px solid $black;
+        color: $black;
+      }
+    }
+  }
+
+  &--leftAlign {
+    .SingleImage__image,
+    .DoubleImage__images {
+      order: 1;
+    }
+  }
+
+  &--rightAlign {
+    .SingleImage__image,
+    .DoubleImage__images {
+      order: 1;
+
+      @include breakpoint($md) {
+        order: 3;
+      }
+    }
+
+    .DoubleImage__images {
+      text-align: right;
+    }
+
+    .DoubleImage__bottom_image {
+      left: auto;
+      right: 80px;
+    }
+  }
+
+  &__bottom_image {
+    position: relative;
+
+    @include breakpoint($md) {
+      margin-top: -50px;
+      left: 100px;
+    }
+  }
+
+  &__button {
+    text-align: center;
+    padding: 16px 18px 14px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+
+    @include breakpoint($md) {
+      width: auto;
+      text-align: left;
+    }
+  }
+}
+
+.SingleImage {
+  &--rightAlign {
+    .SingleImage__content {
+      @include breakpoint($md) {
+        left: 60px;
+        margin-right: 60px;
+      }
+    }
+  }
+
+  &--leftAlign {
+    .SingleImage__content {
+      @include breakpoint($md) {
+        right: 60px;
+        margin-left: 60px;
+      }
+    }
+
+    .SingleImage__image {
+      position: relative;
+
+      @include breakpoint($md) {
+        left: -200px;
+      }
+    }
+  }
+
+  &__fade {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: calc(100% + 200px);
+    height: 100%;
+  }
+}
+
+.DoubleImage {
+  &__content {
+    @include breakpoint($md) {
+      padding-left: 15px;
+    }
+  }
+
+  &__images {
+    margin-bottom: 40px;
+
+    @include breakpoint($phablet) {
+      margin-bottom: 0;
+    }
+
+    @include breakpoint($md) {
+      padding-right: 15px;
+    }
+  }
+
+  &__actions {
+    flex-wrap: wrap;
+    display: flex;
+
+    @include breakpoint($phablet) {
+      flex-wrap: nowrap;
+    }
+  }
+
+  &__button {
+    font-weight: $weight-light;
+
+    &:not(:last-child) {
+      margin-right: 0;
+      margin-bottom: 15px;
+
+      @include breakpoint($phablet) {
+        margin-right: 15px;
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+
+.SimpleImage {
+  padding-top: 75px;
+  padding-bottom: 75px;
+
+  &:last-child {
+    @include breakpoint($md) {
+      margin-bottom: 200px;
+    }
+  }
+
+  &--background {
+    .SimpleImage {
+      &__wrapper {
+        background: #e6e6e6;
+        padding: 40px 50px 50px;
+
+        &__title {
+          color: $darkgrey;
+        }
+      }
+    }
+  }
+
+  &__inner {
+    @include contentWidth();
+
+    text-align: center;
+  }
+
+  &__wrapper {
+    text-align: left;
+    display: inline-block;
+
+    &__title {
+      color: $white;
+
+      @include futuraDemi(40px);
+
+      margin-bottom: 25px;
+
+      @include breakpoint($md) {
+        font-size: 48px;
+      }
+    }
+
+    &__image {
+      max-width: 100%;
+      margin: 0 auto;
+      display: block;
+    }
+  }
+}
+
+.backround_white + .SingleImage {
+  margin-top: 40px;
+}

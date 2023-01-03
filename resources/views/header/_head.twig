@@ -1,0 +1,96 @@
+<head>
+    <meta charset="utf-8">
+
+    {# force Internet Explorer to use the latest rendering engine available #}
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+
+    <title>
+        {% if wp_title %}
+            {{ wp_title }}
+        {% else %}
+            {{ site.name }}
+        {% endif %}
+    </title>
+
+    {# ldFriendly" content="True"> #}
+    <meta content="320" name="MobileOptimized">
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,700" rel="stylesheet">
+    <meta content="#00695C" name="msapplication-TileColor">
+    <meta content="#00695C" name="theme-color">
+    <meta name="description" content="{{ site.description }}">
+
+    {% if googleAnalyticsCode %}
+        {{ googleAnalyticsCode }}
+    {% endif %}
+
+    <link rel="pingback" href="{{ site.pingback_url }}"/>
+
+    {{ function('wp_head') }}
+
+    {# Translations on for js usage #}
+    <script>
+        window.__GBGB_GLOBAL__ = {
+            "loggedIn": {{ loggedIn }},
+            "myDogs": {{ myDogs|json_encode() }},
+            "googleMapsApiKey": "{{ googleMapsAPIKey }}",
+            "googleMapsApiIsLoading": false,
+            "mobileMenu": {{ mobileMenu|json_encode() }},
+            "mobileMenuSubsections": {{ mobileMenuSubsections|json_encode() }},
+            "resultsApiUrl": "{{ resultsApiUrl }}",
+            "trapBadges": {{ trapBadges|json_encode() }},
+            "trackNamesFilters": {{ trackNamesFilters|json_encode() }},
+            "mobileMenuCurrentSubsection": {{ mobileMenuCurrentSubsection|json_encode() }},
+            "ajaxUrl": "{{ ajaxUrl }}",
+            "cta": {
+                "findGrehoundFormCTA": "{{ findGrehoundFormCTA }}"
+            },
+            "pages": {
+                "results": "{{ resultsPage }}",
+                "courses": "{{ coursesPage }}",
+                "meeting": "{{ meetingPage }}",
+                "greyhound": "{{ greyhoundPage }}",
+                "openraces": "{{ openRacesPage }}",
+                "myKennel": "{{ myKennelPage }}",
+                "tc": "{{ tcPage }}",
+                "ourDogs": "{{ ourDogsPage }}",
+                "searchUrl": "{{ searchUrl }}"
+            },
+            "icons": {
+                "logo": "{{ logo }}",
+                "instagram": '{{ instagram | replace({"\n":' ', "\r":' '}) }}',
+                "twitter": '{{ twitter | replace({"\n":' ', "\r":' '}) }}',
+                "facebook": '{{ facebook | replace({"\n":' ', "\r":' '}) }}',
+                "youtube": '{{ youtube | replace({"\n":' ', "\r":' '}) }}',
+                "envelope": '{{ envelope | replace({"\n":' ', "\r":' '}) }}',
+                "user": '{{ user | replace({"\n":' ', "\r":' '}) }}',
+                "search": '{{ search | replace({"\n":' ', "\r":' '}) }}',
+                "cross": '{{ cross | replace({"\n":' ', "\r":' '}) }}',
+                "crossBig": '{{ crossBig | replace({"\n":' ', "\r":' '}) }}',
+                "star": '{{ star | replace({"\n":' ', "\r":' '}) }}',
+                "chevron": '{{ chevron | replace({"\n":' ', "\r":' '}) }}',
+                "chevronBig": '{{ chevronBig | replace({"\n":' ', "\r":' '}) }}',
+                "triangle": '{{ triangle | replace({"\n":' ', "\r":' '}) }}',
+                "arrow": '{{ arrow | replace({"\n":' ', "\r":' '}) }}',
+                "minus": '{{ minus | replace({"\n":' ', "\r":' '}) }}',
+                "plus": '{{ plus | replace({"\n":' ', "\r":' '}) }}',
+                "star": '{{ star | replace({"\n":' ', "\r":' '}) }}',
+                "promotion": '{{ promotion | replace({"\n":' ', "\r":' '}) }}',
+                "reset": '{{ reset | replace({"\n":' ', "\r":' '}) }}',
+                "download": '{{ download | replace({"\n":' ', "\r":' '}) }}',
+                "calendar": '{{ calendar | replace({"\n":' ', "\r":' '}) }}',
+                "spinner": '{{ spinner | replace({"\n":' ', "\r":' '}) }}'
+            },
+            "openRaces": {
+                "apiUrl": "{{ openRacesAPIUrl }}"
+            },
+            "popups": {
+                "popupLogin": {{ popupLogin|json_encode() }},
+                "popupLogout": {{ popupLogout|json_encode() }}
+            },
+            "stadiumPortal": {
+                "mainUrl": "{{ stadiumPortalUrl }}",
+            },
+        }
+    </script>
+</head>

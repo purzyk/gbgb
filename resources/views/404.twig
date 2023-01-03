@@ -1,0 +1,12 @@
+{% extends "base.twig" %}
+
+{% block content %}
+    <main class="Page404" style="background:url({{ options.image_404 }}) center center no-repeat; background-size:cover;">
+        <div class="Hero__gradient" aria-hidden="true"></div>
+        <div class="Page404__wrapper">
+            <p class="Page404__subtitle">{{ options.subtitle_404 }}</p>
+            <h1 class="Page404__title">{{ options.title_404 }}</h1>
+            <a class="Page404__link Button Button--primary" href="{{ site.url }}">{{ options.button_copy_404 }}</a>
+        </div>
+    </main>
+{% endblock %}

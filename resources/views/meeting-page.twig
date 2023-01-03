@@ -1,0 +1,14 @@
+{% extends "base.twig" %}
+
+{% block content %}
+    <main class="PageBuilder">
+        <div class="Hero Hero--page">
+            <div class="Hero__image">
+                <div class="Hero__overlay" aria-hidden="true"></div>
+                <div class="Hero__gradient" aria-hidden="true"></div>
+                <img src="{{TimberImage(post.meetingHeroImage).src('hero')}}" srcset="{{TimberImage(post.meetingHeroImage).src('heroRetina')}} 2x" alt=""/>
+            </div>
+        </div>
+        <meeting nonce="{{ restNonce }}" meetingid="{{ resultsMeetingId }}" raceid="{{ resultsRaceId }}" />
+    </main>
+{% endblock %}

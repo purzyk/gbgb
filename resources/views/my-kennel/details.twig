@@ -1,0 +1,36 @@
+<div class="MyKennel__header">
+    <div class="MyKennel__header__title">
+        <a href="{{ myKennelPage }}" aria-label="Back to previous page" class="MyKennel__header__title__back">
+            <span  class="Icon SvgContainer" aria-hidden="true">
+                {{ get_svg("arrow.svg") }}
+            </span>
+        </a>
+        <h1 class="MyKennel__header__title__meta">{{ myKennel.title }}</h1>
+    </div>
+</div>
+
+<div class="MyKennel__inner">
+    <div class="MyKennel--details__block">
+        <h2 class="MyKennel--details__block__title">My details</h2>
+        <div class="MyKennel--details__block__wrapper">
+            <div class="Item">
+                <p class="Item__title">Name:</p>
+                <p class="Item__text">{{ myKennel.details.name }}</p>
+            </div>
+            <div class="Item">
+                <p class="Item__title">Roles:</p>
+                <p class="Item__text">{{ myKennel.details.roles }}</p>
+            </div>
+            <div class="Item">
+                <p class="Item__title">Email:</p>
+                <p class="Item__text">{{ myKennel.details.email }}</p>
+            </div>
+        </div>
+    </div>
+    <ul class="MyKennel--details__actions">
+        <li class="MyKennel--details__actions__item">
+            <a href="{{ myKennelPage }}?kennelEndpoint=changepass" class="MyKennelButton Button Button--primary__outline">Change password</a>
+        </li>
+        <mykennel-logout nonce="{{ myKennel.nonce }}"></mykennel-logout>
+    </ul>
+</div>

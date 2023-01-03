@@ -1,0 +1,9 @@
+{% if secondaryNav %}
+    <nav class="SecondaryNav">
+        <div class="SecondaryNav__inner">
+            {% for navItem in secondaryNav.get_items %}
+                <a class="SecondaryNav__item {% if navItem.current %}SecondaryNav__item--isActive{% endif %}" href="{{ navItem.link }}">{{ navItem.title }}</a>
+            {% endfor %}
+        </div>
+    </nav>
+{% endif %}

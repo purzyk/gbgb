@@ -1,0 +1,46 @@
+<div class="SearchModal">
+    <button type="button" aria-label="Close search modal" class="SearchModal__close Button">
+        <span class="Icon SvgContainer" aria-hidden="true">
+            {{ get_svg("cross.svg") }}
+        </span>
+    </button>
+    <div class="SearchModal__wrap">
+        <div class="SearchModal__content">
+            {% include 'searchform.twig'%}
+        </div>
+    </div>
+</div>
+
+<footer class="Footer">
+    <button type="button" class="UpBtn" id="ToTop">
+        <span class="visuallyhidden">{{ messages.general.back_to_top }}</span>
+        <span class="UpBtn__icon SvgContainer" aria-hidden="true">
+            {{ get_svg("arrow-rounded.svg") }}
+        </span>
+    </button>
+    <div class="Footer__top">
+        <div class="Footer__top__inner">
+            <div class="Footer__top__inner__column">
+                {% include 'footer/_prefooter-social-links.twig'%}
+            </div>
+            <div class="Footer__top__inner__column">
+                {% include 'footer/_prefooter-menu.twig' with {menu:footerLeft, title:options.footerLeftMenuTitle} %}
+            </div>
+            <div class="Footer__top__inner__column">
+                {% include 'footer/_prefooter-menu.twig' with {menu:footerRight, title:options.footerRightMenuTitle} %}
+            </div>
+        </div>
+    </div>
+    <div class="Footer__bottom">
+        <div class="Footer__bottom__inner">
+            <p class="Footer__bottom__inner__copyright">{{ options.footerCopyright }}</p>
+            <ul class="Menu">
+                {% for item in footerMenu.get_items %}
+                    <li class="Menu__item">
+                        <a href="{{ item.link }}" class="Menu__item__link">{{ item.title }}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</footer></div>{# end <div id="app"> #}{{ function('wp_footer') }}</body></html>

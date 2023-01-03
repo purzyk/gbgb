@@ -1,0 +1,31 @@
+<div class="Testimonials Transition--hidden">
+    <div class="Testimonials__header">
+        <h2 class="Testimonials__header__title">{{ blockData.title }}</h2>
+        <div class="Testimonials__header__nav">
+            <button type="button" aria-label="Prev slide" class="Testimonials__header__nav__button--prev Testimonials__header__nav__button Button">
+                <span class="Icon SvgContainer" aria-hidden="true">
+                    {{ get_svg("chevron-thick.svg") }}
+                </span>
+            </button>
+            <button type="button" aria-label="Next slide" class="Testimonials__header__nav__button--next Testimonials__header__nav__button Button">
+                <span class="Icon SvgContainer" aria-hidden="true">
+                    {{ get_svg("chevron-thick.svg") }}
+                </span>
+            </button>
+        </div>
+    </div>
+    <div class="Testimonials__carousel">
+        {% for testimonial in blockData.posts %}
+            <article class="TestimonialBlock">
+                <p class="TestimonialBlock__text">{{ testimonial.testimonialCopy }}</p>
+                <p class="TestimonialBlock__author">{{ testimonial.testimonialName }}, {{ testimonial.testimonialJob }}</p>
+            </article>
+        {% endfor %}
+    </div>
+    <button class="Testimonials__seeMore Button--white__outline Button">
+        <span class="Meta">See more</span>
+        <span aria-hidden="true" class="Icon SvgContainer">
+            {{ get_svg("triangle.svg") }}
+        </span>
+    </button>
+</div>

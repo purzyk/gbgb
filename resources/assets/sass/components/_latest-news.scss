@@ -1,0 +1,273 @@
+$extendedColor: #2b3447;
+
+.LatestNews {
+  @include contentWidth();
+
+  &__grid {
+    display: flex;
+    flex-flow: row wrap;
+  }
+
+  .Spinner {
+    .Icon {
+      color: $white;
+      width: 30px;
+      height: 30px;
+    }
+  }
+}
+
+.LatestNewsItem {
+  display: block;
+  margin-bottom: 30px;
+  border-radius: 6px;
+  background: $white;
+  color: $darkgrey;
+  overflow: hidden;
+  width: calc(100%);
+
+  @include breakpoint($sm) {
+    margin-right: 36px;
+    width: calc(50% - 20px);
+  }
+
+  @media only screen and (min-width: $sm) and (max-width: $md) {
+    &:nth-child(2n + 2) {
+      margin-right: 0;
+    }
+  }
+
+  @include breakpoint($md) {
+    width: calc(33% - 21px);
+
+    &:nth-child(3n + 3) {
+      margin-right: 0;
+    }
+  }
+
+  &__image {
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  img {
+    width: auto;
+    height: 300px;
+  }
+
+  &__inner {
+    padding: 30px;
+  }
+
+  &__category {
+    letter-spacing: 0.6px;
+    color: $red;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+
+    @include mont(15px);
+  }
+
+  &__date {
+    color: $darkgrey;
+  }
+
+  &__title {
+    margin-bottom: 10px;
+    line-height: 1.2;
+
+    @include futuraMedium(25px);
+  }
+
+  &__excerpt {
+    line-height: 1.5;
+
+    @include futuraBook(20px);
+  }
+}
+
+.LatestNewsFilterSelect {
+  width: 100%;
+  position: relative;
+  background-color: $darkBlue;
+  border-bottom: 1px solid transparentize($white, 0.7);
+
+  &:first-child {
+    border-radius: 6px 6px 0 0;
+  }
+
+  &:last-child {
+    border-radius: 0 0 6px 6px;
+  }
+
+  @include breakpoint($sm) {
+    width: 25%;
+    border-bottom: none;
+    border-right: 1px solid transparentize($white, 0.7);
+
+    &:first-child {
+      border-radius: 6px 0 0 6px;
+    }
+
+    &:last-child {
+      border-radius: 0 6px 6px 0;
+    }
+  }
+
+  &:last-child {
+    border-right: none;
+    border-bottom: none;
+  }
+
+  &--isExtended {
+    border-radius: 0;
+    background-color: $extendedColor;
+    z-index: 1;
+
+    .LatestNewsFilterSelect__extended {
+      display: block;
+
+      @include breakpoint($sm) {
+        border-top: 1px solid rgba($white, 0.1);
+      }
+    }
+
+    .LatestNewsFilterSelect__button {
+      .Icon {
+        color: $white;
+        transform: rotate(180deg);
+      }
+
+      @include breakpointMaxWidth($sm) {
+        padding-bottom: 0;
+      }
+    }
+  }
+
+  &__button {
+    font-size: 15px;
+    padding: 17px 25px 16px 32px;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: none;
+
+    .Icon {
+      color: rgba($white, 0.3);
+      width: 10px;
+      height: 5px;
+    }
+  }
+
+  &__extended {
+    top: 100%;
+    left: 0;
+    width: 100%;
+    padding: 10px 0;
+    background-color: $extendedColor;
+    border-radius: 0 0 6px 6px;
+    display: none;
+
+    @include breakpoint($sm) {
+      position: absolute;
+    }
+  }
+
+  &__option {
+    margin: 20px 25px;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    color: #717c94;
+    cursor: pointer;
+
+    &--active {
+      color: $white;
+
+      .LatestNewsFilterSelect__checkbox {
+        color: $white;
+      }
+    }
+  }
+
+  &__checkbox {
+    width: 14px;
+    height: 14px;
+    margin-right: 15px;
+    border-radius: 2px;
+    border: solid 1px #49546c;
+    background-color: $darkBlue;
+    color: $darkBlue;
+    font-size: 11px;
+    line-height: 12px;
+    text-align: center;
+  }
+}
+
+.LatestNewsFilters {
+  color: $white;
+
+  @include mont(15px);
+
+  &__header {
+    text-align: right;
+    margin-bottom: 15px;
+  }
+
+  &__reset {
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+
+    .Icon {
+      top: -1px;
+      color: $white;
+      width: 16px;
+      height: 16px;
+      margin-right: 5px;
+      position: relative;
+    }
+
+    &--animate {
+      .Icon {
+        animation: spin linear 0.33s 1 normal;
+      }
+    }
+  }
+
+  &__selects {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    margin-bottom: 25px;
+  }
+
+  &__active {
+    display: flex;
+    flex-flow: row wrap;
+    margin-bottom: 33px;
+  }
+}
+
+.LatestNewsFilter {
+  width: auto;
+  font-size: 15px;
+  padding: 14px 32px 16px;
+  border: solid 1px transparentize($white, 0.4);
+  margin-right: 20px;
+  margin-bottom: 33px;
+
+  .Meta {
+    vertical-align: middle;
+    display: inline-block;
+  }
+
+  .Icon {
+    width: 12px;
+    height: 12px;
+    margin-left: 14px;
+  }
+}

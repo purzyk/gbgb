@@ -1,0 +1,6 @@
+<mykennel-resources
+    pagetitle="{{ myKennel.title }}"
+    :notices='{{ myKennel.notices|json_encode()|raw }}'
+    :resources='{{ myKennel.resources|json_encode()|raw }}'
+    noresults="{{ myKennel.noresults }}">
+</mykennel-resources>

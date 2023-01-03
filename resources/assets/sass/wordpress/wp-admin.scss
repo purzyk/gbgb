@@ -1,0 +1,659 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:300,400,600");
+@import "../common/variables";
+@import "../common/mixins";
+@import "../common/fonts";
+
+$widgets-background: rgba($white, 0.8);
+$custom-fields-background: rgba($white, 0.4);
+$contact-form-border-color: #dcdcdc;
+$update-plugins-color: $black;
+$asset-path: "../../images";
+
+$brand-color: #2651b5;
+
+.wp-admin {
+  @include mont();
+
+  -webkit-font-smoothing: antialiased;
+
+  #wpadminbar {
+    &,
+    &:not(.mobile) {
+      > #wp-toolbar {
+        a {
+          &:focus {
+            span {
+              &.ab-icon {
+                &::before {
+                  color: $brand-color;
+                }
+              }
+
+              &.ab-label {
+                color: $brand-color;
+              }
+            }
+          }
+        }
+
+        li {
+          &:hover,
+          &.hover {
+            span {
+              &.ab-icon {
+                &::before {
+                  color: $brand-color;
+                }
+              }
+
+              &.ab-label {
+                color: $brand-color;
+              }
+            }
+          }
+        }
+      }
+
+      .ab-top-menu {
+        > li {
+          &:hover,
+          &.hover {
+            > .ab-item {
+              color: $brand-color;
+
+              &::before {
+                color: $brand-color;
+              }
+            }
+          }
+
+          .ab-item {
+            &:focus {
+              color: $brand-color;
+
+              &::before {
+                color: $brand-color;
+              }
+            }
+          }
+
+          &:focus {
+            color: $brand-color;
+
+            &::before {
+              color: $brand-color;
+            }
+          }
+        }
+      }
+    }
+
+    .quicklinks {
+      .menupop {
+        &,
+        &.hover {
+          ul {
+            li {
+              a {
+                &:hover,
+                &:focus {
+                  color: $brand-color;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      .ab-top-menu {
+        li {
+          &#wp-admin-bar-wp-logo {
+            display: none;
+          }
+
+          &#wp-admin-bar-comments {
+            display: none;
+          }
+        }
+      }
+    }
+
+    &.nojq {
+      .quicklinks {
+        .ab-top-menu {
+          > li {
+            > .ab-item {
+              &:focus {
+                color: $brand-color;
+
+                &::before {
+                  color: $brand-color;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  #adminmenu {
+    a {
+      font-weight: $weight-light;
+
+      &:hover,
+      &:focus {
+        color: $brand-color;
+      }
+    }
+
+    > li {
+      &:not(.wp-menu-open):not(.current) {
+        &:hover,
+        &:focus {
+          div.wp-menu-image {
+            &::before {
+              color: $brand-color;
+            }
+          }
+        }
+      }
+
+      &.wp-menu-open {
+        &:hover,
+        &:focus {
+          div.wp-menu-image {
+            &::before {
+              color: $white;
+            }
+          }
+        }
+
+        a {
+          &:focus {
+            div.wp-menu-image {
+              &::before {
+                color: $white;
+              }
+            }
+          }
+        }
+      }
+
+      &.wp-has-current-submenu,
+      &.current {
+        a {
+          font-weight: $weight-light;
+
+          &:hover,
+          &:focus {
+            font-weight: $weight-light;
+          }
+        }
+
+        > a {
+          &.wp-has-current-submenu,
+          &.current {
+            background: $brand-color;
+
+            .wp-menu-name {
+              font-weight: $weight-light;
+            }
+          }
+        }
+      }
+    }
+
+    li {
+      &.opensub {
+        &.wp-menu-open {
+          > a {
+            &.menu-top {
+              color: $white;
+            }
+          }
+
+          div.wp-menu-image {
+            &::before {
+              color: $white;
+            }
+          }
+        }
+
+        > a {
+          &.menu-top {
+            color: $brand-color;
+          }
+        }
+
+        div.wp-menu-image {
+          &::before {
+            color: $brand-color;
+          }
+        }
+      }
+
+      &.menu-top {
+        &:not(.wp-menu-open):not(.current) {
+          &:hover,
+          &:focus {
+            color: $brand-color;
+
+            > a {
+              color: $brand-color;
+            }
+          }
+        }
+      }
+
+      > a {
+        &.menu-top {
+          &:not(.wp-menu-open):not(.current) {
+            &:focus {
+              color: $brand-color;
+            }
+          }
+        }
+
+        &.wp-menu-open {
+          &:focus {
+            color: $white;
+          }
+        }
+      }
+
+      a {
+        &.wp-has-current-submenu {
+          .update-plugins {
+            background: $update-plugins-color;
+          }
+        }
+
+        &.wp-not-current-submenu {
+          .update-plugins {
+            background: $update-plugins-color;
+          }
+        }
+
+        &:focus {
+          div.wp-menu-image {
+            &::before {
+              color: $brand-color;
+            }
+          }
+        }
+      }
+    }
+
+    .wp-menu-arrow {
+      background: $brand-color;
+    }
+
+    #collapse-button {
+      &:hover,
+      &:focus {
+        color: $brand-color;
+      }
+    }
+  }
+
+  .wrap {
+    h1 {
+      color: $brand-color;
+    }
+
+    .page-title-action,
+    .add-new-h2 {
+      color: $brand-color;
+      font-weight: normal;
+      transition: all 0.2s ease-in-out;
+
+      &:hover,
+      &:focus {
+        color: $white;
+        border-color: $brand-color;
+        box-shadow: none;
+        background: $brand-color;
+      }
+    }
+  }
+
+  .wp-badge {
+    background-color: $brand-color;
+  }
+
+  .postbox {
+    background: $widgets-background;
+  }
+
+  .wp-ui-highlight {
+    background: $black;
+  }
+
+  .wp-list-table {
+    td {
+      strong {
+        font-weight: normal;
+
+        a {
+          font-weight: normal;
+        }
+      }
+    }
+
+    a {
+      color: $black;
+    }
+  }
+
+  table {
+    &.widefat {
+      background: $widgets-background;
+    }
+
+    &.striped {
+      > tbody {
+        > :nth-child(odd) {
+          background: $widgets-background;
+        }
+      }
+    }
+  }
+
+  .button {
+    &.button-large {
+      height: auto;
+      line-height: 1;
+      padding: 10px 15px;
+    }
+
+    &.button-primary {
+      &.button-hero {
+        box-shadow: none;
+
+        &:focus {
+          box-shadow: none;
+        }
+      }
+    }
+  }
+
+  .button-primary {
+    border: none;
+    text-shadow: none;
+    line-height: 1;
+    text-transform: uppercase;
+    height: auto;
+    box-shadow: none;
+    border-radius: 6px;
+    background: $brand-color;
+    transition: all 0.2s ease-in-out;
+    padding: 10px 15px;
+
+    &:hover,
+    &:focus {
+      border: none;
+      box-shadow: none;
+      background: darken($brand-color, 10%);
+    }
+
+    &:focus {
+      outline-color: $brand-color;
+    }
+
+    &-disabled,
+    &.disabled,
+    &:disabled,
+    &[disabled] {
+      cursor: not-allowed;
+      color: $grey-light !important;
+      background: $grey-medium !important;
+    }
+  }
+
+  .components-button {
+    &.is-primary {
+      text-shadow: none;
+      border-color: $brand-color;
+      box-shadow: none;
+      background: $brand-color;
+
+      &:focus {
+        &,
+        &:enabled {
+          border-color: $brand-color;
+          background: $brand-color;
+        }
+      }
+    }
+  }
+
+  input {
+    &[type=checkbox] {
+      &:checked {
+        &::before {
+          color: $black;
+        }
+      }
+    }
+
+    &[type=radio] {
+      &:checked {
+        &::before {
+          background-color: $brand-color;
+        }
+      }
+    }
+  }
+
+  input,
+  textarea {
+    &:focus {
+      border-color: $brand-color;
+      box-shadow: 0 0 2px rgba($brand-color, 0.8);
+    }
+  }
+
+  #set-post-thumbnail {
+    color: $brand-color;
+  }
+
+  #contact-form-editor {
+    .contact-form-editor-panel {
+      border: 1px solid $contact-form-border-color;
+      background: $widgets-background;
+    }
+
+    &-tabs {
+      border-bottom: none;
+
+      li {
+        border-bottom: 1px solid $widgets-background;
+
+        &.ui-tabs-active {
+          &,
+          &:hover {
+            border: 1px solid $contact-form-border-color;
+            border-bottom: 1px solid $widgets-background;
+            background: $widgets-background;
+          }
+        }
+      }
+    }
+  }
+
+  #wpfooter {
+    display: none;
+  }
+
+  .acf-fc-popup {
+    a {
+      &:hover {
+        background: $brand-color;
+      }
+
+      &:focus {
+        box-shadow: none;
+      }
+    }
+  }
+
+  .acf-field {
+    .layout {
+      background: $custom-fields-background;
+    }
+
+    &-object {
+      .handle {
+        strong {
+          font-weight: normal;
+        }
+      }
+
+      &.open {
+        > .handle {
+          text-shadow: none;
+          border: 1px solid $brand-color;
+          background: $brand-color;
+        }
+      }
+    }
+
+    &[data-name="raceCourseScheduleMonday"],
+    &[data-name="raceCourseScheduleTuesday"],
+    &[data-name="raceCourseScheduleWednesday"],
+    &[data-name="raceCourseScheduleThursday"],
+    &[data-name="raceCourseScheduleFriday"],
+    &[data-name="raceCourseScheduleSaturday"],
+    &[data-name="raceCourseScheduleSunday"] {
+      .acf-input {
+        overflow: hidden;
+
+        &::before {
+          content: "";
+          float: left;
+          position: relative;
+        }
+
+        .acf-input-wrap {
+          width: calc(100% - 40px);
+          float: left;
+          margin-left: 8px;
+        }
+      }
+    }
+
+    &[data-name="raceCourseScheduleMonday"],
+    &[data-name="raceCourseScheduleTuesday"],
+    &[data-name="raceCourseScheduleWednesday"],
+    &[data-name="raceCourseScheduleThursday"],
+    &[data-name="raceCourseScheduleFriday"],
+    &[data-name="raceCourseScheduleSaturday"],
+    &[data-name="raceCourseScheduleSunday"] {
+      .acf-input {
+        &::before {
+          top: 4px;
+          width: 20px;
+          height: 20px;
+          background: url(#{$asset-path}/clock.svg) no-repeat center center/cover;
+        }
+      }
+    }
+
+    &[data-name="raceCourseEmail"] {
+      .acf-input {
+        overflow: hidden;
+
+        &::before {
+          content: "";
+          float: left;
+          top: 4px;
+          width: 20px;
+          height: 20px;
+          background: url(#{$asset-path}/email.svg) no-repeat center center/cover;
+          position: relative;
+        }
+
+        .acf-input-wrap {
+          width: calc(100% - 40px);
+          float: left;
+          margin-left: 8px;
+        }
+      }
+    }
+
+    &[data-name="raceCourseLink"] {
+      .acf-input {
+        overflow: hidden;
+
+        &::before {
+          content: "";
+          float: left;
+          top: 4px;
+          width: 20px;
+          height: 20px;
+          background: url(#{$asset-path}/link.svg) no-repeat center center/cover;
+          position: relative;
+        }
+
+        .acf-input-wrap {
+          width: calc(100% - 40px);
+          float: left;
+          margin-left: 8px;
+        }
+      }
+    }
+
+    &[data-name="raceCoursePhone"] {
+      .acf-input {
+        overflow: hidden;
+
+        &::before {
+          content: "";
+          float: left;
+          top: 4px;
+          width: 20px;
+          height: 20px;
+          background: url(#{$asset-path}/phone.svg) no-repeat center center/cover;
+          position: relative;
+        }
+
+        .acf-input-wrap {
+          width: calc(100% - 40px);
+          float: left;
+          margin-left: 8px;
+        }
+      }
+    }
+  }
+
+  .acf-input {
+    .acf-switch {
+      .acf-switch-on {
+        text-shadow: none;
+      }
+
+      &.-on {
+        border-color: $brand-color;
+        background: $brand-color;
+
+        .acf-switch-slider {
+          border-color: $brand-color;
+        }
+      }
+
+      &.-focus {
+        &.-on {
+          .acf-switch-slider {
+            box-shadow: none;
+          }
+        }
+
+        .acf-switch-slider {
+          border-color: $brand-color;
+          box-shadow: none;
+        }
+      }
+    }
+  }
+}

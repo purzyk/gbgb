@@ -1,0 +1,25 @@
+<div class="Publications Transition--hidden ">
+    {% for item in blockData.accordions %}
+        <h2 class="Publications__title">{{ item.accordion_title }}</h2>
+        <div class="Publications__accordions">
+            {% for accordions in item.accordion %}
+                <div class="Publications__accordion">
+                    <button type="button" class="Publications__button Button">
+                        <span class="Meta">{{ accordions.copy }}</span>
+                        <span class="Icon SvgContainer" aria-hidden="true">
+                            {{ get_svg("chevron.svg") }}
+                        </span>
+                    </button>
+                    <div class="Publications__content">
+                        {% for file in accordions.files %}
+                            <div class="Publications__file">
+                                <p>{{ file.file_name }}</p>
+                                <a target="_blank" href="{{ file.file }}">Download PDF</a>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% endfor %}
+</div>

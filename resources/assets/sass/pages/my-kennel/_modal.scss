@@ -1,0 +1,141 @@
+.MyKennelModal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: transparentize($black, 0.5);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &__inner {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    background: $white;
+    display: table;
+    margin: auto;
+    min-width: 500px;
+    padding: 40px 50px 60px;
+    color: $darkgrey;
+    max-width: 560px;
+    line-height: 1.5;
+
+    @include breakpointMaxWidth(520px) {
+      min-width: 0;
+    }
+
+    @include futuraBook(20px);
+  }
+
+  &__title {
+    max-width: 300px;
+    font-size: 32px;
+
+    @include futuraDemi();
+
+    text-align: center;
+    margin: 0 auto 20px;
+
+    @include breakpointMaxWidth(520px) {
+      margin-top: 50px;
+    }
+  }
+
+  &__text {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  &__link {
+    color: $brand-color;
+    margin: 15px auto;
+    display: block;
+    letter-spacing: 0.6px;
+
+    @include futuraDemi();
+  }
+
+  &__inlineLink {
+    @include futuraBook(20px);
+
+    a {
+      color: $brand-color;
+
+      @include futuraDemi(20px);
+    }
+  }
+
+  &__row {
+    text-align: center;
+
+    @include mont(15px);
+
+    &:not(:last-child) {
+      margin-bottom: 20px;
+    }
+
+    &--email {
+      display: block;
+      border: 1px solid $borderGray;
+      border-radius: 5px;
+
+      .Field__input {
+        border: none;
+        text-align: center;
+        padding: 20px 15px;
+      }
+    }
+
+    .MyKennelButton {
+      max-width: 200px;
+      margin: 0 5px;
+      display: block;
+    }
+  }
+
+  &__actions {
+    margin: 0 -5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &:not(:last-child) {
+      margin-bottom: 20px;
+    }
+
+    @include breakpointMaxWidth(520px) {
+      flex-wrap: wrap;
+
+      .MyKennelButton {
+        margin-bottom: 15px;
+      }
+    }
+  }
+
+  &__close {
+    top: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    border: 1px solid $brand-color;
+    border-radius: 50%;
+    position: absolute;
+
+    &:hover {
+      background: $brand-color;
+
+      .Icon {
+        color: $white;
+      }
+    }
+
+    .Icon {
+      color: $brand-color;
+      width: 16px;
+      height: 16px;
+    }
+  }
+}

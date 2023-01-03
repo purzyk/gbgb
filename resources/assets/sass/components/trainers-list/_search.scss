@@ -1,0 +1,185 @@
+.TrainersListSearch {
+  @include futuraBook();
+
+  &__simplified {
+    width: calc(100% - 40px);
+    color: $grey;
+    letter-spacing: 0;
+    text-transform: none;
+    border: 1px solid #d4d4d4;
+    border-radius: 3px;
+    margin: 0 auto 15px;
+    padding: 12px 20px 13px;
+    display: flex;
+
+    @include futuraBook(17px);
+
+    @include breakpoint($lg) {
+      display: none;
+    }
+
+    .Icon {
+      top: 3px;
+      color: $grey;
+      width: 12px;
+      height: 12px;
+      margin-right: 12px;
+      position: relative;
+    }
+  }
+
+  &__wrapper {
+    @include breakpointMaxWidth($lg) {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: auto;
+      min-height: 100%;
+      overflow-y: auto;
+
+      &--showPopup {
+        display: flex;
+        z-index: 9999;
+        background:
+          url(#{$asset-path}search-bg.png) no-repeat bottom right/ 75%,
+          $white;
+        background-origin: content-box;
+      }
+    }
+  }
+
+  &__complex {
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 55px;
+    font-size: 17px;
+    color: $grey;
+    display: flex;
+
+    @include breakpointMaxWidth($lg) {
+      position: absolute;
+      width: 100%;
+      flex-direction: column;
+      padding: 25px 20px 0;
+      align-items: flex-start;
+      border-top: 1px solid $black;
+    }
+  }
+
+  &__typesLabel {
+    margin: 0 35px 0 20px;
+  }
+
+  .AnimatedInput,
+  .AnimatedSelect {
+    border: 1px solid $borderGray;
+    border-radius: 6px;
+    height: 44px;
+    margin-right: 15px;
+    padding: 0 20px;
+    color: $darkgrey;
+
+    @include futuraBook(17px);
+
+    &--hasText,
+    &--hasFocus {
+      border-color: $brand-color;
+    }
+  }
+
+  &__town {
+    width: 150px;
+  }
+
+  &__trackname {
+    width: 200px;
+  }
+
+  &__name {
+    .AnimatedInput {
+      &__clear {
+        top: 12px;
+
+        .Icon {
+          top: -1px;
+          position: relative;
+        }
+      }
+    }
+  }
+
+  &__buttonClear {
+    width: auto;
+    font-size: 15px;
+    padding: 14px 14px 13px;
+  }
+
+  &__button {
+    width: auto;
+    font-size: 15px;
+    margin-left: 20px;
+    padding: 14px 14px 13px;
+  }
+
+  &__actions {
+    display: flex;
+
+    @include breakpointMaxWidth($lg) {
+      width: 100%;
+      justify-content: center;
+      margin-bottom: 55px;
+    }
+  }
+
+  @include breakpointMaxWidth($lg) {
+    .AnimatedInput,
+    .AnimatedSelect {
+      margin-bottom: 30px;
+      margin-left: 0;
+    }
+
+    .AnimatedInput,
+    .AnimatedSelect {
+      width: 100%;
+    }
+
+    &__typesLabel {
+      margin-left: 0;
+      margin-bottom: 15px;
+    }
+  }
+}
+
+.TrainersListSearchMobileHeader {
+  display: none;
+
+  @include breakpointMaxWidth($lg) {
+    display: flex;
+    width: 100%;
+    flex-flow: row nowrap;
+    margin-bottom: 25px;
+    align-items: flex-end;
+  }
+
+  &__title {
+    flex-grow: 1;
+    color: $darkgrey;
+
+    @include futuraMedium(25px);
+  }
+
+  &__close {
+    width: 40px;
+    height: 40px;
+    border: 1px solid $black;
+    border-radius: 50%;
+    margin-bottom: 15px;
+
+    .Icon {
+      width: 15px;
+      height: 15px;
+    }
+  }
+}

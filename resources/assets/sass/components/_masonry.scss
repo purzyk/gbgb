@@ -1,0 +1,69 @@
+masonry {
+  display: none;
+}
+
+.Masonry {
+  text-align: center;
+
+  &--isReady {
+    display: block;
+  }
+
+  &__inner {
+    text-align: left;
+  }
+
+  &__sizer {
+    position: absolute;
+
+    @include masonryColumnWidth(1);
+  }
+
+  &__gutter_sizer {
+    width: $masonryGutter;
+    position: absolute;
+  }
+
+  &__item {
+    width: calc(100% - #{$masonryGutter});
+    margin-bottom: #{$masonryGutter};
+
+    @include masonryColumnWidth(1);
+
+    &--double {
+      width: calc(100% - #{$masonryGutter});
+
+      @include masonryColumnWidth(2);
+    }
+
+    @include breakpointMaxWidth($phablet) {
+      &:nth-of-type(n + 6) {
+        display: none;
+      }
+    }
+  }
+
+  &--isExtended {
+    .Masonry__item {
+      &:nth-of-type(n + 6) {
+        display: block;
+      }
+    }
+
+    .Masonry__button {
+      display: none;
+    }
+  }
+
+  &__button {
+    width: auto;
+    font-size: 14px;
+    margin: 30px auto;
+    padding: 12px 20px;
+    left: -$masonryGutter;
+
+    @include breakpoint($phablet) {
+      display: none;
+    }
+  }
+}

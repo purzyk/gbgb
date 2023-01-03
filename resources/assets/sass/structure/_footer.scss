@@ -1,0 +1,253 @@
+.UpBtn {
+  display: none;
+  z-index: 100001;
+  outline: none;
+  right: 2%;
+  bottom: 2%;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  border: none;
+  border-radius: 50%;
+  background: $brand-color;
+  padding: 0;
+  position: fixed;
+
+  @include breakpoint($md) {
+    bottom: 100px;
+  }
+
+  &:hover {
+    .UpBtn__icon {
+      transform: translateY(-2px);
+    }
+  }
+
+  &__icon {
+    color: $white;
+    width: 22px;
+    height: 22px;
+    transition: all 0.2s ease-in-out;
+  }
+}
+
+.Footer {
+  color: $white;
+
+  @include futuraBook();
+
+  border-top: 1px solid transparentize($white, 0.78);
+  background: $dark;
+
+  &__top {
+    border-bottom: 1px solid transparentize($white, 0.78);
+    padding: 50px 0;
+
+    @include breakpoint($phablet) {
+      padding: 70px 0;
+    }
+
+    @include breakpoint($md) {
+      padding: 82px 0 80px;
+    }
+
+    &__inner {
+      flex-wrap: wrap;
+      display: flex;
+
+      @include contentWidth();
+
+      &__column {
+        width: 100%;
+
+        &:not(:last-child) {
+          margin-bottom: 45px;
+
+          @include breakpoint($phablet) {
+            margin-bottom: 0;
+          }
+        }
+
+        @include breakpoint($phablet) {
+          width: 33.333%;
+        }
+
+        .LogoBlock {
+          margin-bottom: 30px;
+
+          img {
+            max-width: 140px;
+            height: auto;
+            display: block;
+          }
+        }
+
+        .SocialMedia {
+          margin-bottom: 35px;
+          display: flex;
+
+          @include breakpoint($sm) {
+            margin-bottom: 80px;
+          }
+
+          &__item {
+            &:not(:last-child) {
+              margin-right: 20px;
+            }
+
+            .Item {
+              width: 39px;
+              height: 39px;
+              border-radius: 50%;
+              background: $white;
+              transition: all 0.2s ease-in-out;
+              align-items: center;
+              justify-content: center;
+              display: flex;
+
+              &:hover {
+                background: $dark;
+
+                .Icon {
+                  color: $white;
+                }
+              }
+
+              &--facebook {
+                .Icon {
+                  left: -1px;
+                  width: 18px;
+                  height: 18px;
+                }
+              }
+
+              &--twitter {
+                .Icon {
+                  top: 1px;
+                  width: 18px;
+                  height: 18px;
+                }
+              }
+
+              .Icon {
+                color: $dark;
+                transition: all 0.2s ease-in-out;
+                position: relative;
+              }
+            }
+          }
+        }
+
+        .LinkBlock {
+          font-size: 16px;
+
+          @include breakpoint($sm) {
+            font-size: 17px;
+          }
+        }
+
+        .Menu {
+          &__title {
+            @include futuraDemi(16px);
+
+            margin-bottom: 20px;
+
+            @include breakpoint($sm) {
+              font-size: 17px;
+            }
+          }
+
+          &__item {
+            display: block;
+
+            &:not(:last-child) {
+              margin-bottom: 17px;
+            }
+
+            &__link {
+              font-size: 16px;
+
+              @include breakpoint($sm) {
+                font-size: 17px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &__bottom {
+    padding: 30px 0;
+
+    @include breakpoint($phablet) {
+      padding: 50px 0;
+    }
+
+    @include breakpoint($md) {
+      padding: 64px 0;
+    }
+
+    &__inner {
+      @include contentWidth();
+
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      display: flex;
+
+      &__copyright {
+        width: 100%;
+        font-size: 15px;
+        line-height: 20px;
+        margin-bottom: 25px;
+
+        @include breakpoint($md) {
+          width: auto;
+          line-height: 1;
+          margin-bottom: 0;
+        }
+      }
+
+      .Menu {
+        width: 100%;
+        flex-wrap: wrap;
+        align-items: center;
+        display: flex;
+
+        @include breakpoint($md) {
+          width: auto;
+        }
+
+        &__title {
+          font-size: 15px;
+        }
+
+        &__item {
+          width: 50%;
+
+          @include breakpoint($phablet) {
+            width: auto;
+          }
+
+          &:not(:last-child) {
+            margin-bottom: 8px;
+
+            @include breakpoint($phablet) {
+              margin-right: 30px;
+              margin-bottom: 0;
+            }
+
+            @include breakpoint($lg) {
+              margin-right: 60px;
+            }
+          }
+
+          &__link {
+            font-size: 15px;
+          }
+        }
+      }
+    }
+  }
+}

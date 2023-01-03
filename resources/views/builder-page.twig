@@ -1,0 +1,14 @@
+{% extends "base.twig" %}
+
+{% block content %}
+    <main class="PageBuilder">
+        {% include 'components/page-hero.twig' %}
+        {% for pageBuilderBlock in pageBuilderBlocks %}
+            {% include "components/#{pageBuilderBlock.blockType}.twig" with
+                {
+                    blockData : pageBuilderBlock,
+                }
+            %}
+        {% endfor %}
+    </main>
+{% endblock %}

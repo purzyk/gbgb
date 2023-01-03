@@ -1,0 +1,288 @@
+.MyKennelButton {
+  @include mont(16px);
+
+  text-align: center;
+  text-transform: uppercase;
+  padding: 12px 15px 10px;
+}
+
+.MyKennel {
+  margin-left: auto;
+  margin-right: auto;
+  padding: 150px 0 0;
+
+  @include breakpoint($phablet) {
+    padding: 211px 0 0;
+  }
+
+  @include breakpoint($lg) {
+    max-width: 1020px;
+    padding: 211px 0 130px;
+  }
+
+  &__header {
+    margin-bottom: 60px;
+    padding-right: 15px;
+    padding-left: 15px;
+    display: flex;
+    justify-content: space-between;
+    flex-flow: row wrap;
+    align-items: center;
+
+    @include breakpoint($phablet) {
+      margin-bottom: 90px;
+    }
+
+    @include breakpoint($lg) {
+      padding-right: 0;
+      padding-left: 0;
+    }
+
+    &__title {
+      width: 100%;
+      margin-bottom: 20px;
+      align-items: center;
+      display: flex;
+
+      @include breakpoint($sm) {
+        width: auto;
+        margin-bottom: 0;
+      }
+
+      &__back {
+        width: 38px;
+        height: 38px;
+        background: transparentize($white, 0.8);
+        margin-right: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        @include breakpoint($sm) {
+          margin-right: 35px;
+        }
+
+        &:hover {
+          .Icon {
+            transform: translateX(-3px);
+          }
+        }
+
+        .Icon {
+          color: $white;
+          width: 19px;
+          height: 14px;
+          transition: all 0.2s ease-in-out;
+        }
+      }
+
+      &__meta {
+        color: $white;
+        line-height: 50px;
+
+        @include futuraDemi(45px);
+
+        text-shadow: 0 4px 26.5px rgba(95, 63, 21, 0.47);
+
+        @include breakpoint($lg) {
+          font-size: 70px;
+        }
+      }
+    }
+
+    &__button {
+      width: auto;
+      font-weight: $weight-semibold;
+      padding: 15px 25px;
+    }
+  }
+
+  &__inner {
+    background: $white;
+    color: $darkgrey;
+    line-height: 1.5;
+    padding: 30px 15px;
+
+    @include breakpoint($md) {
+      padding: 75px 200px 130px 130px;
+    }
+
+    @include futuraBook(20px);
+  }
+
+  &--welcome {
+    .MyKennel {
+      &__inner {
+        .TextBlock {
+          &:not(:last-child) {
+            margin-bottom: 40px;
+          }
+
+          h2,
+          h3 {
+            font-size: 20px;
+            font-weight: $weight-bold;
+
+            &:not(:last-child) {
+              margin-bottom: 18px;
+            }
+          }
+
+          h2:not(:empty) {
+            &::after {
+              display: none;
+            }
+          }
+
+          p {
+            &:not(:last-child) {
+              margin-bottom: 20px;
+            }
+          }
+        }
+
+        &__actions {
+          align-items: center;
+          flex-wrap: wrap;
+          display: flex;
+
+          .RegisterButton {
+            width: auto;
+
+            @include mont(16px);
+
+            text-transform: uppercase;
+            margin-right: 28px;
+            padding: 13px 25px 11px;
+            margin-bottom: 40px;
+          }
+
+          .LoginButton {
+            width: auto;
+            font-weight: $weight-light;
+            text-transform: none;
+            margin-bottom: 40px;
+
+            span {
+              color: $brand-color;
+              font-weight: $weight-semibold;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &--mycourses {
+    .MyCoursesEmpty {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .MyKennelButton {
+        width: auto;
+        margin: 30px auto 0;
+      }
+    }
+  }
+
+  &--mydogs {
+    .MyDogsEmpty {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      &__text {
+        &:not(:last-child) {
+          margin-bottom: 30px;
+        }
+      }
+
+      .MyKennelButton {
+        width: auto;
+        margin: 0 auto;
+      }
+
+      .GreyhoundInput {
+        &__placeholder {
+          bottom: 9px;
+        }
+
+        &__clear {
+          .Icon {
+            top: -3px;
+          }
+        }
+      }
+    }
+  }
+
+  &--details {
+    &__block {
+      border: 1px solid transparentize($grey, 0.6);
+      padding: 40px;
+      color: $darkgrey;
+      margin-bottom: 50px;
+
+      &__title {
+        color: $darkgrey;
+
+        @include futuraHeavy(20px);
+
+        margin-bottom: 30px;
+      }
+
+      &__wrapper {
+        display: flex;
+        flex-flow: row wrap;
+
+        .Item {
+          width: 100%;
+          margin-top: 25px;
+          padding-right: 10px;
+
+          &:first-child {
+            margin-top: 0;
+          }
+
+          @include breakpoint($lg) {
+            width: 25%;
+            margin-top: 0;
+          }
+
+          @include futuraBook(20px);
+
+          &:last-child {
+            flex-grow: 1;
+          }
+
+          &__title {
+            color: $darkgrey;
+            letter-spacing: 0.6px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+
+            @include mont(15px);
+          }
+
+          &__text {
+            word-break: break-word;
+          }
+        }
+      }
+    }
+
+    &__actions {
+      display: flex;
+      flex-direction: column;
+
+      &__item {
+        margin-bottom: 15px;
+
+        .MyKennelButton {
+          width: 250px;
+        }
+      }
+    }
+  }
+}

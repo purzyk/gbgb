@@ -1,0 +1,106 @@
+body {
+  @include mont();
+
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  //TODO FF antialias
+  font-size: 14px;
+  min-width: 320px;
+  background: $dark;
+
+  @include breakpoint(320px) {
+    overflow-x: hidden;
+  }
+
+  @include breakpoint($sm) {
+    font-size: 16px;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  @include mont(40px);
+
+  @include breakpoint($sm) {
+    font-size: 70px;
+  }
+}
+
+h2 {
+  @include mont(36px);
+
+  @include breakpoint($sm) {
+    font-size: 48px;
+  }
+}
+
+h3 {
+  @include mont(24px);
+
+  @include breakpoint($sm) {
+    font-size: 32px;
+  }
+}
+
+h4 {
+  @include mont(17px);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.container {
+  padding: 0 26px;
+}
+
+.GenericWrapper {
+  // padding-bottom: 64px;
+}
+
+%willAnimate {
+  opacity: 0;
+  visibility: hidden;
+}
+
+%noSelect {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.Anim {
+  &--hidden {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+#app {
+  overflow: hidden;
+
+  @include maxRes();
+}
+
+.PageBuilder {
+  min-height: 75vh;
+}
+
+.admin-bar {
+  .MobileNav {
+    top: 30px;
+  }
+}

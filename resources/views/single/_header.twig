@@ -1,0 +1,38 @@
+<div class="PostHeader">
+    <div class="PostHeader__upper">
+        <div class="PostHeader__back">
+            <a href="{{ newsPage }}" class="PostHeader__back__link">
+                <span class="Icon SvgContainer" aria-hidden="true">
+                    {{ get_svg("arrow.svg") }}
+                </span>
+                <span class="Meta">Back to Latest News</span>
+            </a>
+        </div>
+        <div class="PostHeader__shares">
+            <p class="PostHeader__shares__text">Share on</p>
+            <ul class="ShareMedia">
+                <li class="ShareMedia__item">
+                    <a href="{{ fbShareLink }}" aria-label="Share on Facebook" class="ShareLink">
+                        <span class="Icon Icon--facebook SvgContainer" aria-hidden="true">
+                            {{ get_svg("facebook.svg") }}
+                        </span>
+                    </a>
+                </li>
+                <li class="ShareMedia__item">
+                    <a href="{{ twitterShareLink }}" aria-label="Share on Twitter" class="ShareLink">
+                        <span class="Icon Icon--twitter SvgContainer" aria-hidden="true">
+                            {{ get_svg("twitter.svg") }}
+                        </span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="PostHeader__meta">
+        {% for category in postCategories %}
+            <a href="{{ category.link }}">{{ category.name }}</a>
+        {% endfor %}
+        //
+        {{ date }}</div>
+    <h1 class="PostHeader__title">{{ title }}</h1>
+</div>

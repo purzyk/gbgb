@@ -1,0 +1,255 @@
+.Hero {
+  color: $white;
+  position: relative;
+
+  &__image {
+    height: auto;
+    z-index: -1;
+    position: absolute;
+    width: 1920px;
+    left: calc((1920px - 100vw) * -0.5);
+
+    @include breakpoint(1920px) {
+      left: auto;
+    }
+
+    @include breakpointMaxWidth($lg) {
+      overflow: hidden;
+      left: calc((1920px - 100vw) * -0.3);
+    }
+
+    @include breakpointMaxWidth($phablet) {
+      overflow: hidden;
+      left: calc((1920px - 100vw) * -0.4);
+    }
+
+    img {
+      height: auto;
+      width: 1920px * 0.75;
+
+      @include breakpoint($lg) {
+        width: 1920px;
+        position: initial;
+      }
+    }
+  }
+
+  &__overlay {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+
+    /* additional 1px as a fix for scaling glitch in FF8 */
+    height: calc(100% + 1px);
+    background: transparentize($darkgrey, 0.5);
+  }
+
+  &__gradient {
+    top: 0;
+    left: 0;
+    width: 100%;
+
+    /* additional 1px as a fix for scaling glitch in FF8 */
+    height: calc(100% + 1px);
+    background: linear-gradient(to bottom, rgba(27, 27, 27, 0.55) 0%, rgba(27, 27, 27, 0.55) 85%, rgba(27, 27, 27, 0.88) 96%, $dark 99%), linear-gradient(to left, rgba(27, 27, 27, 0) 0%, rgba(27, 27, 27, 0) 60%, $dark 99%), linear-gradient(-45deg, rgba(27, 27, 27, 0) 0%, rgba(27, 27, 27, 0) 60%, $dark 99%), linear-gradient(-135deg, rgba(27, 27, 27, 0) 0%, rgba(27, 27, 27, 0) 60%, $dark 99%);
+    position: absolute;
+
+    @include breakpoint($phablet) {
+      background: linear-gradient(to bottom, rgba(27, 27, 27, 0) 0%, rgba(27, 27, 27, 0) 85%, rgba(27, 27, 27, 0.88) 96%, rgba(27, 27, 27, 1) 99%), linear-gradient(to left, rgba(27, 27, 27, 0) 0%, rgba(27, 27, 27, 0) 60%, rgba(27, 27, 27, 1) 99%), linear-gradient(-45deg, rgba(27, 27, 27, 0) 0%, rgba(27, 27, 27, 0) 60%, rgba(27, 27, 27, 1) 99%), linear-gradient(-135deg, rgba(27, 27, 27, 0) 0%, rgba(27, 27, 27, 0) 60%, rgba(27, 27, 27, 1) 99%);
+    }
+  }
+
+  &--afterSecondaryNav {
+    .Hero__inner {
+      @include breakpoint($lg) {
+        padding-top: 335px;
+      }
+    }
+  }
+
+  &--home {
+    .Hero {
+      &__inner {
+        padding-bottom: 90px;
+
+        @include breakpoint($lg) {
+          padding-bottom: 120px;
+        }
+      }
+    }
+  }
+
+  &__inner {
+    width: 100%;
+    padding-top: 160px;
+    padding-bottom: 40px;
+
+    @include contentWidth();
+
+    @include breakpoint($sm) {
+      padding-left: 70px;
+      padding-right: 70px;
+    }
+
+    @include breakpoint($lg) {
+      padding-top: 235px;
+      padding-bottom: 160px;
+    }
+  }
+
+  &__subtitle {
+    @include montLight(13px);
+
+    text-shadow: 0 2px 10px rgba(71, 71, 71, 0.35);
+    letter-spacing: 2.1px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+
+    @include breakpoint($phablet) {
+      font-size: 15px;
+      letter-spacing: 2.4px;
+    }
+  }
+
+  &__title {
+    width: 100%;
+    max-width: 520px;
+    margin-bottom: 20px;
+    align-items: center;
+    display: flex;
+
+    @include breakpoint($sm) {
+      width: auto;
+      margin-bottom: 0;
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 30px;
+    }
+
+    &__back {
+      width: 38px;
+      min-width: 38px;
+      height: 38px;
+      background: transparentize($white, 0.8);
+      margin-right: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      @include breakpoint($sm) {
+        margin-right: 35px;
+      }
+
+      &:hover {
+        .Icon {
+          transform: translateX(-3px);
+        }
+      }
+
+      .Icon {
+        color: $white;
+        width: 19px;
+        height: 14px;
+        transition: all 0.2s ease-in-out;
+      }
+    }
+
+    &__meta {
+      color: $white;
+
+      @include futuraDemi(40px);
+
+      line-height: 1.2;
+      text-shadow: 0 4px 26.5px rgba(95, 63, 21, 0.47);
+      position: relative;
+
+      @include breakpoint($phablet) {
+        font-size: 55px;
+      }
+
+      @include breakpoint($sm) {
+        font-size: 60px;
+      }
+
+      @include breakpoint($md) {
+        font-size: 70px;
+      }
+    }
+  }
+
+  &__text {
+    @include futuraBook(20px);
+
+    position: relative;
+    text-shadow: 0 2px 10px rgba(71, 71, 71, 0.35);
+    line-height: 1.5;
+
+    @include breakpoint($md) {
+      max-width: 510px;
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 35px;
+
+      @include breakpoint($md) {
+        margin-bottom: 40px;
+      }
+    }
+
+    &::before {
+      content: "";
+      width: 26px;
+      height: 4px;
+      background: $red;
+      margin-bottom: 35px;
+      display: block;
+      position: relative;
+    }
+  }
+
+  &__button {
+    width: auto;
+    text-align: center;
+    padding: 17px 28px 15px;
+
+    &:not(:last-of-type) {
+      margin-right: 8px;
+      margin-bottom: 20px;
+
+      @include breakpoint($md) {
+        margin-bottom: 0;
+      }
+    }
+
+    &__transparent {
+      z-index: 5;
+      color: $white;
+      background: rgba($black, 0.4);
+      position: relative;
+
+      &:hover {
+        background: rgba($black, 0.55);
+      }
+    }
+  }
+}
+
+.HeroOverlapping {
+  position: absolute;
+  left: calc((1920px - 100vw) * -0.5);
+  height: auto;
+  display: none;
+  opacity: 0;
+  width: 0;
+
+  @include breakpoint($lg) {
+    opacity: 1;
+    width: 1920px;
+  }
+
+  @include breakpoint(1920px) {
+    left: auto;
+  }
+}

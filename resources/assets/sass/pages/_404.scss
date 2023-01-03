@@ -1,0 +1,60 @@
+.Page404 {
+  min-height: 100vh;
+  //align-items: center;
+  display: flex;
+  position: relative;
+
+  &__wrapper {
+    width: 100%;
+
+    @include contentWidth();
+
+    margin-top: 200px;
+    z-index: 2;
+  }
+
+  &__subtitle {
+    color: $white;
+    text-shadow: 0 2px 10px rgba(71, 71, 71, 0.35);
+    text-transform: uppercase;
+    letter-spacing: 2.4px;
+    margin-bottom: 21px;
+
+    @include montLight(13px);
+
+    @include breakpoint($lg) {
+      font-size: 15px;
+    }
+  }
+
+  &__title {
+    text-shadow: 0 4px 26.5px rgba(95, 63, 21, 0.47);
+    color: $white;
+    margin-bottom: 47px;
+    line-height: 1.2;
+    max-width: 250px;
+
+    @include futuraDemi(34px);
+
+    @include breakpoint($sm) {
+      font-size: 44px;
+      max-width: 520px;
+    }
+
+    @include breakpoint($lg) {
+      font-size: 70px;
+      max-width: 520px;
+    }
+  }
+
+  &__link {
+    width: auto;
+    padding: 15px 30px;
+
+    @include montLight(13px);
+
+    @include breakpoint($lg) {
+      font-size: 16px;
+    }
+  }
+}

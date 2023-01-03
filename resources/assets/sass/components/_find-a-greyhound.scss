@@ -1,0 +1,39 @@
+.FindAGreyhound {
+  width: 100%;
+  max-width: 350px;
+  position: relative;
+  display: flex;
+
+  .GreyhoundInput {
+    border: 1px solid $borderGray;
+    border-radius: 6px;
+    height: 44px;
+    padding: 0 20px;
+    color: $darkgrey;
+    padding-right: 40px;
+    width: calc(100% - 90px);
+    max-width: 100%;
+    flex-grow: 1;
+    margin-right: 10px;
+    text-transform: none;
+
+    &__placeholder {
+      text-transform: none;
+    }
+
+    &__status {
+      display: none;
+    }
+
+    @include futuraBook(17px);
+  }
+
+  &__go {
+    max-width: 80px;
+
+    &--active {
+      opacity: 1;
+      cursor: pointer;
+    }
+  }
+}

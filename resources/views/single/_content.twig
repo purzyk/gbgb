@@ -1,0 +1,8 @@
+<div class="PostContent">{{ content }}</div>
+{% if post.show_table == 'yes' %}
+    <div class="BlockTable">
+        {% filter shortcodes %}
+            {{ function('do_shortcode', '[table field-name="blockTable" table-class="BlockTable__table"]') }}
+        {% endfilter %}
+    </div>
+{% endif %}

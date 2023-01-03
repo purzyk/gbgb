@@ -1,0 +1,589 @@
+.Meeting {
+  padding-top: 233px;
+
+  @include contentWidth();
+
+  margin-bottom: 90px;
+
+  @include breakpointMaxWidth($lg) {
+    padding-left: 0;
+    padding-right: 0;
+    margin-bottom: 130px;
+  }
+
+  .Spinner {
+    .Icon {
+      color: $white;
+      width: 45px;
+      height: 45px;
+    }
+  }
+
+  &__header {
+    color: $white;
+    margin-left: 20px;
+    margin-bottom: 80px;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    max-width: calc(100% - 20px);
+
+    @include breakpoint($lg) {
+      margin-left: 80px;
+      margin-bottom: 120px;
+    }
+
+    &__date {
+      width: 100%;
+      letter-spacing: 2.4px;
+      text-shadow: 0 2px 10px rgba(71, 71, 71, 0.35);
+      margin-bottom: 0;
+      text-transform: uppercase;
+      order: 1;
+      display: block;
+
+      @include breakpoint($sm) {
+        order: 0;
+        margin-bottom: 25px;
+      }
+
+      @include mont(15px);
+    }
+
+    &__title {
+      color: $white;
+
+      @include futuraDemi(45px);
+
+      text-shadow: 0 4px 26.5px rgba(95, 63, 21, 0.47);
+      width: 100%;
+      margin-bottom: 15px;
+      align-items: center;
+      display: flex;
+
+      @include breakpoint($sm) {
+        width: auto;
+        margin-bottom: 0;
+      }
+
+      @include breakpoint($lg) {
+        @include futuraDemi(70px);
+      }
+
+      &__back {
+        width: 38px;
+        height: 38px;
+        background: transparentize($white, 0.8);
+        margin-right: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        @include breakpoint($sm) {
+          margin-right: 35px;
+        }
+
+        &:hover {
+          .Icon {
+            transform: translateX(-3px);
+          }
+        }
+
+        .Icon {
+          color: $white;
+          width: 19px;
+          height: 14px;
+          transition: all 0.2s ease-in-out;
+        }
+      }
+    }
+  }
+
+  &__inner {
+    background: $white;
+    padding: 40px 0 80px;
+
+    @include breakpoint($lg) {
+      padding: 40px 60px 80px;
+    }
+  }
+}
+
+.MeetingFilter {
+  border-radius: 6px;
+  border: solid 1px $borderGray;
+  color: $darkgrey;
+  position: relative;
+
+  @include futuraBook(17px);
+
+  &--scroll {
+    .MeetingFilter__hours {
+      padding-left: 48px;
+      padding-right: 48px;
+    }
+
+    .MeetingFilter__button {
+      &:last-child {
+        border-right: none;
+      }
+    }
+  }
+
+  &__hours {
+    display: flex;
+    flex-flow: row nowrap;
+    overflow: auto;
+    position: relative;
+  }
+
+  &__scrollButton,
+  &__button {
+    cursor: pointer;
+    height: 44px;
+    padding: 0 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    &--active {
+      color: $white;
+      background: $brand-color;
+    }
+  }
+
+  @include breakpoint($lg) {
+    &__scrollButton,
+    &__button {
+      padding: 0;
+      width: 75px;
+    }
+
+    &__button:first-child {
+      width: 95px;
+      padding: 0 20px;
+    }
+  }
+
+  &__scrollButton {
+    z-index: 2;
+    background: $white;
+    position: absolute;
+    top: 0;
+
+    &--left {
+      left: 0;
+      border-right: solid 1px $borderGray;
+
+      .Icon {
+        transform: rotate(90deg);
+      }
+    }
+
+    &--right {
+      right: 0;
+      border-left: solid 1px $borderGray;
+
+      .Icon {
+        transform: rotate(-90deg);
+      }
+    }
+
+    .Icon {
+      color: $darkgrey;
+      width: 10px;
+      height: 5px;
+    }
+  }
+
+  &__filler {
+    padding: 0 24px;
+  }
+
+  &__button {
+    border-right: solid 1px $borderGray;
+  }
+}
+
+.MeetingRace {
+  margin: 0 auto;
+  margin-top: 70px;
+  max-width: 1062px;
+
+  .MeetingFilter + & {
+    @include breakpointMaxWidth($tables) {
+      margin-top: 0;
+    }
+  }
+
+  &__header {
+    background: $brand-color;
+    border-radius: 6px 6px 0 0;
+    display: flex;
+    align-items: center;
+    flex-flow: row wrap;
+    color: #fffff5;
+    line-height: 1.5;
+    padding: 20px 25px;
+
+    @include futuraBook(20px);
+
+    @include breakpointMaxWidth($tables) {
+      border-radius: 0;
+    }
+  }
+
+  &__time,
+  &__track {
+    margin-right: 10px;
+
+    @include futuraMedium(25px);
+  }
+
+  &__class {
+    margin-right: 10px;
+  }
+
+  &__distance {
+    margin-right: 10px;
+    flex-grow: 1;
+  }
+
+  &__title {
+    width: 100%;
+    font-weight: $weight-medium;
+  }
+
+  &__table {
+    border: 1px solid #f3f2f2;
+    border-top: none;
+  }
+
+  &__wrapper {
+    position: relative;
+  }
+
+  &__footer {
+    padding: 40px 33px;
+    display: flex;
+    flex-flow: column;
+    border: 1px solid #f3f2f2;
+    border-top: none;
+
+    @include futuraBook(20px);
+
+    strong {
+      font-weight: 900;
+    }
+
+    @include breakpoint($tables) {
+      flex-flow: row wrap;
+    }
+  }
+
+  &__allowance {
+    flex-grow: 1;
+    margin-bottom: 20px;
+
+    @include breakpoint($tables) {
+      margin-right: 45px;
+      margin-bottom: 0;
+    }
+  }
+
+  &__forecast {
+    margin-bottom: 20px;
+
+    @include breakpoint($tables) {
+      margin-right: 45px;
+      margin-bottom: 0;
+    }
+  }
+}
+
+.MeetingRaceTableHeader {
+  color: transparentize(#424242, 0.5);
+  flex-flow: row nowrap;
+  padding: 15px 0;
+  border: 1px solid #f3f2f2;
+  border-bottom: none;
+  overflow: hidden;
+  display: none;
+
+  @include breakpoint($tables) {
+    display: flex;
+  }
+
+  @include futuraBook(17px);
+
+  &__trap {
+    width: 100px;
+    text-align: center;
+    flex-shrink: 0;
+  }
+
+  &__timeS,
+  &__sp {
+    width: 75px;
+    flex-shrink: 0;
+  }
+
+  &__greyhound {
+    width: 230px;
+    flex-shrink: 0;
+  }
+
+  &__comment {
+    width: 180px;
+    flex-shrink: 0;
+  }
+
+  &__trainer {
+    width: 120px;
+    flex-shrink: 0;
+  }
+
+  &__timeDistance {
+    width: 120px;
+    flex-shrink: 0;
+  }
+
+  &__addToKennel {
+    width: 120px;
+    flex-shrink: 0;
+  }
+}
+
+.MeetingRaceTrap {
+  color: $darkgrey;
+  display: flex;
+  flex-flow: row nowrap;
+  position: relative;
+
+  @include breakpointMaxWidth($ip) {
+    padding-bottom: 20px;
+  }
+
+  @include futuraBook(17px);
+
+  &:nth-child(odd) {
+    .MeetingRaceTrap__addToKennel,
+    .MeetingRaceTrap__data {
+      @include breakpoint($tables) {
+        background: $resultsRowBg;
+      }
+    }
+
+    @include breakpointMaxWidth($tables) {
+      background: $resultsRowBg;
+    }
+  }
+
+  &__data {
+    padding: 30px 0;
+    display: none;
+
+    &--mobile {
+      display: flex;
+      flex-direction: column;
+    }
+
+    @include breakpoint($tables) {
+      &--desktop {
+        display: block;
+      }
+
+      &--mobile {
+        display: none;
+      }
+    }
+  }
+
+  &__upper {
+    display: flex;
+    flex-flow: row nowrap;
+    margin-bottom: 20px;
+  }
+
+  &__lower {
+    display: flex;
+    flex-flow: row nowrap;
+  }
+
+  &__timeS,
+  &__sp {
+    width: 75px;
+  }
+
+  &__greyhound {
+    color: $brand-color;
+    width: 230px;
+
+    @include futuraDemi(20px);
+  }
+
+  &__comment {
+    width: 180px;
+    word-break: break-all;
+  }
+
+  &__trainer {
+    width: 120px;
+  }
+
+  &__timeDistance {
+    width: 120px;
+  }
+
+  &__addToKennel {
+    width: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+
+    @include breakpointMaxWidth($tables) {
+      position: absolute;
+      bottom: 40px;
+      right: 0;
+    }
+
+    @include breakpointMaxWidth($ip) {
+      bottom: 20px;
+    }
+
+    &--savingState {
+      opacity: 0.5;
+      pointer-events: none;
+    }
+
+    .Icon {
+      top: -1px;
+      color: $brand-color;
+      width: 17px;
+      height: 17px;
+      margin-right: 8px;
+      position: relative;
+
+      svg {
+        path {
+          &:not(.noColor) {
+            fill: none !important;
+            stroke: currentColor;
+          }
+        }
+      }
+
+      &--starred {
+        svg {
+          path {
+            &:not(.noColor) {
+              fill: currentColor !important;
+              stroke: none !important;
+            }
+          }
+        }
+      }
+    }
+
+    .Meta {
+      vertical-align: middle;
+      display: inline-block;
+    }
+  }
+
+  &__pos,
+  &__trap {
+    text-align: center;
+    width: 100px;
+
+    @include futuraBook(20px);
+
+    img {
+      max-width: 23px;
+      height: auto;
+    }
+  }
+
+  &__pos {
+    @include futuraBook(13px);
+
+    &::first-letter {
+      @include futuraBook(20px);
+    }
+  }
+
+  &__houndProfile {
+    display: flex;
+    align-items: center;
+  }
+
+  &__data--mobile {
+    padding: 20px 30px 20px 40px;
+    width: 100%;
+
+    .MeetingRaceTrap {
+      &__lower,
+      &__upper {
+        flex-flow: row wrap;
+      }
+
+      &__line {
+        display: flex;
+        flex-flow: row wrap;
+        width: 100%;
+        margin-bottom: 15px;
+
+        &:nth-child(3) {
+          margin-bottom: 40px;
+        }
+      }
+
+      &__pos,
+      &__trap,
+      &__greyhound,
+      &__sp,
+      &__timeS,
+      &__comment,
+      &__timeDistance,
+      &__trainer,
+      &__weight,
+      &__houndProfile {
+        width: auto;
+      }
+
+      &__upper {
+        position: relative;
+      }
+
+      &__pos {
+        position: absolute;
+        right: calc(100% + 10px);
+      }
+
+      &__trap,
+      &__sp,
+      &__timeS,
+      &__comment,
+      &__timeDistance,
+      &__trainer,
+      &__weight {
+        margin-right: 20px;
+      }
+
+      &__greyhound {
+        margin-right: 10px;
+        flex-grow: 1;
+
+        @include breakpointMaxWidth($ip) {
+          font-size: 17px;
+        }
+      }
+
+      &__trap img {
+        max-width: 20px;
+      }
+    }
+  }
+}

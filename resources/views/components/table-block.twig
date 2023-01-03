@@ -1,0 +1,27 @@
+<section class="TableModule">
+    <div class="TableModule__inner">
+        <div class="BlockTable">
+            {% set table = blockData.blockTable %}
+            <table class="BlockTable__table">
+                {% if table.header %}
+                    <thead>
+                        <tr>
+                            {% for item in table.header %}
+                                <th>{{ item.c }}</th>
+                            {% endfor %}
+                        </tr>
+                    </thead>
+                {% endif %}
+                <tbody>
+                    {% for item in table.body %}
+                        <tr>
+                            {% for td in item %}
+                                <td>{{ td.c }}</td>
+                            {% endfor %}
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>

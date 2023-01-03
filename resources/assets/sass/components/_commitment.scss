@@ -1,0 +1,285 @@
+.Commitment {
+  @include breakpoint($md) {
+    margin-bottom: 250px;
+  }
+
+  &__inner {
+    width: 100%;
+    margin: 0 auto;
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    position: relative;
+
+    &--expanded {
+      .Commitment__tiles {
+        @include breakpoint($phablet) {
+          display: none;
+        }
+      }
+
+      .CommitmentExpanded {
+        display: none;
+
+        @include breakpoint($phablet) {
+          display: block;
+        }
+      }
+    }
+  }
+
+  &__background {
+    position: absolute;
+    z-index: -1;
+    width: auto;
+    height: 1200px;
+  }
+
+  &__tiles {
+    display: flex;
+    flex-flow: row wrap;
+    border-left: solid 1px $commitmentBorder;
+    border-top: solid 1px $commitmentBorder;
+  }
+}
+
+.CommitmentExpanded {
+  display: none;
+  color: $white;
+  background: rgba(0, 51, 103, 0.9);
+  padding-top: 70px;
+  padding-bottom: 110px;
+
+  &__inner {
+    padding: 0 60px;
+
+    @include contentWidth();
+  }
+
+  &__controls {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    margin-bottom: 60px;
+  }
+
+  &__counter {
+    flex-grow: 1;
+    margin-left: 30px;
+    letter-spacing: 0.6px;
+
+    @include mont(15px);
+  }
+
+  &__prev,
+  &__next,
+  &__close {
+    width: 60px;
+    height: 60px;
+    border: 1px solid $white;
+    border-radius: 50%;
+    box-shadow: -0.3px 5px 19.8px 0.2px rgba(39, 39, 39, 0.2);
+
+    &:hover {
+      background: $white;
+
+      .Icon {
+        color: $blue;
+      }
+    }
+
+    .Icon {
+      color: $white;
+      position: relative;
+    }
+  }
+
+  &__prev,
+  &__next {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .Icon {
+      width: 11px;
+      height: 21px;
+    }
+  }
+
+  &__close {
+    .Icon {
+      width: 21px;
+      height: 21px;
+    }
+  }
+
+  &__prev {
+    &:last-child {
+      margin-right: 90px;
+    }
+
+    .Icon {
+      left: -1px;
+    }
+  }
+
+  &__next {
+    margin-left: 30px;
+
+    .Icon {
+      transform: rotate(180deg);
+    }
+  }
+
+  &__title {
+    @include futuraDemi(40px);
+
+    line-height: 1.2;
+    margin-bottom: 40px;
+
+    @include breakpoint($md) {
+      max-width: 90%;
+      font-size: 48px;
+    }
+  }
+
+  &__description {
+    line-height: 1.5;
+    max-width: 750px;
+
+    @include futuraBook(20px);
+
+    ul,
+    ol {
+      padding-left: 20px;
+    }
+
+    ul {
+      li {
+        margin-bottom: 20px;
+
+        &::before {
+          content: "\2022";
+          color: $red;
+          font-weight: bold;
+          display: inline-block;
+          margin-left: -20px;
+          position: relative;
+          left: -20px;
+        }
+      }
+    }
+  }
+}
+
+.CommitmentTile {
+  width: 100%;
+  cursor: pointer;
+  border-right: solid 1px $commitmentBorder;
+  border-bottom: solid 1px $commitmentBorder;
+  background: #faf8f6;
+  transition: all 0.2s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  padding: 60px 0 0;
+
+  @include breakpoint($phablet) {
+    width: 50%;
+    background: transparentize($white, $amount: 0.1);
+    padding: 0;
+
+    &:hover {
+      background: transparentize($commitmentOverlay, 0.1);
+
+      .CommitmentTile {
+        &__description {
+          color: $white;
+        }
+      }
+    }
+  }
+
+  @include breakpoint($md) {
+    width: 25%;
+  }
+
+  @include breakpointMaxWidth($phablet) {
+    height: 100% !important;
+  }
+
+  &__number {
+    color: $red;
+
+    @include mont(14px);
+
+    letter-spacing: 1.4px;
+    margin-bottom: 16px;
+  }
+
+  &__description {
+    color: $darkgrey;
+    line-height: 1.28;
+    margin: 0 25px 25px;
+
+    @include futuraMedium(20px);
+
+    @include breakpoint($md) {
+      margin: 0 25px;
+    }
+
+    @include breakpoint($lg) {
+      font-size: 25px;
+      margin: 0 55px;
+    }
+  }
+
+  &__button {
+    width: 41px;
+    height: 41px;
+    border-radius: 50%;
+    box-shadow: -0.2px 2.5px 5px 0.1px rgba(39, 39, 39, 0.07);
+    background: $white;
+    margin: 0 auto 50px;
+    display: block;
+
+    @include breakpoint($phablet) {
+      margin: 0 auto;
+      display: none;
+    }
+
+    .Icon {
+      color: $brand-color;
+      width: 16px;
+      height: 16px;
+      margin: 0 auto;
+      transition: all 0.2s ease-in-out;
+      display: block;
+    }
+
+    &--close {
+      background: $brand-color;
+
+      .Icon {
+        color: $white;
+        transform: rotate(45deg);
+      }
+    }
+  }
+
+  &__content {
+    width: 100%;
+    color: $white;
+    line-height: 1.5;
+
+    @include futuraBook(20px);
+
+    background: $brand-color;
+    padding: 42px 20px 50px;
+
+    @include breakpoint($phablet) {
+      display: none;
+    }
+  }
+}

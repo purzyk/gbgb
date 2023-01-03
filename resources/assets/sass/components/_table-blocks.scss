@@ -1,0 +1,104 @@
+.TableModule {
+  padding: 50px 0;
+
+  @include breakpoint($sm) {
+    padding: 100px 0;
+  }
+
+  &__inner {
+    @include contentWidth();
+
+    @include breakpoint($sm) {
+      padding-left: 70px;
+      padding-right: 70px;
+    }
+  }
+}
+
+.BlockTable {
+  width: 100%;
+  margin: 0 auto;
+  background: $white;
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.75);
+
+  &__table {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+
+    @include breakpoint($phablet) {
+      table-layout: fixed;
+      border-collapse: collapse;
+    }
+
+    thead {
+      height: inherit;
+      margin: 0;
+      overflow: auto;
+      padding: 0;
+      position: relative;
+      width: inherit;
+    }
+
+    th {
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+      vertical-align: middle;
+      text-align: left;
+      font-size: 0;
+
+      &::first-letter {
+        @include mont(12px);
+
+        @include breakpoint($phablet) {
+          font-size: 15px;
+        }
+      }
+
+      @include breakpoint($phablet) {
+        @include mont(15px);
+      }
+    }
+
+    tr {
+      padding: 0;
+      height: 68px;
+      display: table-row;
+    }
+
+    td {
+      @include futuraBook(12px);
+
+      display: table-cell;
+      text-align: left;
+      vertical-align: middle;
+
+      @include breakpoint($phablet) {
+        font-size: 20px;
+      }
+    }
+
+    tbody {
+      tr:nth-child(odd) {
+        background: #e8ecf3;
+      }
+    }
+  }
+
+  table th,
+  table td {
+    padding-left: 5px;
+
+    @include breakpoint($phablet) {
+      padding-left: 33px;
+    }
+  }
+
+  table th,
+  table td {
+    &:last-child {
+      padding-right: 33px;
+      text-align: right;
+    }
+  }
+}

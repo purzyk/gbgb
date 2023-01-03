@@ -1,0 +1,174 @@
+.OurDogs {
+  &--hasPosts {
+    .OurDogs__posts {
+      &::after {
+        @include breakpoint($phablet) {
+          content: "#gbgb";
+          color: rgba(18, 54, 136, 0.1);
+
+          @include futuraDemi(183.5px);
+
+          right: 0;
+          bottom: 0;
+          display: block;
+          position: absolute;
+        }
+      }
+    }
+  }
+
+  &__title {
+    text-shadow: 0 2px 10px rgba(71, 71, 71, 0.35);
+    letter-spacing: 2.4px;
+    text-align: center;
+    color: $white;
+    text-transform: uppercase;
+    margin-bottom: 25px;
+
+    @include montLight(15px);
+  }
+
+  &__hashtag {
+    color: $white;
+
+    @include futuraDemi(21.5px);
+
+    text-align: center;
+    margin-bottom: 125px;
+
+    @include breakpoint($sm) {
+      font-size: 34px;
+    }
+
+    @include breakpoint($lg) {
+      font-size: 48px;
+    }
+  }
+
+  &__section {
+    &_inner {
+      top: -60px;
+      text-align: center;
+      position: relative;
+
+      @include contentWidth();
+
+      @include breakpointMaxWidth($lg) {
+        padding-right: 0;
+      }
+    }
+  }
+
+  &__seeMore {
+    cursor: pointer;
+    color: $white;
+
+    @include mont(15px);
+
+    letter-spacing: 0.6px;
+    border: 1px solid $white;
+    border-radius: 6px;
+    margin-top: 85px;
+    padding: 20px 40px;
+    display: inline-block;
+  }
+
+  .Spinner {
+    .Icon {
+      color: $white;
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  .Masonry {
+    position: relative;
+    left: 12px;
+
+    &__sizer {
+      @include masonryColumnWidth(1, 44px, false);
+    }
+
+    &__gutter_sizer {
+      width: 44px;
+    }
+
+    &__item {
+      width: calc(100% - 44px);
+      margin-bottom: 44px;
+
+      @include masonryColumnWidth(1, 44px, false);
+
+      &--double {
+        width: calc(100% - 44px);
+
+        @include masonryColumnWidth(2, 44px, false);
+      }
+
+      @include breakpointMaxWidth($phablet) {
+        &:nth-of-type(n + 6) {
+          display: block;
+        }
+      }
+    }
+
+    &__button {
+      display: none;
+    }
+  }
+}
+
+.OurDogsPost {
+  overflow: hidden;
+  border-radius: 5px;
+  z-index: 2;
+  position: relative;
+
+  &::after {
+    content: "";
+    right: 30px;
+    bottom: 30px;
+    width: 17px;
+    height: 17px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: block;
+    position: absolute;
+  }
+
+  &__image {
+    img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+  }
+
+  &__inner {
+    padding: 30px;
+    color: $darkgrey;
+
+    @include futuraBook(17px);
+  }
+
+  &__nicename {
+    margin-bottom: 14px;
+
+    @include futuraHeavy(17px);
+  }
+
+  &__caption {
+    color: $white;
+    margin-bottom: 12px;
+
+    @include futuraMedium(25px);
+  }
+
+  &__author {
+    letter-spacing: 0.6px;
+    color: transparentize($white, $amount: 0.4);
+    text-transform: uppercase;
+
+    @include mont(15px);
+  }
+}

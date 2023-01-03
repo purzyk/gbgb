@@ -1,0 +1,28 @@
+<section class="DoubleImage DoubleImage--{{ blockData.imageBlockAlignment }}">
+    <div class="DoubleImage__inner Transition--hidden ">
+        <div class="DoubleImage__content">
+            {% if blockData.imageBlockTitle %}
+                <h2 class="DoubleImage__title">{{ blockData.imageBlockTitle }}</h2>
+            {% endif %}
+            <div class="DoubleImage__description">{{ blockData.imageBlockDescription }}</div>
+            {% if (blockData.imageBlockBlueButton.imageBlockBlueButtonLabel or blockData.imageBlockTransparentButton.imageBlockTransparentButtonLabel) %}
+                <div class="DoubleImage__actions">
+                    {% if blockData.imageBlockBlueButton.imageBlockBlueButtonLabel %}
+                        <a class="DoubleImage__button Button Button--primary" href="{{ blockData.imageBlockBlueButton.imageBlockBlueButtonLink }}" {% if blockData.imageBlockBlueButton.imageBlockBlueButtonTab == 'yes' %} target="_blank" {% endif %}>
+                            {{ blockData.imageBlockBlueButton.imageBlockBlueButtonLabel }}
+                        </a>
+                    {% endif %}
+                    {% if blockData.imageBlockTransparentButton.imageBlockTransparentButtonLabel %}
+                        <a class="DoubleImage__button Button Button--white__outline" href="{{ blockData.imageBlockTransparentButton.imageBlockTransparentButtonLink }}" {% if blockData.imageBlockTransparentButton.imageBlockTransparentButtonTab == 'yes' %} target="_blank" {% endif %}>
+                            {{ blockData.imageBlockTransparentButton.imageBlockTransparentButtonLabel }}
+                        </a>
+                    {% endif %}
+                </div>
+            {% endif %}
+        </div>
+        <div class="DoubleImage__images">
+            <img class="DoubleImage__top_image" src="{{TimberImage(blockData.imageBlockImages.imageBlockTopImage).src('doubleImage')}}" srcset="{{TimberImage(blockData.imageBlockImages.imageBlockTopImage).src('doubleImageRetina')}} 2x" alt="">
+            <img class="DoubleImage__bottom_image" src="{{TimberImage(blockData.imageBlockImages.imageBlockBottomImage).src('doubleImage')}}" srcset="{{TimberImage(blockData.imageBlockImages.imageBlockBottomImage).src('doubleImageRetina')}} 2x" alt="">
+        </div>
+    </div>
+</section>

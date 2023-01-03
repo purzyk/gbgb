@@ -1,0 +1,96 @@
+.LiveResults {
+  position: relative;
+
+  @include contentWidth();
+
+  margin-bottom: 90px;
+
+  @include breakpoint($md) {
+    margin-bottom: 130px;
+  }
+
+  @include breakpointMaxWidth($md) {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  &__title {
+    @include montLight(15px);
+
+    text-align: center;
+    text-shadow:
+      0 2px 16px rgba(71, 71, 71, 0.96),
+      0 2px 6px rgba(71, 71, 71, 0.96);
+    font-weight: $weight-light;
+    letter-spacing: 2.4px;
+    margin-bottom: 30px;
+    color: $white;
+    text-transform: uppercase;
+    position: relative;
+  }
+
+  &__inner {
+    background: $white;
+    padding: 30px 0;
+
+    @include breakpoint($lg) {
+      padding: 45px 60px;
+    }
+
+    @include breakpointMaxWidth($lg) {
+      padding-bottom: 45px;
+    }
+  }
+
+  &__footer {
+    margin-top: 45px;
+    padding: 0 20px;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+
+    @include breakpoint($md) {
+      margin-top: 50px;
+      justify-content: flex-start;
+      flex-flow: wrap row;
+    }
+
+    @include breakpoint($lg) {
+      padding: 0;
+    }
+
+    .FindAGreyhound {
+      margin-bottom: 25px;
+
+      @include breakpoint($md) {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &__view_open {
+    color: $brand-color;
+
+    @include mont(16px);
+
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    margin-bottom: 25px;
+
+    @include breakpoint($md) {
+      margin-bottom: 0;
+      margin-right: 25px;
+    }
+  }
+
+  &__see__all {
+    width: auto;
+    padding: 14px 25px 12px;
+    display: block;
+
+    @include breakpoint($md) {
+      margin-left: auto;
+    }
+  }
+}

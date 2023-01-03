@@ -1,0 +1,274 @@
+{
+    "key": "group_5c768a1d5610a",
+    "title": "Block: Page Grid",
+    "fields": [
+        {
+            "key": "field_5c768aa472a13",
+            "label": "Grid Items - 2 per row",
+            "name": "pageGridItems2",
+            "type": "repeater",
+            "instructions": "User must enter at least either Content or Image and Title for item to be displayed.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "field_5c768b3f72a14",
+            "min": 1,
+            "max": 0,
+            "layout": "block",
+            "button_label": "Add item",
+            "sub_fields": [
+                {
+                    "key": "field_5c768b3f72a14",
+                    "label": "Content",
+                    "name": "pageGridItemContent",
+                    "type": "post_object",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "post_type": [
+                        "post",
+                        "page"
+                    ],
+                    "taxonomy": "",
+                    "allow_null": 1,
+                    "multiple": 0,
+                    "return_format": "object",
+                    "ui": 1
+                },
+                {
+                    "key": "field_5c77e41003f0a",
+                    "label": "Url",
+                    "name": "pageGridItemUrl",
+                    "type": "text",
+                    "instructions": "If empty will use the content's default permalink",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_5c768b6772a15",
+                    "label": "Title",
+                    "name": "pageGridItemTitle",
+                    "type": "text",
+                    "instructions": "Leave empty to use default title.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_5c768b8b72a17",
+                    "label": "Image",
+                    "name": "pageGridItemImage",
+                    "type": "image",
+                    "instructions": "Leave empty to use the content's default featured image.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "preview_size": "thumbnail",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": ""
+                },
+                {
+                    "key": "field_5c768b7372a16",
+                    "label": "Description",
+                    "name": "pageGridItemDescription",
+                    "type": "textarea",
+                    "instructions": "Leave empty to use the content's default excerpt.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "maxlength": "",
+                    "rows": "",
+                    "new_lines": ""
+                }
+            ]
+        },
+        {
+            "key": "field_5c7fb07f59a86",
+            "label": "Grid Items - 3 per row",
+            "name": "pageGridItems3",
+            "type": "repeater",
+            "instructions": "User must enter at least either Content or Image and Title for item to be displayed.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "field_5c768b3f72a14",
+            "min": 1,
+            "max": 3,
+            "layout": "block",
+            "button_label": "Add item",
+            "sub_fields": [
+                {
+                    "key": "field_5c7fb07f59a87",
+                    "label": "Content",
+                    "name": "pageGridItemContent",
+                    "type": "post_object",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "post_type": [
+                        "post",
+                        "page"
+                    ],
+                    "taxonomy": "",
+                    "allow_null": 1,
+                    "multiple": 0,
+                    "return_format": "object",
+                    "ui": 1
+                },
+                {
+                    "key": "field_5c7fb07f59a88",
+                    "label": "Url",
+                    "name": "pageGridItemUrl",
+                    "type": "text",
+                    "instructions": "If empty will use the content's default permalink",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_5c7fb07f59a89",
+                    "label": "Title",
+                    "name": "pageGridItemTitle",
+                    "type": "text",
+                    "instructions": "Leave empty to use default title.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_5c7fb07f59a8a",
+                    "label": "Image",
+                    "name": "pageGridItemImage",
+                    "type": "image",
+                    "instructions": "Leave empty to use the content's default featured image.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "preview_size": "thumbnail",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": ""
+                },
+                {
+                    "key": "field_5c7fb07f59a8b",
+                    "label": "Description",
+                    "name": "pageGridItemDescription",
+                    "type": "textarea",
+                    "instructions": "Leave empty to use the content's default excerpt.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "maxlength": "",
+                    "rows": "",
+                    "new_lines": ""
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_status",
+                "operator": "==",
+                "value": "request-failed"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1560770140
+}

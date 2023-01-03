@@ -1,0 +1,111 @@
+.MyKennel--uploadphotos {
+  .MyKennel {
+    padding: 100px 20px;
+
+    &__inner {
+      @include breakpoint($phablet) {
+        padding: 100px 130px;
+      }
+    }
+  }
+
+  &__block {
+    color: $darkgrey;
+
+    @include futuraBook(20px);
+
+    &__dropzone {
+      margin-bottom: 40px;
+      text-align: center;
+    }
+
+    .vue-dropzone:hover {
+      background: transparent;
+    }
+
+    &__remove {
+      color: $red;
+      text-align: right;
+      position: relative;
+      top: 35px;
+      right: 10px;
+
+      .Icon {
+        cursor: pointer;
+        width: 24px;
+        height: 24px;
+      }
+    }
+
+    .dz-details {
+      display: none;
+    }
+
+    .dz-message {
+      color: $darkgrey;
+
+      @include futuraDemi(16px);
+
+      @include breakpoint(500px) {
+        @include futuraDemi(32px);
+      }
+    }
+
+    .dz-progress {
+      display: none;
+    }
+
+    .dz-max-files-reached {
+      pointer-events: none;
+    }
+
+    &__thumb {
+      display: block;
+      margin: 0 auto;
+      margin-bottom: 90px;
+      max-width: 100%;
+      height: auto;
+    }
+
+    &__petName,
+    &__raceName {
+      display: block;
+      padding: 10px 15px;
+      margin: 15px 0;
+      border: 1px solid $borderGray;
+      border-radius: 5px;
+      width: 600px;
+      max-width: 90%;
+
+      input {
+        width: 100%;
+      }
+    }
+
+    &__message {
+      text-align: center;
+
+      @include futuraDemi(48px);
+    }
+
+    &__title {
+      margin-bottom: 40px;
+
+      @include futuraDemi(48px);
+    }
+
+    &__copy {
+      max-width: 400px;
+
+      a {
+        color: $brand-color;
+
+        @include futuraDemi(20px);
+      }
+    }
+
+    &__button {
+      width: auto;
+    }
+  }
+}

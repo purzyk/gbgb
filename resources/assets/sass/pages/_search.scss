@@ -1,0 +1,459 @@
+.Search {
+  padding-top: 233px;
+  display: block;
+
+  @include contentWidth();
+
+  @include breakpointMaxWidth($lg) {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  &__wrapper {
+    padding: 50px 0;
+
+    &__inner {
+      @include breakpointMaxWidth($phablet) {
+        padding: 0 20px;
+      }
+
+      .Search__form {
+        .awesomplete {
+          ul {
+            background: $darkBlue;
+          }
+        }
+      }
+    }
+  }
+
+  &__submit {
+    width: auto;
+    position: absolute;
+    top: 24px;
+    right: 20px;
+    display: none;
+
+    @include breakpoint($phablet) {
+      top: 40px;
+      right: 78px;
+    }
+  }
+
+  &__iconArrow {
+    color: $white;
+    width: 20px;
+    height: 20px;
+    transform: rotate(180deg);
+
+    @include breakpoint($phablet) {
+      width: 30px;
+      height: 22px;
+    }
+  }
+
+  &__iconMagnifying {
+    opacity: 0.2;
+    color: $white;
+    top: 20px;
+    right: 20px;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+
+    @include breakpoint($phablet) {
+      top: 34px;
+      right: 80px;
+      width: 30px;
+      height: 30px;
+    }
+  }
+
+  &__counter {
+    color: $white;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    padding: 20px 20px 40px;
+
+    @include mont(15px);
+
+    @include breakpoint($phablet) {
+      padding: 0 80px 100px;
+    }
+  }
+
+  &__article {
+    background: $white;
+    background-size: 5px;
+    border-bottom: 1px solid rgba(38, 38, 38, 0.2);
+
+    &__wrap {
+      padding: 20px;
+      justify-content: space-between;
+      align-items: center;
+      display: flex;
+
+      @include breakpoint($phablet) {
+        padding: 40px 80px;
+      }
+
+      &__content {
+        @include breakpoint($phablet) {
+          width: calc(100% - 60px);
+        }
+      }
+
+      &__icon {
+        display: none;
+        color: rgba($grey, 0.6);
+        width: 8px;
+        height: 4px;
+        transform: rotate(-90deg);
+
+        @include breakpoint($phablet) {
+          display: block;
+        }
+      }
+    }
+  }
+
+  &__meta {
+    letter-spacing: 0.6px;
+    color: $red;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+
+    @include montLight(15px);
+  }
+
+  &__date {
+    color: $grey;
+  }
+
+  &__title {
+    color: $brand-color;
+
+    @include futuraMedium(25px);
+
+    margin-bottom: 8px;
+  }
+
+  &__excerpt {
+    line-height: 1.5;
+    color: $darkgrey;
+
+    @include futuraBook(20px);
+  }
+
+  &__pagination {
+    background: $white;
+    padding: 50px 20px;
+    display: flex;
+    flex-direction: column;
+
+    @include breakpoint($phablet) {
+      flex-direction: row;
+      align-content: flex-start;
+      justify-content: space-between;
+    }
+
+    &__buttons {
+      display: flex;
+      align-content: center;
+      justify-content: flex-start;
+    }
+
+    &__size {
+      color: $darkgrey;
+
+      @include futuraBook(20px);
+
+      margin-top: 20px;
+
+      @include breakpoint($phablet) {
+        text-align: right;
+        margin-top: 0;
+      }
+
+      &__wrapper {
+        display: inline-block;
+        vertical-align: middle;
+      }
+
+      &__buttons {
+        display: inline-block;
+        vertical-align: middle;
+        margin-left: 10px;
+
+        a {
+          margin-right: 0;
+          width: 55px;
+          float: right;
+
+          &.active {
+            color: $white;
+            border: 0;
+            background: $brand-color;
+          }
+        }
+      }
+
+      &__copy {
+        margin-top: 20px;
+      }
+    }
+
+    &__button {
+      @include futuraBook(20px);
+
+      margin-right: 10px;
+      width: 44px;
+      height: 44px;
+      display: inline-block;
+      border: solid 1px #d4d4d4;
+      color: $darkgrey;
+      text-align: center;
+      padding: 11px 0;
+
+      &.--is-current {
+        color: $white;
+        border-color: $brand-color;
+        background: $brand-color;
+      }
+
+      &.--prev {
+        .Icon {
+          color: $darkgrey;
+          top: -2px;
+          left: -1px;
+          width: 16px;
+          height: 11px;
+          transform: rotate(90deg);
+          position: relative;
+        }
+      }
+
+      &.--next {
+        .Icon {
+          color: $darkgrey;
+          top: -2px;
+          width: 16px;
+          height: 11px;
+          transform: rotate(-90deg);
+          position: relative;
+        }
+      }
+    }
+  }
+}
+
+.SearchNothingFound {
+  margin-bottom: 75px;
+  padding-left: 80px;
+  color: $white;
+
+  @include futuraDemi(40px);
+
+  @include breakpoint($md) {
+    font-size: 48px;
+    margin-bottom: 75px;
+  }
+}
+
+.Search__form {
+  width: 100%;
+  margin-bottom: 18px;
+  position: relative;
+
+  @include breakpoint($phablet) {
+    margin-bottom: 48px;
+  }
+
+  &::after {
+    content: "";
+    height: 1px;
+    width: 100%;
+    display: block;
+    position: absolute;
+    top: 66px;
+    left: 0;
+    background-color: $red;
+
+    @include breakpoint($phablet) {
+      width: calc(100% - 160px);
+      top: 98px;
+      left: 80px;
+    }
+  }
+
+  input[type="search"] {
+    -webkit-appearance: textfield;
+  }
+
+  input[type="search"]::-webkit-search-decoration,
+  input[type="search"]::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+  }
+
+  /* Plugin autocomplete */
+  .awesomplete {
+    width: 100%;
+
+    ul {
+      padding: 20px 0 20px 20px;
+      width: 100%;
+      border: 0;
+
+      @include breakpoint($phablet) {
+        padding: 30px 0 30px 80px;
+      }
+
+      li {
+        background: transparent;
+        color: rgba(255, 255, 255, 0.25);
+        margin-bottom: 10px;
+        padding: 0;
+
+        mark {
+          color: $white;
+          background: none;
+        }
+
+        @include futuraDemi(20px);
+
+        @include breakpoint($phablet) {
+          font-size: 48px;
+          margin-bottom: 30px;
+        }
+      }
+    }
+  }
+
+  input {
+    width: 100% !important;
+
+    @include futuraDemi(20px);
+
+    background: transparent;
+    border: 0;
+    color: $white;
+    padding: 20px 60px 20px 20px;
+    position: relative;
+
+    &::placeholder {
+      color: $white;
+    }
+
+    &:-ms-input-placeholder {
+      /* Internet Explorer 10-11 */
+      color: $white;
+    }
+
+    &::-ms-input-placeholder {
+      /* Microsoft Edge */
+      color: $white;
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    @include breakpoint($phablet) {
+      padding: 20px 130px 20px 80px;
+
+      @include futuraDemi(48px);
+    }
+  }
+}
+
+.SearchModal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  background-color: rgba(0, 0, 0, 0.95); /* shaded background color */
+  visibility: hidden;
+  opacity: 0;
+  display: table;
+  padding: 30px;
+
+  @include breakpoint($phablet) {
+    padding: 50px;
+  }
+
+  &.--active {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  &__close {
+    top: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    color: $white;
+    border: 1px solid $white;
+    border-radius: 100%;
+    transition: none;
+    display: block;
+    position: absolute;
+
+    @include breakpoint($phablet) {
+      top: 50px;
+      right: 50px;
+      width: 60px;
+      height: 60px;
+    }
+
+    .Icon {
+      color: $white;
+      width: 21px;
+      height: 21px;
+      transition: none;
+    }
+  }
+
+  &__wrap {
+    display: table-cell;
+    vertical-align: middle;
+  }
+
+  .search__modal__content {
+    position: relative;
+    margin: 0 auto;
+    opacity: 0;
+    transition: 0.2s;
+    -webkit-transition: 0.2s;
+    transform: translateY(20px);
+    -webkit-transform: translateY(20px);
+
+    @include contentWidth();
+  }
+
+  &.--active {
+    .search__modal__content {
+      opacity: 1;
+      transform: translateY(0);
+      -webkit-transform: translateY(0);
+    }
+
+    .search__modal__close {
+      transform: translateY(0);
+      -webkit-transform: translateY(0);
+    }
+  }
+
+  input::placeholder {
+    opacity: 0.5;
+  }
+
+  input:focus {
+    background: transparent;
+  }
+
+  ul {
+    background-color: transparent;
+  }
+}

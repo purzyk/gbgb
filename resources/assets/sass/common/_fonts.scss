@@ -1,0 +1,53 @@
+@mixin futuraBook($fontSize: null) {
+  font-family: "futura-pt", sans-serif;
+  font-weight: 400;
+
+  @if $fontSize {
+    font-size: $fontSize;
+  }
+}
+
+@mixin futuraMedium($fontSize: null) {
+  font-family: "futura-pt", sans-serif;
+  font-weight: 500;
+
+  @if $fontSize {
+    font-size: $fontSize;
+  }
+}
+
+@mixin futuraDemi($fontSize: null) {
+  font-family: "futura-pt", sans-serif;
+  font-weight: 600;
+
+  @if $fontSize {
+    font-size: $fontSize;
+  }
+}
+
+@mixin futuraHeavy($fontSize: null) {
+  font-family: "futura-pt", sans-serif;
+  font-weight: 700;
+
+  @if $fontSize {
+    font-size: $fontSize;
+  }
+}
+
+@mixin montLight($fontSize: null) {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 300;
+
+  @if $fontSize {
+    font-size: $fontSize;
+  }
+}
+
+@mixin mont($fontSize: null) {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 400;
+
+  @if $fontSize {
+    font-size: $fontSize;
+  }
+}

@@ -1,0 +1,212 @@
+.Careers {
+  color: $darkgrey;
+  padding-top: 80px;
+  padding-bottom: 90px;
+
+  @include breakpoint($md) {
+    padding-top: 110px;
+    padding-bottom: 110px;
+  }
+
+  /* We need this class so we can have on bg in scss and one inline */
+  &--hasBg {
+    background: #faf8f6;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center bottom;
+  }
+
+  @include futuraBook(20px);
+
+  &__inner {
+    @include contentWidth();
+  }
+
+  &__title {
+    @include futuraDemi(32px);
+
+    margin-bottom: 15px;
+
+    @include breakpoint($phablet) {
+      font-size: 40px;
+      margin-bottom: 20px;
+    }
+
+    @include breakpoint($sm) {
+      font-size: 48px;
+    }
+
+    @include breakpoint($md) {
+      padding-left: 60px;
+    }
+  }
+
+  &__description {
+    @include futuraBook(20px);
+
+    line-height: 1.5;
+    max-width: 100%;
+    margin-bottom: 32px;
+
+    @include breakpoint($sm) {
+      max-width: 670px;
+      margin-bottom: 42px;
+    }
+
+    @include breakpoint($md) {
+      padding-left: 60px;
+    }
+
+    a {
+      position: relative;
+
+      &:after {
+        position: absolute;
+        content: "";
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 2px;
+        background: $red;
+      }
+    }
+  }
+
+  &__vacancies {
+    &__row {
+      margin-right: -8px;
+      margin-left: -8px;
+
+      @include breakpoint($phablet) {
+        flex-wrap: wrap;
+        display: flex;
+      }
+
+      @include breakpoint($md) {
+        margin-right: -15px;
+        margin-left: -15px;
+      }
+    }
+
+    .Column {
+      width: 100%;
+      padding-right: 8px;
+      padding-left: 8px;
+
+      &:not(:last-child) {
+        @include breakpointMaxWidth($sm) {
+          margin-bottom: 25px;
+        }
+      }
+
+      @include breakpoint($sm) {
+        width: 33.333%;
+        margin-bottom: 20px;
+      }
+
+      @include breakpoint($md) {
+        margin-bottom: 35px;
+        padding-right: 15px;
+        padding-left: 15px;
+      }
+    }
+
+    .CareersVacancy {
+      color: $darkgrey;
+
+      @include futuraBook(20px);
+
+      width: 100%;
+      border-top: $red 4px solid;
+      box-shadow: 0 9px 18.6px 0.4px rgba(45, 36, 27, 0.18);
+      border-radius: 5px;
+      background: $white;
+      padding: 26px 25px 25px;
+
+      @include breakpoint($md) {
+        padding: 26px 35px 30px;
+      }
+
+      &__title {
+        @include futuraHeavy(20px);
+
+        margin-bottom: 12px;
+
+        @include breakpoint($sm) {
+          @include futuraMedium(25px);
+        }
+      }
+
+      &__location {
+        color: $grey;
+
+        @include mont(14px);
+
+        text-transform: uppercase;
+        letter-spacing: 0.6px;
+        margin-bottom: 14px;
+
+        @include breakpoint($sm) {
+          font-size: 15px;
+          margin-bottom: 26px;
+        }
+
+        @include breakpoint($md) {
+          margin-bottom: 25px;
+        }
+      }
+
+      &__description {
+        @include futuraBook(20px);
+
+        line-height: 1.5;
+        margin-bottom: 22px;
+
+        @include breakpoint($sm) {
+          margin-bottom: 30px;
+        }
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+
+        a {
+          color: $brand-color;
+
+          @include futuraDemi();
+        }
+      }
+
+      &__link {
+        color: $brand-color;
+
+        @include futuraDemi(18px);
+
+        @include breakpoint($sm) {
+          font-size: 20px;
+        }
+
+        &:hover {
+          .Icon {
+            transform: rotate(180deg) translateX(-3px);
+          }
+        }
+
+        .Icon {
+          top: -1px;
+          width: 16px;
+          height: 12px;
+          transform: rotate(180deg);
+          transition: all 0.2s ease-in-out;
+          margin-left: 6px;
+          position: relative;
+
+          @include breakpoint($sm) {
+            width: 19px;
+            height: 14px;
+          }
+        }
+      }
+    }
+  }
+}

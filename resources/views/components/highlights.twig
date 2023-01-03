@@ -1,0 +1,30 @@
+<section class="Highlights">
+    <h2 class="Highlights__title">{{ blockData.highlightsTitle }}</h2>
+    <div class="Highlights__inner">
+        <masonry class="Highlights__posts" horizontal-order>
+
+            {% for item in blockData.highlightsItems %}
+                <masonry-item class="Highlight Transition--hidden" size="{{ item.highlightsItemSize }}">
+                    <a href="{{ item.highlightsItemLink }}">
+                        {% if item.highlightsItemImage %}
+                            <img src="{{TimberImage(item.highlightsItemImage).src('highlight')}}" srcset="{{TimberImage(item.highlightsItemImage).src('highlightRetina')}} 2x" alt="">
+                        {% endif %}
+                        <div class="Highlight__inner">
+                            {% if item.highlightsItemType %}
+                                <div class="Highlight__type">
+                                    {{ item.highlightsItemType }}
+                                    {% if item.highlightsItemDate %}
+                                        <span class="Highlight__date">// {{ item.highlightsItemDate }}</span>
+                                    {% endif %}
+                                </div>
+                            {% endif %}
+                            <h3 class="Highlight__title">{{ item.highlightsItemTitle }}</h3>
+                            <div class="Highlight__description">{{ item.highlightsItemDescription }}</div>
+                        </div>
+                    </a>
+                </masonry-item>
+            {% endfor %}
+
+        </masonry>
+    </div>
+</section>

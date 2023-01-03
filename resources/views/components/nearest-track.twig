@@ -1,0 +1,13 @@
+<section class="NearestTrack">
+    <div class="NearestTrack__gradient"></div>
+    <img src="{{ TimberImage(blockData.nearestTrackBg).src('hero') }}" srcset="{{ TimberImage(blockData.nearestTrackBg).src('heroRetina') }} 2x" alt="">
+    <div class="NearestTrack__inner Transition--hidden">
+        <div class="NearestTrack__form" >
+            <p class="NearestTrack__subtitle">{{ blockData.nearestTrackSubtitle }}</p>
+            <h2 class="NearestTrack__title">{{ blockData.nearestTrackTitle }}</h2>
+            <nearest-track-locate></nearest-track-locate>
+        </div>
+    </div>
+</section>
+
+{% include 'components/racelines.twig' %}

@@ -1,0 +1,419 @@
+.RaceCoursesBlock {
+  background: $white;
+  margin-bottom: 100px;
+
+  @include futuraBook();
+  @include contentWidth();
+
+  @include breakpoint($lg) {
+    max-width: 1020px;
+  }
+
+  &__inner {
+    padding: 100px 15px;
+
+    @include breakpoint($phablet) {
+      padding: 100px 35px;
+    }
+
+    @include breakpoint($md) {
+      padding: 100px 135px;
+    }
+  }
+
+  &__description {
+    font-size: 20px;
+    line-height: 1.9;
+
+    a {
+      position: relative;
+
+      &:after {
+        position: absolute;
+        content: "";
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 2px;
+        background: $red;
+      }
+    }
+  }
+}
+
+.RaceCourses {
+  &__find_a_track {
+    color: $darkgrey;
+    margin-top: 60px;
+    margin-bottom: 30px;
+
+    @include futuraMedium(25px);
+  }
+
+  .NearestTrackLocate {
+    &__button {
+      color: white;
+      margin-top: 20px;
+
+      @include breakpoint($phablet) {
+        margin-top: 0;
+      }
+    }
+
+    &__links {
+      &__current {
+        color: $brand-color;
+        margin-right: 0;
+      }
+    }
+
+    .AnimatedInput {
+      border: 1px solid $grey-medium;
+      border-radius: 5px;
+      color: $darkgrey;
+
+      &--hasText,
+      &--hasFocus {
+        border-color: $brand-color;
+        background: $white;
+
+        .AnimatedInput__placeholder {
+          color: $darkgrey;
+          border-radius: 0;
+          background: $white;
+          padding: 0 7px;
+        }
+      }
+
+      &__clear {
+        color: #a5a5a5;
+      }
+    }
+
+    &__search {
+      margin-bottom: 30px;
+      justify-content: center;
+
+      @include breakpoint($phablet) {
+        justify-content: flex-start;
+      }
+    }
+
+    &__use_current {
+      color: $brand-color;
+      font-weight: $weight-medium;
+    }
+  }
+}
+
+.RaceCourseResults {
+  margin-top: 65px;
+  color: $darkgrey;
+
+  &__title {
+    margin-bottom: 30px;
+
+    @include futuraMedium(25px);
+  }
+
+  &__status {
+    text-align: center;
+
+    @include futuraBook(20px);
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .Spinner {
+    .Icon {
+      width: 30px;
+      height: 30px;
+    }
+  }
+}
+
+.RaceCourse {
+  color: $darkgrey;
+  transition: all 0.5s ease-in-out;
+  background: $grey-light;
+
+  &--odd {
+    background: #f7f7f7;
+  }
+
+  @include futuraBook();
+
+  &--isExtended {
+    .RaceCourse__arrow {
+      .Icon {
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  &__title_bar {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 20px 25px;
+  }
+
+  &__title {
+    flex-grow: 1;
+    color: $darkgrey;
+
+    @include futuraBook(20px);
+  }
+
+  &__distance {
+    font-size: 20px;
+    padding-right: 30px;
+  }
+
+  &__arrow {
+    .Icon {
+      opacity: 0.5;
+      color: $darkgrey;
+      width: 13px;
+      height: 13px;
+      transform: rotate(0deg);
+      transition: all 0.2s ease-in-out;
+      display: block;
+    }
+  }
+
+  &__inner {
+    max-width: 85%;
+    display: none;
+    flex-flow: row wrap;
+    line-height: 1.5;
+    margin-left: 25px;
+    margin-top: 25px;
+    margin-bottom: 80px;
+  }
+
+  &__section_header {
+    @include futuraHeavy();
+  }
+
+  &__description {
+    font-size: 20px;
+    width: 100%;
+    margin-bottom: 45px;
+  }
+
+  &__schedule,
+  &__contact {
+    font-size: 20px;
+    width: 100%;
+
+    @include breakpoint($phablet) {
+      width: 50%;
+    }
+  }
+
+  &__email,
+  &__link {
+    color: $brand-color;
+    display: block;
+    word-break: break-all;
+
+    @include futuraMedium(17px);
+  }
+
+  &__social_media {
+    color: $white;
+    font-size: 14px;
+    display: flex;
+    flex-flow: row wrap;
+    margin-top: 20px;
+
+    a {
+      margin-right: 10px;
+      width: 28px;
+      height: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: $brand-color;
+      border-radius: 50px;
+
+      .Icon {
+        color: $grey-light;
+
+        &--twitter {
+          width: 13px;
+          height: 13px;
+        }
+
+        &--facebook {
+          width: 12px;
+          height: 12px;
+        }
+
+        &--envelope {
+          width: 12px;
+          height: 12px;
+        }
+
+        &--instagram {
+          width: 12px;
+          height: 12px;
+        }
+
+        &--youtube {
+          width: 14px;
+          height: 14px;
+        }
+      }
+    }
+  }
+
+  &__map {
+    max-width: 100%;
+    width: 100%;
+    margin-top: 55px;
+
+    @include breakpoint($phablet) {
+      width: 50%;
+    }
+
+    .GoogleMap {
+      min-height: 270px;
+
+      &__inner {
+        width: 100%;
+        max-width: 100%;
+        height: 270px;
+
+        @include breakpoint($md) {
+          width: 300px;
+        }
+      }
+    }
+  }
+
+  &__button,
+  &__schedule {
+    @include breakpoint($phablet) {
+      padding-left: 20px;
+    }
+  }
+
+  &__button {
+    width: 100%;
+    margin-top: 65px;
+    text-align: center;
+
+    @include breakpoint($phablet) {
+      width: 50%;
+      text-align: initial;
+    }
+
+    &__action {
+      width: auto;
+      font-size: 15px;
+      padding: 11px 20px;
+
+      &:not(:last-child) {
+        margin-bottom: 20px;
+      }
+
+      .Icon {
+        top: -2px;
+        color: $brand-color;
+        width: 17px;
+        height: 17px;
+        margin-right: 8px;
+        position: relative;
+
+        svg {
+          path {
+            &:not(.noColor) {
+              fill: none !important;
+              stroke: currentColor;
+            }
+          }
+        }
+
+        &--starred {
+          svg {
+            path {
+              &:not(.noColor) {
+                fill: currentColor !important;
+                stroke: none !important;
+              }
+            }
+          }
+        }
+      }
+
+      .Meta {
+        vertical-align: middle;
+        display: inline-block;
+      }
+    }
+  }
+
+  &__promotions {
+    width: 100%;
+    margin-top: 45px;
+
+    &__heading {
+      @include futuraDemi(20px);
+
+      margin-bottom: 16px;
+    }
+
+    &__items {
+      .PromotionBlock {
+        max-width: 565px;
+        border-radius: 8px;
+        border: 1px solid rgba($grey, 0.4);
+        padding: 18px 20px;
+        display: flex;
+
+        &:not(:last-child) {
+          margin-bottom: 20px;
+        }
+
+        &__icon {
+          color: $grey;
+          width: 24px;
+          height: 24px;
+          margin-right: 20px;
+        }
+
+        &__content {
+          width: calc(100% - 56px);
+          padding-right: 20px;
+
+          &__title {
+            @include futuraBook(19px);
+          }
+
+          &__description {
+            color: $grey;
+
+            @include futuraBook(18px);
+          }
+
+          &__expiry-date {
+            color: $grey;
+
+            @include futuraBook(19px);
+          }
+        }
+
+        &__arrow {
+          width: 12px;
+          height: 9px;
+          transform: rotate(180deg);
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,109 @@
+.ResourceSet {
+  color: $darkgrey;
+  transition: all 0.5s ease-in-out;
+  background: $grey-light;
+
+  &:nth-child(odd) {
+    background: #f7f7f7;
+  }
+
+  @include futuraBook();
+
+  &--isExtended {
+    .ResourceSet__button {
+      .Icon {
+        transform: rotate(0deg);
+      }
+    }
+  }
+
+  &__title_bar {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 20px 25px;
+  }
+
+  &__title {
+    font-size: 20px;
+    flex-grow: 1;
+  }
+
+  &__button {
+    width: auto;
+
+    .Icon {
+      opacity: 0.5;
+      color: $darkgrey;
+      width: 13px;
+      height: 13px;
+      transform: rotate(-90deg);
+      transition: all 0.2s ease-in-out;
+      display: block;
+    }
+  }
+
+  &__inner {
+    max-width: 85%;
+    display: none;
+    flex-flow: row wrap;
+    line-height: 1.5;
+    margin-top: 25px;
+    margin-left: 25px;
+    margin-right: 25px;
+    padding-bottom: 80px;
+  }
+
+  &__section_header {
+    @include futuraHeavy();
+  }
+}
+
+.Resource {
+  display: flex;
+  width: 100%;
+  margin-bottom: 30px;
+  flex-flow: column;
+
+  @include breakpoint($md) {
+    flex-flow: row;
+  }
+
+  &__desc {
+    flex-grow: 1;
+    margin-bottom: 15px;
+    padding-right: 15px;
+
+    @include breakpoint($md) {
+      margin-bottom: 0;
+    }
+
+    h3 {
+      margin-bottom: 15px;
+    }
+  }
+
+  &__button {
+    .MyKennelButton {
+      width: auto;
+    }
+  }
+}
+
+.MyKennelResources {
+  &__row {
+    &:not(:last-child) {
+      margin-bottom: 40px;
+    }
+
+    &__title {
+      margin-bottom: 10px;
+    }
+
+    &__items {
+      .MyKennelNotice {
+        margin-bottom: 30px;
+      }
+    }
+  }
+}

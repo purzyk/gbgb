@@ -1,0 +1,224 @@
+.MobileNav {
+  position: absolute;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  transition: background-color 0.3s ease-in-out;
+
+  @include breakpoint($ipad) {
+    display: none;
+  }
+
+  &--extended {
+    background: $mobileBg;
+  }
+}
+
+.MobileHeader {
+  padding: 17px 20px;
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+
+  &__logo {
+    display: inline-block;
+
+    img {
+      cursor: pointer;
+      width: auto;
+      max-height: 21px;
+      display: block;
+    }
+  }
+
+  &__actions {
+    display: flex;
+
+    &__item {
+      &:not(:last-child) {
+        margin-right: 30px;
+      }
+
+      .Item {
+        border-radius: 0;
+        display: block;
+
+        .Icon {
+          color: $white;
+          display: block;
+          position: relative;
+        }
+
+        &__search {
+          .Icon {
+            top: 1px;
+            width: 20px;
+            height: 20px;
+          }
+        }
+
+        &__myKennel {
+          .Icon {
+            width: 16px;
+            height: 21px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.MobileMenu {
+  color: $white;
+  text-shadow: 0 0.5px 2.5px rgba(71, 71, 71, 0.35);
+  text-transform: uppercase;
+
+  &__top {
+    border-top: 1px solid transparentize($white, $amount: 0.75);
+    border-bottom: 1px solid transparentize($white, $amount: 0.75);
+    padding: 17px 20px;
+
+    &__list {
+      width: 100%;
+      justify-content: space-between;
+      display: flex;
+
+      &__item {
+        .MobileMenu {
+          &__item,
+          &__more {
+            position: relative;
+
+            @include montLight(13px);
+
+            .Icon {
+              top: -1px;
+              color: rgba($white, 0.8);
+              width: 8px;
+              height: 4px;
+              margin-left: 3px;
+              position: relative;
+            }
+
+            &--isExtended {
+              .Icon {
+                transform: rotate(180deg);
+              }
+
+              &:before {
+                content: "";
+                bottom: -18px;
+                height: 2px;
+                width: 100%;
+                background: $white;
+                position: absolute;
+              }
+            }
+          }
+
+          &__more {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+
+  &__subsections {
+    overflow-y: auto;
+    max-height: calc(100vh - 100px);
+  }
+}
+
+.MobileNavSubsection {
+  display: flex;
+  padding: 50px 40px;
+  flex-direction: column;
+
+  &__item {
+    letter-spacing: 0.8px;
+    text-align: left;
+    margin-bottom: 50px;
+    display: flex;
+    align-items: center;
+
+    @include mont(13px);
+
+    img {
+      max-height: 20px;
+      width: auto;
+      margin-right: 20px;
+    }
+  }
+}
+
+.MobileNavMore {
+  display: flex;
+  padding: 50px 40px;
+  flex-direction: column;
+  text-transform: uppercase;
+
+  &__link {
+    display: block;
+    position: relative;
+
+    &:not(:last-child) {
+      margin-bottom: 40px;
+    }
+
+    .Icon {
+      top: -1px;
+      color: $white;
+      width: 12px;
+      height: 12px;
+      margin-right: 5px;
+      position: relative;
+
+      &--minus {
+        display: none;
+      }
+    }
+  }
+
+  &__children {
+    margin-left: 20px;
+    display: none;
+  }
+
+  &__item {
+    &--isExtended {
+      .MobileNavMore__link {
+        .Icon {
+          &--plus {
+            display: none;
+          }
+
+          &--minus {
+            display: inline-block;
+          }
+        }
+      }
+
+      .MobileNavMore__children {
+        display: block;
+      }
+    }
+  }
+
+  &__child {
+    letter-spacing: 0.8px;
+    text-align: left;
+    margin-bottom: 50px;
+    display: flex;
+    align-items: center;
+
+    @include mont(13px);
+
+    img {
+      max-height: 20px;
+      width: auto;
+      margin-right: 20px;
+    }
+  }
+}

@@ -1,0 +1,40 @@
+<section class="BoardMembers Transition--hidden">
+    <div class="BoardMembers__header">
+        <h2 class="BoardMembers__header__title">{{ blockData.title }}</h2>
+        <div class="BoardMembers__header__nav">
+            <button type="button" aria-label="Prev slide" class="BoardMembers__header__nav__button--prev BoardMembers__header__nav__button Button">
+                <span class="Icon SvgContainer" aria-hidden="true">
+                    {{ get_svg("chevron-thick.svg") }}
+                </span>
+            </button>
+            <button type="button" aria-label="Next slide" class="BoardMembers__header__nav__button--next BoardMembers__header__nav__button Button">
+                <span class="Icon SvgContainer" aria-hidden="true">
+                    {{ get_svg("chevron-thick.svg") }}
+                </span>
+            </button>
+        </div>
+    </div>
+    <div class="BoardMembers__carousel">
+        {% for member in blockData.members %}
+            <article class="MemberBlock" data-related="board_{{ loop.index }}">
+                <div class="MemberBlock__image" style="background-image: url({{ TimberImage(member.image).src() }})"></div>
+                <div class="MemberBlock__content">
+                    <p class="MemberBlock__content__position">{{ member.position }}</p>
+                    <h3 class="MemberBlock__content__name">{{ member.name }}</h3>
+                    <button class="MemberBlock__content__button Button">
+                        <span class="Icon SvgContainer" aria-hidden="true">
+                            {{ get_svg("plus.svg") }}
+                        </span>
+                    </button>
+                </div>
+            </article>
+        {% endfor %}
+    </div>
+    <div class="BoardMembers__bio">
+        {% for member in blockData.members %}
+            <div class="BoardMembers__bio__content" id="board_{{ loop.index }}" style="display: none">
+                {{ member.copy }}
+            </div>
+        {% endfor %}
+    </div>
+</section>

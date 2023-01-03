@@ -1,0 +1,34 @@
+<div class="videoCarouselWrapper Transition--hidden ">
+    <div class="videoCarouselWrapper__container">
+        <div class="videoCarouselWrapper__container__main">
+            {% for item in blockData.videos %}
+                {% if loop.first %}
+                        {{ item.youtube_video_id_oembed }}
+                {% endif %}
+            {% endfor %}
+        </div>
+        <div class="videoCarouselWrapper__container__carouselWrapper">
+            <div class="videoCarouselWrapper__container__carousel">
+                {% for item in blockData.videos %}
+                        <div class="videoCarouselWrapper__container__carousel__item">
+                            <div class="iframeOverlay">
+                                {{ item.youtube_video_id_oembed }}
+                            </div>
+                        </div>
+                {% endfor %}
+            </div>
+            <div class="videoCarouselWrapper__container__carousel__nav">
+                <button type="button" aria-label="Prev slide" class="videoCarouselWrapper__container__carousel__nav__button--prev videoCarouselWrapper__container__carousel__nav__button Button">
+                    <span class="Icon SvgContainer" aria-hidden="true">
+                        {{ get_svg("chevron-thick.svg") }}
+                    </span>
+                </button>
+                <button type="button" aria-label="Next slide" class="videoCarouselWrapper__container__carousel__nav__button--next videoCarouselWrapper__container__carousel__nav__button Button">
+                    <span class="Icon SvgContainer" aria-hidden="true">
+                        {{ get_svg("chevron-thick.svg") }}
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

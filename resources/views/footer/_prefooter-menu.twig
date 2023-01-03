@@ -1,0 +1,8 @@
+<p class="Menu__title">{{ title }}</p>
+<ul class="Menu">
+    {% for item in menu.get_items %}
+        <li class="Menu__item">
+            <a href="{{ item.link }}" class="Menu__item__link">{{ item.title }}</a>
+        </li>
+    {% endfor %}
+</ul>

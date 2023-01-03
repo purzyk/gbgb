@@ -1,0 +1,83 @@
+.TrainersList {
+  @include contentWidth();
+
+  margin-bottom: 90px;
+
+  @include breakpoint($lg) {
+    margin-bottom: 130px;
+  }
+
+  @include breakpointMaxWidth($lg) {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  &__title {
+    color: $white;
+
+    @include montLight(15px);
+
+    text-align: center;
+    text-shadow: 0 2px 16px rgba(71, 71, 71, 0.96), 0 2px 6px rgba(71, 71, 71, 0.96);
+    text-transform: uppercase;
+    letter-spacing: 2.4px;
+    margin-bottom: 30px;
+  }
+
+  &__inner {
+    background: $white;
+    padding: 45px 0;
+
+    @include breakpoint($lg) {
+      padding: 45px 60px;
+    }
+  }
+
+  &__wrapper {
+    position: relative;
+  }
+
+  &__scrollButton {
+    display: none;
+    z-index: 1;
+    top: 0;
+    opacity: 0.5;
+    color: $white;
+    cursor: pointer;
+    width: 40px;
+    height: 100%;
+    border-radius: 0;
+    background: $brand-color;
+    position: absolute;
+
+    &--active {
+      @include breakpointMaxWidth($tables) {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+
+    &--left {
+      left: 0;
+
+      .Icon {
+        transform: rotate(90deg);
+      }
+    }
+
+    &--right {
+      right: 0;
+
+      .Icon {
+        transform: rotate(-90deg);
+      }
+    }
+
+    .Icon {
+      color: $white;
+      width: 16px;
+      height: 11px;
+    }
+  }
+}

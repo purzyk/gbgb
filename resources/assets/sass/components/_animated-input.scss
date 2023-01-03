@@ -1,0 +1,146 @@
+.GreyhoundInput,
+.AnimatedInput {
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  &__placeholder {
+    display: inline-block;
+    position: absolute;
+    transition: all 0.3s ease-in-out;
+    transition: font-size 0.1s ease-in-out;
+    z-index: 1;
+    bottom: 13px;
+  }
+
+  &__input {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+
+    input {
+      color: inherit;
+      width: 100%;
+      border: none;
+      background: transparent;
+      transition: all 0.3s ease-in-out;
+      display: block;
+      position: relative;
+
+      &::placeholder {
+        opacity: 0;
+        visibility: hidden;
+      }
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    :-ms-input-placeholder {
+      opacity: 0;
+    }
+  }
+
+  &__clear {
+    opacity: 0;
+    visibility: hidden;
+    top: 14px;
+    right: 10px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: $white;
+    transition: all 0.2s ease-in-out;
+    position: absolute;
+
+    &:hover {
+      background: $brand-color;
+
+      .Icon {
+        color: $white;
+      }
+    }
+
+    .Icon {
+      color: $black;
+      width: 8px;
+      height: 8px;
+      transition: all 0.2s ease-in-out;
+    }
+  }
+
+  &__autocomplete {
+    z-index: 999;
+    top: calc(100%);
+    left: 0;
+    width: 100%;
+    position: absolute;
+  }
+
+  &__suggestion {
+    border-width: 0 1px 1px;
+    border-color: $borderGray;
+    border-style: solid;
+    background: $white;
+    padding: 15px;
+
+    &--active {
+      color: $white;
+      border-color: $brand-color;
+      background: $brand-color;
+    }
+
+    &:first-child {
+      border-top: 1px solid $borderGray;
+    }
+  }
+
+  &__message {
+    display: none;
+    right: 0;
+    left: 0;
+    bottom: -6px;
+    color: $red;
+    font-size: 13px;
+    text-align: center;
+    transform: translateY(100%);
+    position: absolute;
+  }
+
+  &--hasText {
+    .AnimatedInput__clear,
+    .GreyhoundInput__clear {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+  &--hasText,
+  &--hasFocus {
+    .GreyhoundInput__placeholder,
+    .AnimatedInput__placeholder {
+      top: -7px;
+      height: 12px;
+      color: $brand-color;
+      font-size: 12px;
+      background: $white;
+      margin-left: -7px;
+      padding: 0 7px;
+    }
+  }
+}
+
+.GreyhoundInput {
+  &__clear {
+    top: 11px;
+    background: $red;
+
+    .Icon {
+      top: -1px;
+      color: $white;
+      position: relative;
+    }
+  }
+}

@@ -1,0 +1,85 @@
+.Button {
+  outline: none;
+  width: 100%;
+  cursor: pointer;
+
+  @include mont(16px);
+
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 6px;
+  background: none;
+  transition: all 0.2s ease-in-out;
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+
+  &:hover,
+  &:focus {
+    text-decoration: none;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &--primary {
+    color: $white;
+    border: 1px solid $brand-color;
+    background: $brand-color;
+
+    &:hover {
+      border-color: darken($brand-color, 10%);
+      background: darken($brand-color, 10%);
+
+      .Icon {
+        color: $white;
+      }
+    }
+
+    &__outline {
+      color: $brand-color;
+      border: 1px solid $brand-color;
+      background: transparent;
+
+      &:hover {
+        color: $white;
+        background: $brand-color;
+
+        .Icon {
+          color: $white;
+        }
+      }
+
+      .Icon {
+        color: $brand-color;
+      }
+    }
+  }
+
+  &--white {
+    &__outline {
+      color: $white;
+      border: 1px solid $white;
+      background: transparent;
+
+      &:hover {
+        color: $darkgrey;
+        background: $white;
+
+        .Icon {
+          color: $darkgrey;
+        }
+      }
+
+      .Icon {
+        color: $white;
+      }
+    }
+  }
+
+  .Icon {
+    transition: all 0.2s ease-in-out;
+  }
+}

@@ -1,0 +1,20 @@
+<div class="LogoBlock">
+    <img src="{{ logo }}" alt="">
+</div>
+<ul class="SocialMedia">
+    <li class="SocialMedia__item">
+        <a href="{{ options.facebookLink }}" aria-label="Our Facebook" class="Item Item--facebook" target="_blank" rel="noopener noreferrer">
+            <span class="Icon SvgContainer" aria-hidden="true">
+                {{ get_svg("facebook.svg") }}
+            </span>
+        </a>
+    </li>
+    <li class="SocialMedia__item">
+        <a href="{{ options.twitterLink }}" aria-label="Our Twitter" class="Item Item--twitter" target="_blank" rel="noopener noreferrer">
+            <span class="Icon SvgContainer" aria-hidden="true">
+                {{ get_svg("twitter.svg") }}
+            </span>
+        </a>
+    </li>
+</ul>
+<a href="{{ options.stadiumPortalLink }}" class="LinkBlock">{{ options.footerStadiumPortal }}</a>

@@ -1,0 +1,24 @@
+<section class="SingleImage SingleImage--{{ blockData.imageBlockAlignment }} --is{{ blockData.background_color }}">
+    <div class="SingleImage__inner Transition--hidden ">
+        <div class="SingleImage__content">
+            {% if blockData.imageBlockTitle %}
+                <h2 class="SingleImage__title">{{ blockData.imageBlockTitle }}</h2>
+            {% endif %}
+            <div class="SingleImage__description">{{ blockData.imageBlockDescription }}</div>
+            {% if blockData.imageBlockBlueButton.imageBlockBlueButtonLabel %}
+                <a class="SingleImage__button Button Button--primary" href="{{ blockData.imageBlockBlueButton.imageBlockBlueButtonLink }}" {% if blockData.imageBlockBlueButton.imageBlockBlueButtonTab == 'yes' %} target="_blank" {% endif %}>
+                    {{ blockData.imageBlockBlueButton.imageBlockBlueButtonLabel }}
+                </a>
+            {% endif %}
+            {% if blockData.imageBlockTransparentButton.imageBlockTransparentButtonLabel %}
+                <a class="SingleImage__button Button Button--white__outline" href="{{ blockData.imageBlockTransparentButton.imageBlockTransparentButtonLink }}" {% if blockData.imageBlockTransparentButton.imageBlockTransparentButtonTab == 'yes' %} target="_blank" {% endif %}>
+                    {{ blockData.imageBlockTransparentButton.imageBlockTransparentButtonLabel }}
+                </a>
+            {% endif %}
+        </div>
+        <div class="SingleImage__image">
+            <div class="{% if blockData.gradient_for_fade_around_image == 'yes' %}SingleImage__fade{% endif %}"></div>
+            <img src="{{TimberImage(blockData.imageBlockImage).src('singleImage')}}" srcset="{{TimberImage(blockData.imageBlockImage).src('singleImageRetina')}} 2x" alt="">
+        </div>
+    </div>
+</section>

@@ -1,0 +1,435 @@
+.GreyhoundTable {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  border: 1px solid #f7f7f7;
+  border-top: none;
+  scroll-behavior: smooth;
+
+  @include breakpoint($tables) {
+    border-top: 1px solid #f7f7f7;
+  }
+
+  &--isLoading {
+    .GreyhoundTableHeader,
+    .GreyhoundRow {
+      opacity: 0.2;
+    }
+  }
+
+  .Spinner {
+    position: absolute;
+    top: 50%;
+    align-self: center;
+    margin-top: -20px;
+
+    .Icon {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  &--sortAsc {
+    * {
+      &:after {
+        transform: rotate(180deg);
+      }
+    }
+  }
+}
+
+.GreyhoundTableHeader,
+.GreyhoundRow {
+  display: flex;
+  align-items: stretch;
+  flex-direction: row;
+  width: 100%;
+  color: $darkgrey;
+
+  @include futuraBook(17px);
+
+  @include breakpoint($tables) {
+    width: 100%;
+  }
+
+  & > * {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 18px;
+    background: white;
+    word-wrap: break-word;
+  }
+
+  &:nth-child(even),
+  &:nth-child(even) > * {
+    background: $resultsRowBg;
+  }
+
+  &__first {
+    width: 115px;
+
+    a {
+      color: $brand-color;
+
+      @include futuraMedium(17px);
+    }
+  }
+
+  &__date {
+    width: 100px;
+  }
+
+  &__track {
+    width: 130px;
+  }
+
+  &__by {
+    width: 70px;
+  }
+
+  &__trap {
+    width: 55px;
+
+    img {
+      position: relative;
+      display: inline-lock;
+      margin-right: 15px;
+      max-width: 20px;
+    }
+  }
+
+  &__weight {
+    width: 65px;
+  }
+
+  &__stmhcp {
+    width: 75px;
+  }
+
+  &__sp {
+    width: 85px;
+  }
+
+  &__pos {
+    width: 45px;
+  }
+
+  &__remarks {
+    width: 100px;
+    word-break: break-all;
+  }
+
+  &__winTime,
+  &__calcTm {
+    width: 80px;
+  }
+
+  &__raceLink {
+    flex-grow: 1;
+    padding-right: 10px;
+    padding-left: 5px;
+    color: $grey;
+    text-align: center;
+    font-size: 12px;
+
+    .Icon {
+      width: 8px;
+      height: 4px;
+      color: $grey;
+      transform: rotate(-90deg);
+    }
+  }
+}
+
+.GreyhoundTableHeader {
+  padding-right: 20px;
+  padding-left: 0;
+  color: transparentize($grey, 0.5);
+
+  @include breakpointMaxWidth($tables) {
+    display: none;
+  }
+
+  > * {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    cursor: pointer;
+  }
+
+  &__date,
+  &__track,
+  &__trap,
+  &__stmhcp,
+  &__pos,
+  &__by,
+  &__remarks,
+  &__winTime,
+  &__calcTm {
+    padding: 20px 18px;
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+      background: #f0f5ff;
+      color: $grey;
+    }
+
+    &--sortBy {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #f0f5ff;
+      color: $grey;
+
+      .Icon {
+        width: 12px;
+        height: 7px;
+        color: $grey;
+      }
+    }
+  }
+
+  &__weight {
+    padding: 20px 15px;
+  }
+}
+
+.GreyhoundRow {
+  & > * {
+    padding-top: 25px;
+    padding-bottom: 25px;
+  }
+
+  @include breakpointMaxWidth($tables) {
+    position: relative;
+    flex-wrap: wrap;
+    padding: 15px;
+    font-size: 14px;
+
+    & > * {
+      padding-top: 0;
+      padding-bottom: 0;
+      padding-left: 0;
+      background: transparent;
+    }
+
+    &__line {
+      display: block;
+      margin: 15px 0;
+      padding: 0;
+      width: 100%;
+      height: 1px;
+      border-style: dashed;
+      border-bottom: 1px $borderGray solid;
+    }
+
+    &__date {
+      flex-grow: 1;
+      width: auto;
+    }
+
+    &__track,
+    &__trap {
+      width: auto;
+
+      br {
+        display: none;
+      }
+    }
+
+    &__trap {
+      img {
+        margin-right: 0;
+        margin-left: 15px;
+      }
+    }
+
+    &__stmhcp,
+    &__pos,
+    &__by,
+    &__first {
+      position: relative;
+      left: 80px;
+      width: 100%;
+
+      &:before {
+        position: absolute;
+        left: -80px;
+        color: $grey;
+      }
+    }
+
+    &__first {
+      a {
+        font-size: 14px;
+
+        &:before {
+          position: absolute;
+          left: -80px;
+          color: $grey;
+          font-weight: 400;
+          pointer-events: none;
+        }
+      }
+    }
+
+    &__stmhcp:before {
+      content: "STmHcp:";
+    }
+
+    &__pos:before {
+      content: "Pos:";
+    }
+
+    &__by:before {
+      content: "Dis:";
+    }
+
+    &__first :before {
+      content: "1st or 2nd:";
+    }
+
+    &__remarks {
+      position: absolute;
+      top: 65px;
+      right: 15px;
+      display: flex;
+      justify-content: flex-end;
+      width: 30%;
+    }
+
+    &__raceLink {
+      display: none;
+    }
+
+    &__winTime,
+    &__weight,
+    &__sp,
+    &__calcTm {
+      position: relative;
+      justify-content: center;
+      margin-top: 15px;
+      width: 25%;
+
+      &:before {
+        position: absolute;
+        bottom: 100%;
+        justify-content: center;
+        color: $grey;
+      }
+    }
+
+    &__winTime:before {
+      content: "WinTime";
+    }
+
+    &__weight:before {
+      content: "Weight";
+    }
+
+    &__sp:before {
+      content: "SP";
+    }
+
+    &__calcTm:before {
+      content: "CalcTm";
+    }
+  }
+
+  @include breakpointMaxWidth($tables) {
+    & > * {
+      padding-top: 5px;
+      padding-bottom: 10px;
+      justify-content: flex-start;
+      text-align: left;
+    }
+
+    &__pos,
+    &__dis,
+    &__remarks,
+    &__winTime,
+    &__by,
+    &__stmhcp {
+      padding-top: 8px;
+      padding-bottom: 15px;
+      width: 25%;
+
+      &:before {
+        bottom: 100%;
+        left: auto;
+      }
+    }
+
+    &__date,
+    &__track,
+    &__trap {
+      padding-bottom: 0;
+    }
+
+    &__date {
+      width: 90px;
+    }
+
+    &__track {
+      display: block;
+      width: calc(100% - 130px);
+      text-align: right;
+    }
+
+    &__trap {
+      width: 40px;
+    }
+
+    &__stmhcp,
+    &__pos,
+    &__by {
+      left: 0;
+    }
+
+    &__line {
+      padding-top: 0;
+      margin: 0 0 25px;
+    }
+
+    &__line ~ &__line {
+      order: 1;
+      margin: -10px 0 15px;
+    }
+
+    &__first {
+      order: 2;
+      left: auto;
+      padding: 10px 0;
+      margin-top: 10px;
+
+      a {
+        &:before {
+          left: auto;
+          bottom: 100%;
+        }
+      }
+    }
+
+    &__remarks {
+      position: relative;
+      top: auto;
+      right: auto;
+    }
+
+    &__remarks:before {
+      position: absolute;
+      bottom: 100%;
+      justify-content: center;
+      color: $grey;
+      content: "Comments";
+    }
+  }
+
+  &__track {
+    line-height: 1.5;
+  }
+}

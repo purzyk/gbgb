@@ -1,0 +1,12 @@
+.ContactForm {
+  background: $white;
+  padding: 50px 15px;
+
+  @include breakpoint($phablet) {
+    padding: 100px 130px;
+  }
+
+  @include contentWidth();
+
+  margin-bottom: 80px;
+}

@@ -1,0 +1,52 @@
+<div class="MyKennel__header">
+    <div class="MyKennel__header__title">
+        <h1 class="MyKennel__header__title__meta">{{ myKennel.title }}</h1>
+    </div>
+</div>
+
+<div class="MyKennel__inner">
+    <div class="MyKennel--landingpage__blocks">
+        <div class="Row Row--top">
+            <div class="Column">
+                <a href="{{ myKennelPage }}?kennelEndpoint=mydogs" class="Block--myDogs Block">{{myKennel.itemTitles.my_dogs}}</a>
+            </div>
+            <div class="Column">
+                <a href="{{ myKennelPage }}?kennelEndpoint=mycourses" class="Block--myRacecourses Block">{{myKennel.itemTitles.my_racecourses}}</a>
+            </div>
+        </div>
+        <div class="Row Row--bottom">
+            <div class="Column">
+                <a href="{{ myKennelPage }}?kennelEndpoint=resources" class="Block--notices Block">{{myKennel.itemTitles.notices_and_resources}}</a>
+            </div>
+{#             {% if ('owner' in myKennel.roles) %}
+                <div class="Column">
+                    <a class="Block" href="{{stadiumPortalUrl}}">Retire Greyhounds</a>
+                </div>
+            {% endif %} #}
+            {% if 'owner' in myKennel.roles %}
+                <div class="Column">
+                    <a href="{{ myKennelPage }}?kennelEndpoint=uploadphotos" class="Block">{{myKennel.itemTitles.upload_a_picture_of_a_greyhound}}</a>
+                </div>
+            {% endif %}
+            {% if 'vet' in myKennel.roles %}
+                <div class="Column">
+                    <a class="Block" href="{{trainingDaysPage}}">{{myKennel.itemTitles.training_days}}</a>
+                </div>
+            {% endif %}
+            {% if 'apprentice' in myKennel.roles %}
+                <div class="Column">
+                    <a class="Block" href="{{daysOutPage}}">{{myKennel.itemTitles.days_out_info}}</a>
+                </div>
+            {% endif %}
+{#             {% if ('stadium' in myKennel.roles) %}
+                <div class="Column">
+                    <a class="Block" href="{{stadiumPortalUrl}}">Stadium Portal</a>
+                </div>
+            {% endif %} #}
+            <div class="Column">
+                <a href="{{ myKennelPage }}?kennelEndpoint=details" class="Block--profile Block">{{myKennel.itemTitles.account}}</a>
+            </div>
+        </div>
+    </div>
+</div>
+

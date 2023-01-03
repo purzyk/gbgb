@@ -1,0 +1,6 @@
+<div class="RaceCoursesBlock Transition--hidden ">
+    <div class="RaceCoursesBlock__inner">
+        <div class="RaceCoursesBlock__description">{{ blockData.raceCoursesDescription }}</div>
+        <race-courses-block nonce="{{ restNonce }}" lat="{{ coursesLocateLat }}" lng="{{ coursesLocateLng }}" address="{{ coursesLocateAddress }}" :mycourses='{{ blockData.mycourses|raw }}'></race-courses-block>
+    </div>
+</div>

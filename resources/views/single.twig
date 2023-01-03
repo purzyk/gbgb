@@ -1,0 +1,26 @@
+{% extends "base.twig" %}
+
+{% block content %}
+    <main class="Post">
+        {% include 'single/_hero.twig' with
+            {
+                image: post.meta('postHero'),
+            }
+        %}
+        <div class="Post__inner">
+            {% include 'single/_header.twig' with
+                {
+                    title: post.title,
+                    link: post.link,
+                    categories: postCategories,
+                    date: postFormattedDate,
+                }
+            %}
+            {% include 'single/_content.twig' with
+                {
+                    content: post.content
+                }
+            %}
+        </div>
+    </main>
+{% endblock %}

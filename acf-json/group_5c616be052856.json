@@ -1,0 +1,310 @@
+{
+    "key": "group_5c616be052856",
+    "title": "Hero Section",
+    "fields": [
+        {
+            "key": "field_5c923b9b4d2e8",
+            "label": "Disable",
+            "name": "heroDisable",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_5c616bf74fbc4",
+            "label": "Title",
+            "name": "heroTitle",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5c812e0ac950e",
+                        "operator": "!=",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_5c616c194fbc5",
+            "label": "Subtitle",
+            "name": "heroSubtitle",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5c812e0ac950e",
+                        "operator": "!=",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_5c754f4ca006a",
+            "label": "Text",
+            "name": "heroText",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5c923b9b4d2e8",
+                        "operator": "!=",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "hide_admin": 0,
+            "default_value": "",
+            "tabs": "visual",
+            "toolbar": "link_only",
+            "media_upload": 0,
+            "delay": 0
+        },
+        {
+            "key": "field_5c616c374fbc6",
+            "label": "Button Link",
+            "name": "heroLink",
+            "type": "url",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5c923b9b4d2e8",
+                        "operator": "!=",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "33",
+                "class": "",
+                "id": ""
+            },
+            "hide_admin": 0,
+            "default_value": "",
+            "placeholder": ""
+        },
+        {
+            "key": "field_5cb5851c681bd",
+            "label": "open link in new tab?",
+            "name": "heroLinkTab",
+            "type": "radio",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "33",
+                "class": "",
+                "id": ""
+            },
+            "hide_admin": 0,
+            "choices": {
+                "no": "no",
+                "yes": "yes"
+            },
+            "allow_null": 0,
+            "other_choice": 0,
+            "default_value": "",
+            "layout": "vertical",
+            "return_format": "value",
+            "save_other_choice": 0
+        },
+        {
+            "key": "field_5c754f3ba0069",
+            "label": "Button Caption",
+            "name": "heroLinkText",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5c923b9b4d2e8",
+                        "operator": "!=",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "33",
+                "class": "",
+                "id": ""
+            },
+            "hide_admin": 0,
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_5c616c644fbc7",
+            "label": "Images",
+            "name": "heroImages",
+            "type": "repeater",
+            "instructions": "Images should be 3840x1760px (1920 x 880px @2X)",
+            "required": 1,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5c812e0ac950e",
+                        "operator": "!=",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "",
+            "min": 1,
+            "max": 0,
+            "layout": "table",
+            "button_label": "Add image",
+            "sub_fields": [
+                {
+                    "key": "field_5c616c804fbc8",
+                    "label": "Main image",
+                    "name": "heroImageMain",
+                    "type": "image",
+                    "instructions": "",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "array",
+                    "preview_size": "thumbnail",
+                    "library": "all",
+                    "min_width": 3840,
+                    "min_height": 1760,
+                    "min_size": "",
+                    "max_width": 3840,
+                    "max_height": 1760,
+                    "max_size": "",
+                    "mime_types": ""
+                },
+                {
+                    "key": "field_5c616ca74fbc9",
+                    "label": "Overlapping image",
+                    "name": "heroImageOverlapping",
+                    "type": "image",
+                    "instructions": "An optional second image that overlaps the top of the live results table.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "url",
+                    "preview_size": "thumbnail",
+                    "library": "all",
+                    "min_width": 3840,
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": 3840,
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": ".png"
+                },
+                {
+                    "key": "field_5c61a286f6e94",
+                    "label": "Overlapping image offset",
+                    "name": "heroImageOverlappingOffset",
+                    "type": "number",
+                    "instructions": "How many pixels from the top does the overlapping part begins on the main image?",
+                    "required": 1,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_5c616ca74fbc9",
+                                "operator": "!=empty"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "min": "",
+                    "max": "",
+                    "step": ""
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_template",
+                "operator": "==",
+                "value": "home-page.php"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": [
+        "the_content"
+    ],
+    "active": 1,
+    "description": "",
+    "modified": 1556617845
+}

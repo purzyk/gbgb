@@ -1,0 +1,84 @@
+<section class="FeaturedContactBlock">
+    <div class="FeaturedContactBlock__inner">
+        <div class="FeaturedContactBlock__wrapper FeaturedContactBlock__wrapper--{{ blockData.featured_contact_block_alignment }}">
+            <div class="Column">
+                {% set first_group = blockData.featured_contact_block_first_col %}
+                {% for item in first_group.blocks %}
+                    <div class="Block">
+                        {% for element in item.elements %}
+                            {% if element.acf_fc_layout == 'element_title' %}
+                                <p class="Block__title">{{ element.title }}</p>
+                            {% endif %}
+                            {% if element.acf_fc_layout == 'element_list' %}
+                                <ul class="Block__list">
+                                    {% if element.phone_number %}
+                                        <li class="Block__list__item">
+                                            <a href="tel:{{ element.phone_number }}" class="Block__list__item__link">
+                                                <span class="Icon--phone Icon SvgContainer" aria-hidden="true">
+                                                    {{ get_svg("call.svg") }}
+                                                </span>
+                                                <span class="Meta">{{ element.phone_number }}</span>
+                                            </a>
+                                        </li>
+                                    {% endif %}
+                                    {% if element.email_address %}
+                                        <li class="Block__list__item">
+                                            <a href="mailto:{{ element.email_address }}" class="Block__list__item__link">
+                                                <span class="Icon--email Icon SvgContainer" aria-hidden="true">
+                                                    {{ get_svg("mail.svg") }}
+                                                </span>
+                                                <span class="Meta">{{ element.email_address }}</span>
+                                            </a>
+                                        </li>
+                                    {% endif %}
+                                </ul>
+                            {% endif %}
+                            {% if element.acf_fc_layout == 'element_address' %}
+                                <address class="Block__address">{{ element.address }}</address>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="Column">
+                {% set second_group = blockData.featured_contact_block_second_col %}
+                {% for item in second_group.blocks %}
+                    <div class="Block">
+                        {% for element in item.elements %}
+                            {% if element.acf_fc_layout == 'element_title' %}
+                                <p class="Block__title">{{ element.title }}</p>
+                            {% endif %}
+                            {% if element.acf_fc_layout == 'element_list' %}
+                                <ul class="Block__list">
+                                    {% if element.phone_number %}
+                                        <li class="Block__list__item">
+                                            <a href="tel:{{ element.phone_number }}" class="Block__list__item__link">
+                                                <span class="Icon--phone Icon SvgContainer" aria-hidden="true">
+                                                    {{ get_svg("call.svg") }}
+                                                </span>
+                                                <span class="Meta">{{ element.phone_number }}</span>
+                                            </a>
+                                        </li>
+                                    {% endif %}
+                                    {% if element.email_address %}
+                                        <li class="Block__list__item">
+                                            <a href="mailto:{{ element.email_address }}" class="Block__list__item__link">
+                                                <span class="Icon--email Icon SvgContainer" aria-hidden="true">
+                                                    {{ get_svg("mail.svg") }}
+                                                </span>
+                                                <span class="Meta">{{ element.email_address }}</span>
+                                            </a>
+                                        </li>
+                                    {% endif %}
+                                </ul>
+                            {% endif %}
+                            {% if element.acf_fc_layout == 'element_address' %}
+                                <address class="Block__address">{{ element.address }}</address>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>

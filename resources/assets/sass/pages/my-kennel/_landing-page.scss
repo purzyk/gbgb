@@ -1,0 +1,112 @@
+.MyKennel--landingpage {
+  .MyKennel {
+    &__inner {
+      padding: 100px 15px;
+
+      @include breakpoint($phablet) {
+        padding: 100px 35px;
+      }
+
+      @include breakpoint($md) {
+        padding: 100px 130px;
+      }
+    }
+  }
+
+  &__blocks {
+    .Row {
+      @include breakpoint($md) {
+        margin-right: -15px;
+        margin-left: -15px;
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+
+        @include breakpoint($md) {
+          justify-content: space-between;
+        }
+
+        &:not(:last-child) {
+          margin-bottom: 30px;
+        }
+      }
+
+      .Column {
+        width: 100%;
+        margin-bottom: 20px;
+
+        @include breakpoint($md) {
+          padding-right: 15px;
+          padding-left: 15px;
+          margin-bottom: 0;
+        }
+      }
+
+      &--top {
+        .Column {
+          @include breakpoint($md) {
+            width: 50%;
+          }
+        }
+      }
+
+      &--bottom {
+        .Column {
+          @include breakpoint($md) {
+            width: 33%;
+            margin-bottom: 30px;
+          }
+        }
+      }
+    }
+
+    .Block {
+      height: 150px;
+      text-align: center;
+      border: 1px solid $grey-light;
+      padding: 30px;
+      transition: all 0.2s ease-in-out;
+      align-items: center;
+      justify-content: center;
+      display: flex;
+
+      &:hover {
+        color: $blue;
+        border-color: $blue-light;
+        background: $blue-light;
+      }
+
+      &--myDogs {
+        &:hover {
+          color: $green;
+          border-color: $green-light;
+          background: $green-light;
+        }
+      }
+
+      &--myRacecourses {
+        &:hover {
+          color: $orange;
+          border-color: $orange-light;
+          background: $orange-light;
+        }
+      }
+
+      &--notices {
+        &:hover {
+          color: $pink;
+          border-color: $pink-light;
+          background: $pink-light;
+        }
+      }
+
+      &--profile {
+        &:hover {
+          color: $blue;
+          border-color: $blue-light;
+          background: $blue-light;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,18 @@
+<nav class="HeaderNavSubmenu">
+    <div class="HeaderNavSubmenu__inner">
+        {% for item in menu.get_items %}
+            {% if item.children %}
+                <div class="HeaderNavSubmenu__section" data-section-for-item="{{ item.link }}">
+                    {% for child in item.children %}
+                        <a class="HeaderNavSubmenu__item" href="{{ child.link }}">
+                            <div class="HeaderNavSubmenu__image">
+                                <img src="{{ child.meta('menuItemIcon') }}" alt="">
+                            </div>
+                            <span class="HeaderNavSubmenu__title">{{ child.title }}</span>
+                        </a>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+</nav>

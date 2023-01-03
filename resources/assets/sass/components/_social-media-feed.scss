@@ -1,0 +1,168 @@
+.SocialMediaFeed {
+  &__header {
+    margin-bottom: 100px;
+    padding: 0 20px;
+
+    @include breakpoint($md) {
+      margin-bottom: 110px;
+    }
+
+    &__title {
+      color: $white;
+
+      @include montLight(15px);
+
+      text-align: center;
+      text-shadow: 0 2px 10px rgba(71, 71, 71, 0.35);
+      text-transform: uppercase;
+      letter-spacing: 2.4px;
+      margin-bottom: 20px;
+      position: relative;
+
+      @include breakpoint($md) {
+        margin-bottom: 25px;
+      }
+    }
+
+    &__hashtag {
+      color: $white;
+
+      @include futuraDemi(21.5px);
+
+      text-align: center;
+      position: relative;
+
+      @include breakpoint($sm) {
+        font-size: 34px;
+      }
+
+      @include breakpoint($lg) {
+        font-size: 48px;
+      }
+    }
+  }
+
+  &__section {
+    background: $white;
+
+    &_inner {
+      top: -60px;
+      position: relative;
+
+      @include contentWidth();
+
+      @include breakpointMaxWidth($lg) {
+        padding-right: 0;
+      }
+    }
+  }
+
+  &--hasPosts {
+    .SocialMediaFeed__posts {
+      &::after {
+        @include breakpoint($phablet) {
+          content: "#gbgb";
+          display: block;
+          position: absolute;
+          bottom: 0;
+          right: 0;
+          color: rgba(18, 54, 136, 0.1);
+
+          @include futuraDemi(183.5px);
+        }
+      }
+    }
+  }
+
+  .Masonry__button {
+    color: $black;
+    border-color: $black;
+  }
+}
+
+.SocialMediaPost {
+  overflow: hidden;
+  background: $white;
+  border-radius: 5px;
+  box-shadow: 0 2px 26.5px 0.5px rgba(11, 15, 38, 0.15);
+  z-index: 2;
+  position: relative;
+
+  &::after {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    width: 17px;
+    height: 17px;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  &__image {
+    img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+  }
+
+  &__inner {
+    padding: 30px;
+    color: $darkgrey;
+
+    @include futuraBook(17px);
+  }
+
+  &__nicename {
+    margin-bottom: 14px;
+
+    @include futuraHeavy(17px);
+  }
+
+  &__username {
+    margin-bottom: 14px;
+    display: block;
+    color: $darkgrey;
+  }
+
+  &__content {
+    margin-bottom: 15px;
+    line-height: 1.25;
+  }
+
+  &__bottom {
+    justify-content: space-between;
+    display: flex;
+
+    &__date {
+      color: $grey;
+      display: block;
+    }
+
+    &__link {
+      z-index: 5;
+      display: block;
+
+      .Icon {
+        &--instagram {
+          color: $instagram-color;
+          width: 17px;
+          height: 17px;
+        }
+
+        &--twitter {
+          color: $twitter-color;
+          width: 20px;
+          height: 18px;
+        }
+      }
+    }
+  }
+}
+
+.SocialMediaHashtag {
+  color: $brand-color;
+  font-weight: $weight-medium;
+}

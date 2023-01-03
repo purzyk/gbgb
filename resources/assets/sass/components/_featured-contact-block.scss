@@ -1,0 +1,166 @@
+.Hero {
+  & + .FeaturedContactBlock {
+    padding-top: 0;
+  }
+}
+
+.FeaturedContactBlock {
+  padding: 50px 0;
+
+  @include breakpoint($sm) {
+    padding: 100px 0;
+  }
+
+  &__inner {
+    @include contentWidth();
+
+    @include breakpoint($sm) {
+      padding-left: 70px;
+      padding-right: 70px;
+    }
+  }
+
+  &__wrapper {
+    max-width: 720px;
+    border-radius: 3px;
+    background: rgba($black, 0.5);
+    padding: 20px 25px 25px;
+    flex-wrap: wrap;
+    display: flex;
+    position: relative;
+
+    @include breakpoint($phablet) {
+      border-radius: 0;
+      padding: 45px 50px 50px;
+    }
+
+    &--left {
+      margin-right: auto;
+    }
+
+    &--right {
+      margin-left: auto;
+    }
+
+    &--center {
+      margin-right: auto;
+      margin-left: auto;
+    }
+
+    .Column {
+      width: 100%;
+
+      @include breakpoint($phablet) {
+        width: 50%;
+      }
+
+      &:first-child {
+        @include breakpoint($phablet) {
+          padding-right: 35px;
+        }
+      }
+
+      &:last-child {
+        @include breakpoint($phablet) {
+          padding-left: 35px;
+        }
+      }
+
+      &:not(:last-child) {
+        margin-bottom: 30px;
+
+        @include breakpoint($phablet) {
+          margin-bottom: 0;
+        }
+      }
+    }
+
+    .Block {
+      &:not(:last-child) {
+        margin-bottom: 30px;
+
+        @include breakpoint($phablet) {
+          margin-bottom: 48px;
+        }
+      }
+
+      &__title {
+        color: $white;
+
+        @include montLight(15px);
+
+        letter-spacing: 2.4px;
+        text-transform: uppercase;
+
+        &:not(:last-child) {
+          margin-bottom: 25px;
+        }
+      }
+
+      &__list {
+        &:not(:last-child) {
+          margin-bottom: 18px;
+        }
+
+        &__item {
+          &:not(:last-child) {
+            margin-bottom: 16px;
+          }
+
+          &__link {
+            align-items: center;
+            display: flex;
+
+            .Icon {
+              color: $white;
+              margin-right: 12px;
+              position: relative;
+
+              &--phone {
+                top: -4px;
+                width: 13px;
+                height: 13px;
+              }
+
+              &--email {
+                top: -4px;
+                width: 14px;
+                height: 11px;
+              }
+            }
+
+            .Meta {
+              color: $white;
+
+              @include futuraBook(17.5px);
+
+              border-bottom: 2px solid $red;
+              padding-bottom: 12px;
+              display: block;
+
+              @include breakpoint($phablet) {
+                font-size: 20px;
+              }
+            }
+          }
+        }
+      }
+
+      &__address {
+        color: $white;
+
+        @include futuraBook(17.5px);
+
+        line-height: 1.5;
+
+        @include breakpoint($phablet) {
+          font-size: 20px;
+        }
+
+        &:not(:last-child) {
+          margin-bottom: 25px;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,94 @@
+$ip: 375px;
+$phablet: 600px;
+$sm: 840px;
+$md: 992px;
+$ipad: 1025px;
+$tables: 1080px;
+$lg: 1260px;
+
+@mixin breakpoint($size) {
+  @media (min-width: $size) {
+    @content;
+  }
+}
+
+@mixin breakpointLandscapePhone() {
+  @media only screen and (min-device-width: 320px) and (max-device-width: 812px) and (orientation: landscape) {
+    @content;
+  }
+}
+
+@mixin breakpointMaxWidth($size) {
+  @media (max-width: $size - 1) {
+    @content;
+  }
+}
+
+@mixin showAtPhablet($display: block) {
+  display: none;
+
+  @include breakpoint($phablet) {
+    display: $display;
+  }
+}
+
+@mixin showAtSm($display: block) {
+  display: none;
+
+  @include breakpoint($sm) {
+    display: $display;
+  }
+}
+
+@mixin showAtMd($display: block) {
+  display: none;
+
+  @include breakpoint($md) {
+    display: $display;
+  }
+}
+
+@mixin showUntilSm() {
+  @include breakpoint($sm) {
+    display: none;
+  }
+}
+
+@mixin contentWidth() {
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+
+  @include breakpoint($lg) {
+    max-width: $max-width;
+  }
+}
+
+@mixin maxRes() {
+  max-width: 1920px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@mixin masonryColumnWidth(
+  $multiplier,
+  $gutter: $masonryGutter,
+  $fourcols: true
+) {
+  width: calc(100% - #{$gutter});
+
+  @include breakpoint($phablet) {
+    width: calc((50% * #{$multiplier}) - #{$gutter});
+  }
+
+  @include breakpoint($md) {
+    width: calc((33% * #{$multiplier}) - #{$gutter});
+  }
+
+  @if $fourcols {
+    @include breakpoint($lg) {
+      width: calc((25% * #{$multiplier}) - #{$gutter});
+    }
+  }
+}

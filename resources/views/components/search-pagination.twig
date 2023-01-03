@@ -1,0 +1,50 @@
+<nav aria-label="pagination" class="Search__pagination" role="navigation">
+    <div class="Search__pagination__buttons">
+
+        {# PREVIOUS BUTTON #}
+        {% if pagination.prev %}
+            <a href="{{ pagination.prev.link }}" class="Search__pagination__button --prev {{ pagination.prev.link|length ? '' : 'invisible' }}">
+                <span class="Icon SvgContainer" aria-hidden="true">
+                    {{ get_svg("chevron.svg") }}
+                </span>
+            </a>
+        {% endif %}
+
+        {% for page in pagination.pages %}
+            {% if page.link %}
+                <a href="{{ page.link }}" class="{{ page.class }} Search__pagination__button" aria-label="Goto page {{ page.title }}">{{ page.title }}</a>
+            {% else %}
+                {% if page.class == 'dots' %}
+                    <span class="Search__pagination__button">&hellip;</span>
+                {% else %}
+                    <span class="Search__pagination__button --is-current {{ page.class }}">{{ page.title }}</span>
+                {% endif %}
+            {% endif %}
+        {% endfor %}
+
+        {# NEXT BUTTON #}
+        {% if pagination.next %}
+            <a href="{{ pagination.next.link }}" class="Search__pagination__button --next {{ pagination.next.link|length ? '' : 'invisible' }}">
+                <span class="Icon SvgContainer" aria-hidden="true">
+                    {{ get_svg("chevron.svg") }}
+                </span>
+            </a>
+        {% endif %}
+    </div>
+    <div class="Search__pagination__size">
+        <div class="Search__pagination__size__wrapper">
+            Page size:
+            <div class="Search__pagination__size__buttons">
+                <a href="{{site.url}}?s={{title}}&postsPerPage=100" class="Search__pagination__button {% if postsPerPage == 100 %}active{% endif %}">100</a>
+                <a href="{{site.url}}?s={{title}}&postsPerPage=25" class="Search__pagination__button {% if postsPerPage == 25 %}active{% endif %}">25</a>
+                <a href="{{site.url}}?s={{title}}&postsPerPage=10" class="Search__pagination__button {% if postsPerPage == 10 %}active{% endif %}">10</a>
+            </div>
+        </div>
+        <div class="Search__pagination__size__copy">
+            {{ total.totalCount }}
+            items in
+            {{total.totalPages}}
+            pages
+        </div>
+    </div>
+</nav>

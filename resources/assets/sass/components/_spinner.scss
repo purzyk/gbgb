@@ -1,0 +1,10 @@
+.Spinner {
+  text-align: center;
+  padding: 25px 0;
+
+  .Icon {
+    width: 45px;
+    height: 45px;
+    animation: spin linear 1s infinite normal;
+  }
+}

@@ -1,0 +1,19 @@
+<section class="TextRedSide">
+    <div class="TextRedSide__inner Transition--hidden">
+        <div class="TextRedSide__content">
+            <div class="TextRedSide__side --is{{ blockData.color_red_or_blue }}" aria-hidden="true"></div>
+            <h2 class="TextRedSide__title">{{ blockData.textRedSideTitle }}</h2>
+            <div class="TextRedSide__description">{{ blockData.textRedSideDescription }}</div>
+            {% if blockData.textRedSideBlueButton.textRedSideBlueButtonLabel %}
+                <a class="TextRedSide__button Button Button--primary" href="{{ blockData.textRedSideBlueButton.textRedSideBlueButtonLink }}" {% if blockData.textRedSideBlueButton.textRedSideBlueButtonTab == 'yes' %} target="_blank" {% endif %}>
+                    {{ blockData.textRedSideBlueButton.textRedSideBlueButtonLabel }}
+                </a>
+            {% endif %}
+            {% if blockData.textRedSideTransparentButton.textRedSideTransparentButtonLabel %}
+                <a class="TextRedSide__button Button Button--white__outline" href="{{ blockData.textRedSideTransparentButton.textRedSideTransparentButtonLink }}" {% if blockData.textRedSideTransparentButton.textRedSideTransparentButtonTab == 'yes' %} target="_blank" {% endif %}>
+                    {{ blockData.textRedSideTransparentButton.textRedSideTransparentButtonLabel }}
+                </a>
+            {% endif %}
+        </div>
+    </div>
+</section>

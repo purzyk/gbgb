@@ -1,0 +1,20 @@
+.Notifications {
+  position: absolute;
+  top: calc(100% + 15px);
+  right: -10px;
+  background: $white;
+  color: $black;
+  padding: 20px;
+  opacity: 1;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 4px 9px 1px rgba(71, 71, 71, 0.5);
+  z-index: 9999;
+  white-space: nowrap;
+  pointer-events: none;
+
+  @include mont(15px);
+
+  &:empty {
+    opacity: 0;
+  }
+}

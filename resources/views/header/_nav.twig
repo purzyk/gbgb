@@ -1,0 +1,30 @@
+<nav class="Header__nav">
+    <ul class="Header__nav__menu">
+        {% for item in menu.get_items %}
+            {% if item.link == '#search' %}
+                <li class="Header__nav__menu__item">
+                    <a href="{{ item.link }}" class="Item__search Item Item--icon">
+                        <span class="Icon SvgContainer" aria-hidden="true">
+                            {{ get_svg("search.svg") }}
+                        </span>
+                    </a>
+                </li>
+            {% elseif item.link == '#myKennel' %}
+                <li class="Header__nav__menu__item">
+                    <a href="{{ myKennelPage }}" class="Item__myKennel Item Item--icon">
+                        <span class="Icon SvgContainer" aria-hidden="true">
+                            {{ get_svg("user.svg") }}
+                        </span>
+                        <notifications></notifications>
+                    </a>
+                </li>
+            {% else %}
+                <li class="Header__nav__menu__item">
+                    <a href="{{ item.link }}" class="Item Item--hasChildren {% if item.current or item.current_item_ancestor %}Item--isActive{% endif %}">
+                        {{ item.title }}
+                    </a>
+                </li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+</nav>

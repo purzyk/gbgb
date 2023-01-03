@@ -1,0 +1,51 @@
+{% extends "base.twig" %}
+
+{% block content %}
+    <main class="Search">
+        {% if posts is not empty %}
+            <div class="Search__wrapper">
+                <div class="Search__wrapper__inner">
+                <search-input placeholder="" value="{{ title }}" ></search-input>
+                    <p class="Search__counter">
+                        {{ total.totalCount }}
+                        result{% if total.totalCount > 1 %}s{% endif %} found</p>
+                </div>
+                {% for post in posts %}
+                    <article class="Search__article">
+                        <a href="{{ post.link }}" class="Search__article__wrap">
+                            <div class="Search__article__wrap__content">
+                                <p class="Search__meta">
+                                    {% if post.parent %}
+                                        {{ post.parent.title }}
+                                    {% endif %}
+                                    {% if post.terms('category') %}
+                                        {{ post.terms('category') | join(', ') }}
+                                        <span class="Search__date">//
+                                            {{ post.date|date("D d M Y") }}</span>
+                                    {% endif %}
+                                </p>
+                                <h2 class="Search__title">{{ post.title }}</h2>
+                                {% if post.preview %}
+                                    <p class="Search__excerpt">{{ post.preview|striptags|replace({'Read More': ''}) }}</p>
+                                {% endif %}
+                            </div>
+                            <span class="Search__article__wrap__icon SvgContainer" aria-hidden="true">
+                                {{ get_svg("triangle.svg") }}
+                            </span>
+                        </a>
+                    </article>
+                {% endfor %}
+                {% if posts.pagination.pages %}
+                    {% include 'components/search-pagination.twig' %}
+                {% endif %}
+            </div>
+        {% else %}
+            <div class="Search__wrapper">
+                <div class="Search__wrapper__inner">
+                    <search-input placeholder="" value="{{ title }}" ></search-input>
+                    <h1 class="SearchNothingFound">{{ messages.search.no_results }}</h1>
+                </div>
+            </div>
+        {% endif %}
+    </main>
+{% endblock %}

@@ -1,0 +1,15 @@
+<section class="TwoColumnsText Transition--hidden backround_{{ blockData.background_color }}">
+    <div class="TwoColumnsText__wrapper">
+        {% for item in blockData.row %}
+            <div class="TwoColumnsText__row Transition--hidden">
+                <div class="TwoColumnsText__left TextBlock">
+                    {{ item.twoColumnTxtLeft }}
+                </div>
+                <div class="TwoColumnsText__right TextBlock">
+                    {{ item.twoColumnTxtRight }}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    <figure class="backgroundImage" style="background-image:url({{ blockData.background_image }});"></figure>
+</section>

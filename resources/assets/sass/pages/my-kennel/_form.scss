@@ -1,0 +1,184 @@
+.MyKennelForm {
+  &--isLoading {
+    .MyKennelButton {
+      color: transparent;
+      position: relative;
+
+      .Spinner {
+        top: 0;
+        right: 0;
+        left: 0;
+        padding: 9px 0;
+        position: absolute;
+
+        .Icon {
+          color: $white;
+          width: 20px;
+          height: 20px;
+        }
+      }
+    }
+  }
+
+  &__copy {
+    @include futuraBook(20px);
+
+    margin-bottom: 50px;
+  }
+
+  &__error {
+    width: 100%;
+    margin-top: 30px;
+
+    &__text {
+      color: $white;
+      font-size: 18px;
+      border-radius: 3px;
+      background: rgba(red, 0.55);
+      padding: 5px 25px 8px;
+      display: inline-block;
+    }
+  }
+
+  .Field {
+    max-width: 315px;
+    position: relative;
+
+    &:not(:last-child) {
+      margin-bottom: 35px;
+    }
+
+    &--checkbox {
+      margin-top: 145px;
+      max-width: 360px;
+    }
+
+    &__label {
+      font-size: 20px;
+      margin-bottom: 5px;
+      display: block;
+    }
+
+    &__input {
+      outline: none;
+      width: 100%;
+      border: 1px solid $grey-medium;
+      border-radius: 5px;
+      background: $white;
+      margin: 0;
+      padding: 9px 15px;
+      display: block;
+
+      &--pass {
+        padding-right: 80px;
+
+        &[type="password"] {
+          @include mont();
+
+          letter-spacing: 2px;
+        }
+      }
+    }
+
+    &__showPass {
+      top: 45px;
+      right: 18px;
+      width: auto;
+      color: $brand-color;
+
+      @include futuraDemi(20px);
+
+      text-transform: none;
+      position: absolute;
+    }
+
+    &__passInfo {
+      top: 35px;
+      right: -20px;
+      width: 320px;
+      color: $darkgrey;
+      line-height: 1.58;
+      border-radius: 5px;
+      background: #f3f2f2;
+      transform: translateX(100%);
+      padding: 20px 30px 20px 20px;
+      position: absolute;
+
+      @include breakpointMaxWidth(700px) {
+        position: relative;
+        right: 0;
+        transform: translateX(0%);
+        max-width: 100%;
+      }
+
+      @include futuraBook(19px);
+    }
+
+    &__checkbox {
+      cursor: pointer;
+      margin: 20px 0 0;
+      display: flex;
+      align-items: center;
+
+      &:before {
+        content: "";
+        width: 50px;
+        height: 50px;
+        border-radius: 5px;
+        border: 1px solid $borderGray;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 36px;
+        margin-right: 25px;
+      }
+
+      &--active {
+        &:before {
+          content: "\2713";
+        }
+      }
+
+      a {
+        color: $brand-color;
+        margin-left: 10px;
+
+        @include futuraDemi();
+      }
+    }
+
+    &__error {
+      margin-top: 20px;
+    }
+
+    &__highlight {
+      border-color: $red;
+
+      &:before {
+        border-color: $red;
+      }
+    }
+
+    &__validationMessage {
+      color: $red;
+      margin-top: 3px;
+    }
+  }
+
+  .MyKennelButton {
+    width: auto;
+    padding: 13px 25px 11px;
+  }
+
+  &__lostPassLink {
+    color: $brand-color;
+    margin-top: 20px;
+    display: block;
+  }
+}
+
+.MyKennel--resetpass {
+  .MyKennelForm__error {
+    margin-top: 150px;
+  }
+}

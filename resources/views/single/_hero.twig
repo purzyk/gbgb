@@ -1,0 +1,5 @@
+<div class="PostHero {% if not image %} PostHero--empty {% endif %}">
+    {% if image %}
+        <img src="{{TimberImage(image).src('homepageHero')}}" srcset="{{TimberImage(image).src('homepageHeroRetina')}} 2x" alt="">
+    {% endif %}
+</div>

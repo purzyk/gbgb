@@ -1,0 +1,274 @@
+.NearestTrack {
+  color: $white;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  flex-direction: row-reverse;
+
+  @include breakpoint($md) {
+    margin-top: -30px;
+    margin-bottom: -30px;
+  }
+
+  @include breakpoint($lg) {
+    margin-top: -70px;
+    margin-bottom: -70px;
+  }
+
+  > img {
+    width: $lg;
+    min-width: $lg;
+    height: auto;
+    z-index: -1;
+
+    @include breakpointMaxWidth($ipad) {
+      opacity: 0.5;
+    }
+
+    @include breakpoint($lg) {
+      width: 100%;
+    }
+  }
+
+  &__inner {
+    width: 100%;
+    position: absolute;
+    display: flex;
+    justify-content: flex-end;
+
+    @include contentWidth();
+  }
+
+  &__form {
+    max-width: 450px;
+  }
+
+  &__subtitle {
+    @include montLight(13px);
+
+    letter-spacing: 2.4px;
+    text-shadow: 0 2px 13px rgba(71, 71, 71, 0.53);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+
+    @include breakpoint($phablet) {
+      font-size: 15px;
+      letter-spacing: 2.4px;
+    }
+  }
+
+  &__title {
+    @include futuraDemi(34px);
+
+    margin-bottom: 30px;
+
+    @include breakpoint($lg) {
+      font-size: 48px;
+    }
+  }
+
+  &__gradient {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100px;
+    background: linear-gradient(to top, rgba(27, 27, 27, 0) 0%, rgba(27, 27, 27, 1) 99%);
+  }
+}
+
+.NearestTrackLocate {
+  &__search {
+    margin-bottom: 32px;
+    flex-flow: wrap row;
+    display: flex;
+
+    @include futuraBook();
+
+    .AnimatedInput {
+      width: 100%;
+      max-width: 100%;
+      color: $white;
+
+      @include futuraBook(17px);
+
+      height: 50px;
+      border: 1px solid $white;
+      border-radius: 5px;
+      background: transparent;
+      margin-bottom: 10px;
+
+      @include breakpoint($phablet) {
+        max-width: 235px;
+        margin-bottom: 0;
+      }
+
+      &--hasText,
+      &--hasFocus {
+        color: $white;
+        background: transparentize($black, $amount: 0.5);
+
+        .AnimatedInput__placeholder {
+          color: $white;
+          font-size: 12px;
+          border-radius: 6px;
+          background: $black;
+          padding: 8px 7px;
+          display: flex;
+          align-items: center;
+        }
+      }
+
+      &__placeholder {
+        font-size: 20px;
+        left: 20px;
+        bottom: 15px;
+      }
+
+      &__input {
+        input {
+          padding: 15px 45px 15px 20px;
+        }
+      }
+    }
+
+    &__button {
+      width: 100%;
+      font-size: 15px;
+      margin-left: 0;
+      padding: 14px 20px 15px;
+
+      @include breakpoint($phablet) {
+        width: auto;
+        font-size: 16px;
+        margin-left: 15px;
+        padding: 17px 38px 14px;
+      }
+    }
+
+    &__status {
+      color: $red;
+      padding-top: 20px;
+
+      @include mont(15px);
+    }
+  }
+
+  &__links {
+    @include breakpointMaxWidth($phablet) {
+      display: flex;
+      flex-direction: column;
+    }
+
+    &__current {
+      width: auto;
+      color: $white;
+      text-align: left;
+      margin-bottom: 20px;
+
+      @include futuraHeavy(20px);
+
+      text-transform: none;
+
+      @include breakpoint($phablet) {
+        margin-right: 32px;
+        text-align: center;
+        margin-bottom: 0;
+      }
+    }
+
+    &__all {
+      @include futuraHeavy(20px);
+
+      &:hover {
+        .Icon {
+          transform: rotate(180deg) translateX(-3px);
+        }
+      }
+
+      .Meta {
+        margin-right: 4px;
+      }
+
+      .Icon {
+        top: -1px;
+        color: $white;
+        width: 15px;
+        height: 10px;
+        transform: rotate(180deg);
+        transition: all 0.2s ease-in-out;
+        position: relative;
+      }
+    }
+  }
+
+  &--isLoading {
+    .NNearestTrackLocate__button {
+      color: transparent;
+      position: relative;
+    }
+
+    .Spinner {
+      top: 0;
+      right: 0;
+      left: 0;
+      position: absolute;
+
+      .Icon {
+        color: $white;
+      }
+    }
+  }
+}
+
+//Google Maps Autocomplete styling
+.pac-icon-marker,
+.pac-logo:after {
+  display: none;
+}
+
+.pac-container {
+  box-shadow: none;
+  border: 1px solid $grey-medium2;
+  width: 233px !important;
+}
+
+.pac-item {
+  cursor: pointer;
+  color: $darkgrey;
+
+  @include futuraBook(17px);
+
+  padding: 6px 0;
+  padding-left: 15px;
+  border: none;
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    color: $white;
+    background: $brand-color;
+
+    .pac-item-query {
+      color: $white;
+    }
+  }
+
+  &:not(:last-child) {
+    border-bottom: 1px solid $grey-medium2;
+  }
+
+  .pac-item-query {
+    color: $darkgrey;
+
+    @include futuraBook(17px);
+
+    transition: all 0.2s ease-in-out;
+
+    .pac-matched {
+      font-weight: $weight-medium;
+    }
+  }
+}

@@ -1,0 +1,165 @@
+{
+  "key": "group_5caf05ae33051",
+  "title": "Kennel",
+  "fields": [
+    {
+      "key": "field_5caf05b7eff18",
+      "label": "Dogs",
+      "name": "dogs",
+      "type": "repeater",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "collapsed": "",
+      "min": 0,
+      "max": 0,
+      "layout": "row",
+      "button_label": "",
+      "sub_fields": [
+        {
+          "key": "field_5caf05d401da0",
+          "label": "Dog id",
+          "name": "dogId",
+          "type": "number",
+          "instructions": "",
+          "required": 1,
+          "conditional_logic": 0,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "default_value": "",
+          "placeholder": "",
+          "prepend": "",
+          "append": "",
+          "min": "",
+          "max": "",
+          "step": ""
+        },
+        {
+          "key": "field_5caf05ee01da1",
+          "label": "Notes",
+          "name": "dogNotes",
+          "type": "textarea",
+          "instructions": "",
+          "required": 0,
+          "conditional_logic": 0,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "default_value": "",
+          "placeholder": "",
+          "maxlength": "",
+          "rows": "",
+          "new_lines": ""
+        },
+        {
+          "key": "field_5caf060a01da2",
+          "label": "Notification",
+          "name": "dogNotification",
+          "type": "true_false",
+          "instructions": "",
+          "required": 0,
+          "conditional_logic": 0,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "message": "",
+          "default_value": 0,
+          "ui": 0,
+          "ui_on_text": "",
+          "ui_off_text": ""
+        }
+      ]
+    },
+    {
+      "key": "field_5cb457cdaa7f8",
+      "label": "Courses",
+      "name": "courses",
+      "type": "repeater",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "collapsed": "",
+      "min": 0,
+      "max": 0,
+      "layout": "row",
+      "button_label": "",
+      "sub_fields": [
+        {
+          "key": "field_5cb457cdaa7f9",
+          "label": "Course id",
+          "name": "courseId",
+          "type": "number",
+          "instructions": "",
+          "required": 1,
+          "conditional_logic": 0,
+          "wrapper": {
+            "width": "",
+            "class": "",
+            "id": ""
+          },
+          "default_value": "",
+          "placeholder": "",
+          "prepend": "",
+          "append": "",
+          "min": "",
+          "max": "",
+          "step": ""
+        }
+      ]
+    },
+    {
+      "key": "field_5caf062a4e747",
+      "label": "userId",
+      "name": "userId",
+      "type": "text",
+      "instructions": "",
+      "required": 0,
+      "conditional_logic": 0,
+      "wrapper": {
+        "width": "",
+        "class": "",
+        "id": ""
+      },
+      "default_value": "",
+      "placeholder": "",
+      "prepend": "",
+      "append": "",
+      "maxlength": ""
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "post_type",
+        "operator": "==",
+        "value": "kennel"
+      }
+    ]
+  ],
+  "menu_order": 0,
+  "position": "normal",
+  "style": "default",
+  "label_placement": "top",
+  "instruction_placement": "label",
+  "hide_on_screen": "",
+  "active": 1,
+  "description": "",
+  "modified": 1555322929
+}

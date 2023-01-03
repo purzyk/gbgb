@@ -1,0 +1,49 @@
+.visuallyhidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  white-space: nowrap; /* 1 */
+}
+
+.SvgContainer {
+  font-size: 0;
+  line-height: 0;
+  display: inline-block;
+  vertical-align: middle;
+  max-height: 100%;
+  max-width: 100%;
+
+  svg {
+    width: inherit;
+    height: inherit;
+    display: inline-block;
+    color: inherit !important;
+
+    [style*="stroke:"]:not(.noColor),
+    [style*="stroke: "]:not(.noColor),
+    [stroke*="#"]:not(.noColor) {
+      stroke: currentColor !important;
+      transition: stroke 0.5s ease;
+    }
+
+    [style*="fill:"]:not(.noColor),
+    [style*="fill: "]:not(.noColor),
+    [fill*="#"]:not(.noColor) {
+      fill: currentColor !important;
+      transition: fill 0.5s ease;
+    }
+
+    [fill*="none"] {
+      fill: transparent;
+    }
+
+    [stroke*="none"] {
+      stroke: transparent;
+    }
+  }
+}

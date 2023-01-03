@@ -1,0 +1,10 @@
+<div class="SimpleImage SimpleImage--{{ blockData.simple_image_block_type }}">
+    <div class="SimpleImage__inner Transition--hidden">
+        <div class="SimpleImage__wrapper">
+            {% if blockData.simple_image_title %}
+                <p class="SimpleImage__wrapper__title">{{ blockData.simple_image_title }}</p>
+            {% endif %}
+            <img class="SimpleImage__wrapper__image" src="{{TimberImage(blockData.simple_image).src('simple_image')}}" srcset="{{TimberImage(blockData.simple_image).src('simple_image_retina')}} 2x" alt="">
+        </div>
+    </div>
+</div>

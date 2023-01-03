@@ -1,0 +1,31 @@
+{% if not post.heroDisable %}
+    {% include 'components/racelines.twig' %}
+
+    <div class="Hero Hero--home">
+        <div class="Hero__image">
+            <div aria-hidden="true" class="Hero__gradient"></div>
+            <img data-hero-naturalheight="{{heroImageNaturalHeight}}" src="{{TimberImage(heroImage.heroImageMain).src('hero')}}" srcset="{{TimberImage(heroImage.heroImageMain).src('heroRetina')}} 2x" alt=""/>
+        </div>
+        <div class="Hero__inner Transition--hidden">
+            {% if post.heroSubtitle %}
+                <p class="Hero__subtitle">{{ post.heroSubtitle }}</p>
+            {% endif %}
+            {% if post.heroTitle %}
+                <div class="Hero__title">
+                    <h1 class="Hero__title__meta">{{ post.heroTitle }}</h1>
+                </div>
+            {% endif %}
+            {% if post.heroText %}
+                <div class="Hero__text">{{ post.heroText }}</div>
+            {% endif %}
+            {% if post.heroLinkText %}
+                <a class="Hero__button Hero__button__transparent Button" href="{{ post.heroLink }}" {% if post.heroLinkTab == 'yes' %} target="_blank" {% endif %}>
+                    {{ post.heroLinkText }}
+                </a>
+            {% endif %}
+        </div>
+    </div>
+    {% if heroImage.heroImageOverlapping %}
+        <img class="HeroOverlapping" src="{{Image(heroImage.heroImageOverlapping).src()}}" srcset="{{Image(heroImage.heroImageOverlapping).src()}} 2x" data-hero-offset="{{heroImage.heroImageOverlappingOffset}}"/>
+    {% endif %}
+{% endif %}

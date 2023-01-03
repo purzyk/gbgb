@@ -1,0 +1,29 @@
+<section class="TextWithBg {% if blockData.bottomFade == false %} TextWithBg--andSocials {% endif %}">
+    <div class="TextWithBg__inner Transition--hidden">
+        <div class="TextWithBg__content">
+            <div class="TextWithBg__content__wrapper">
+                <h2 class="TextWithBg__title">{{ blockData.textWithBackgroundTitle }}</h2>
+                <div class="TextWithBg__description">{{ blockData.textWithBackgroundDescription }}</div>
+                {% if blockData.textWithBackgroundBlueButton.textWithBackgroundBlueButtonLabel %}
+                    <a class="TextWithBg__button Button Button--primary" href="{{ blockData.textWithBackgroundBlueButton.textWithBackgroundBlueButtonLink }}" {% if blockData.textWithBackgroundBlueButton.textWithBackgroundBlueButtonTab == 'yes' %} target="_blank" {% endif %}>
+                        {{ blockData.textWithBackgroundBlueButton.textWithBackgroundBlueButtonLabel }}
+                    </a>
+                {% endif %}
+                {% if blockData.textWithBackgroundTransparentButton.textWithBackgroundTransparentButtonLabel %}
+                    <a class="TextWithBg__button Button Button--white__outline" href="{{ blockData.textWithBackgroundTransparentButton.textWithBackgroundTransparentButtonLink }}" {% if blockData.textWithBackgroundTransparentButton.textWithBackgroundTransparentButtonTab == 'yes' %} target="_blank" {% endif %}>
+                        {{ blockData.textWithBackgroundTransparentButton.textWithBackgroundTransparentButtonLabel }}
+                    </a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <div class="TextWithBg__image" style="background:url('{{TimberImage(blockData.textWithBackgroundBg).src('hero')}}') top center no-repeat;">
+        <div class="TextWithBg__overlay"></div>
+        {% if blockData.topFade %}
+            <div class="TextWithBg__topFade"></div>
+        {% endif %}
+        {% if blockData.bottomFade %}
+            <div class="TextWithBg__bottomFade"></div>
+        {% endif %}
+    </div>
+</section>

@@ -1,0 +1,31 @@
+<section class="Careers Careers--hasBg" style="background-image:url({{ blockData.careersBackgroundImage }})">
+    <div class="Careers__inner Transition--hidden">
+        <h2 class="Careers__title">{{ blockData.careersTitle }}</h2>
+        <div class="Careers__description">
+            {{ blockData.careersDescription }}
+        </div>
+        <div class="Careers__vacancies">
+            <div class="Careers__vacancies__row">
+                {% for item in blockData.careersVacancies %}
+                    <div class="Column">
+                        <article class="CareersVacancy">
+                            <h3 class="CareersVacancy__title">{{ item.careersVacanciesTitle }}</h3>
+                            {% if item.careersVacanciesLocation %}
+                                <p class="CareersVacancy__location">{{ item.careersVacanciesLocation }}</p>
+                            {% endif %}
+                            <div class="CareersVacancy__description">{{ item.careersVacanciesDescription }}</div>
+                            {% if item.careersVacanciesLink %}
+                                <a href="{{ item.careersVacanciesLink }}" class="CareersVacancy__link" {% if item.careersVacanciesTab == 'yes' %} target="_blank" {% endif %}>
+                                    <span class="Meta">Read more</span>
+                                    <span class="Icon SvgContainer" aria-hidden="true">
+                                        {{ get_svg("arrow.svg") }}
+                                    </span>
+                                </a>
+                            {% endif %}
+                        </article>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>

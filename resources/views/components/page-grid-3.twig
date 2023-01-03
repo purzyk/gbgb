@@ -1,0 +1,20 @@
+<section class="PageGrid {% if globalPageGridItemCount > 6 %}PageGrid--collapseImages{% endif %}">
+    <div class="PageGrid__inner">
+        {% for item in blockData.pageGridItems %}
+            <div class="PageGridItem Transition--hidden PageGridItem--third">
+                <a href="{{item.pageGridItemUrl}}">
+                    {% if item.pageGridItemImage %}
+                        <img class="PageGridItem__image" src="{{TimberImage(item.pageGridItemImage).src('gridSmall')}}" srcset="{{TimberImage(item.pageGridItemImage).src('gridSmallRetina')}} 2x"/>
+                    {% endif %}
+                    <h3 class="PageGridItem__title">
+                        <span class="Meta">{{ item.pageGridItemTitle }}</span>
+                        <span class="Icon SvgContainer" aria-hidden="true">
+                            {{ get_svg("chevron-thick.svg") }}
+                        </span>
+                    </h3>
+                    <div class="PageGridItem__description">{{ item.pageGridItemDescription }}</div>
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+</section>

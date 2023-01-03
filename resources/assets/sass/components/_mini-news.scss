@@ -1,0 +1,175 @@
+$extendedColor: #2b3447;
+
+.MiniNews {
+  background: $white;
+  padding: 0 0 80px;
+  position: relative;
+
+  @include breakpoint($sm) {
+    padding: 0 0 100px;
+  }
+
+  @include breakpoint($md) {
+    &::after {
+      content: "News";
+      right: 0;
+      bottom: -30px;
+      line-height: 1;
+      position: absolute;
+      color: rgba(18, 54, 136, 0.06);
+
+      @include futuraDemi(180px);
+    }
+  }
+
+  &__header {
+    text-align: center;
+    background-color: $dark;
+    padding: 80px 20px;
+
+    @include breakpoint($sm) {
+      padding: 100px 20px 95px;
+    }
+
+    &__subtitle {
+      color: $white;
+
+      @include montLight(16px);
+
+      text-shadow: 0 0.5px 2.5px rgba(71, 71, 71, 0.35);
+      text-transform: uppercase;
+      letter-spacing: 2.4px;
+      margin-bottom: 15px;
+
+      @include breakpoint($sm) {
+        margin-bottom: 20px;
+      }
+    }
+
+    &__title {
+      color: $white;
+
+      @include futuraDemi(40px);
+
+      @include breakpoint($sm) {
+        font-size: 55px;
+      }
+    }
+  }
+
+  &__grid {
+    margin-top: -35px;
+    margin-bottom: 50px;
+
+    @include contentWidth();
+
+    @include breakpoint($sm) {
+      margin-bottom: 0;
+    }
+
+    &__row {
+      margin-right: -8px;
+      margin-left: -8px;
+
+      @include breakpoint($phablet) {
+        flex-wrap: wrap;
+        display: flex;
+      }
+
+      @include breakpoint($md) {
+        margin-right: -18px;
+        margin-left: -18px;
+      }
+    }
+
+    .Column {
+      width: 100%;
+      padding-right: 8px;
+      padding-left: 8px;
+
+      &:not(:last-child) {
+        @include breakpointMaxWidth($sm) {
+          margin-bottom: 20px;
+        }
+      }
+
+      @include breakpoint($sm) {
+        width: 33.333%;
+        margin-bottom: 55px;
+      }
+
+      @include breakpoint($md) {
+        padding-right: 18px;
+        padding-left: 18px;
+      }
+    }
+
+    .MiniNewsItem {
+      width: 100%;
+      box-shadow: 0 0 41.6px 0.4px rgba(39, 39, 39, 0.59);
+      border-radius: 6px;
+      background: $white;
+      display: block;
+      overflow: hidden;
+
+      &__image {
+        height: 175px;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+
+        @include breakpoint($phablet) {
+          height: 250px;
+        }
+
+        @include breakpoint($md) {
+          height: 300px;
+        }
+      }
+
+      &__content {
+        padding: 30px 28px 25px;
+
+        &__category {
+          color: $red;
+
+          @include mont(14px);
+
+          letter-spacing: 0.6px;
+          text-transform: uppercase;
+          margin-bottom: 15px;
+        }
+
+        &__date {
+          color: $darkgrey;
+        }
+
+        &__title {
+          @include futuraMedium(25px);
+
+          margin-bottom: 10px;
+        }
+
+        &__excerpt {
+          @include futuraBook(20px);
+
+          line-height: 1.5;
+        }
+      }
+    }
+  }
+
+  &__button {
+    text-align: center;
+  }
+
+  &__readMore {
+    width: auto;
+    text-align: center;
+    padding: 13px 32px 12px;
+
+    @include breakpoint($md) {
+      font-size: 17px;
+    }
+  }
+}

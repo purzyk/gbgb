@@ -1,0 +1,21 @@
+<section class="LargeImage">
+    <figure>
+        <img src="{{TimberImage(blockData.largeImageBg).src('hero')}}" srcset="{{TimberImage(blockData.largeImageBg).src('heroRetina')}} 2x" alt="">
+    </figure>
+    <div class="LargeImage__inner">
+        <div class="LargeImage__content">
+            <h1 class="LargeImage__title">{{ blockData.largeImageTitle }}</h1>
+            <div class="LargeImage__description">{{ blockData.largeImageDescription }}</div>
+            {% if blockData.largeImageBlueButton.largeImageBlueButtonLabel %}
+                <a class="LargeImage__button Button Button--primary" href="{{ blockData.largeImageBlueButton.largeImageBlueButtonLink }}" {% if blockData.largeImageBlueButton.largeImageBlueButtonTab == 'yes' %} target="_blank" {% endif %}>
+                    {{ blockData.largeImageBlueButton.largeImageBlueButtonLabel }}
+                </a>
+            {% endif %}
+            {% if blockData.largeImageTransparentButton.largeImageTransparentButtonLabel %}
+                <a class="LargeImage__button Button Button--white__outline" href="{{ blockData.largeImageTransparentButton.largeImageTransparentButtonLink }}" {% if blockData.largeImageTransparentButton.largeImageTransparentButtonTab == 'yes' %} target="_blank" {% endif %}>
+                    {{ blockData.largeImageTransparentButton.largeImageTransparentButtonLabel }}
+                </a>
+            {% endif %}
+        </div>
+    </div>
+</section>

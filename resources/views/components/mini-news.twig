@@ -1,0 +1,31 @@
+<section class="MiniNews">
+    <header class="MiniNews__header">
+        <p class="MiniNews__header__subtitle">{{ blockData.subtitle }}</p>
+        <h2 class="MiniNews__header__title">{{ blockData.title }}</h2>
+    </header>
+    <div class="MiniNews__grid">
+        <div class="MiniNews__grid__row Transition--hidden ">
+            {% for post in blockData.mini_news %}
+                <div class="Column">
+                    <article class="MiniNewsItem">
+                        <a href="{{ post.postPermalink }}" class="MiniNewsItem__link">
+                            <div class="MiniNewsItem__image" style="background-image: url({{ post.postImg }})"></div>
+                            <div class="MiniNewsItem__content">
+                                <div class="MiniNewsItem__content__category">
+                                    {{ post.postCategory }}
+                                    <span class="MiniNewsItem__content__date">//
+                                        {{ post.postDate|date("D d M Y") }}</span>
+                                </div>
+                                <h3 class="MiniNewsItem__content__title">{{ post.postTitle }}</h3>
+                                <p class="MiniNewsItem__content__excerpt">{{ post.postExcerpt }}</p>
+                            </div>
+                        </a>
+                    </article>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="MiniNews__button">
+        <a href="{{newsPage}}?categoryID={{blockData.post_taxonomy}}" class="MiniNews__readMore Button Button--primary__outline">see more</a>
+    </div>
+</section>

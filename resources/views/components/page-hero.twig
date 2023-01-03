@@ -1,0 +1,46 @@
+{% if not post.heroDisable %}
+    {% include 'components/racelines.twig' %}
+
+    <div class="Hero Hero--page">
+        <div class="Hero__image">
+            <div aria-hidden="true" class="Hero__overlay"></div>
+            <div aria-hidden="true" class="Hero__gradient"></div>
+            <img src="{{ TimberImage(post.heroImage).src('hero') }}" srcset="{{ TimberImage(post.heroImage).src('heroRetina') }} 2x" alt=""/>
+        </div>
+        <div class="Hero__inner Transition--hidden">
+            {% if post.heroSubtitle %}
+                <p class="Hero__subtitle">{{ post.heroSubtitle }}</p>
+            {% endif %}
+            {% if post.heroTitle %}
+                <div class="Hero__title">
+                    {% if post.heroLinkToPrevious %}
+                        {% if post.heroPreviousPage %}
+                            {% set link = heroPrevPage %}
+                        {% else %}
+                            {% set link = site.url %}
+                        {% endif %}
+                        <a href="{{ link }}" aria-label="{{ messages.general.back_to_previous_page }}" class="Hero__title__back">
+                            <span class="Icon SvgContainer" aria-hidden="true">
+                                {{ get_svg("arrow.svg") }}
+                            </span>
+                        </a>
+                    {% endif %}
+                    <h1 class="Hero__title__meta">{{ post.heroTitle }}</h1>
+                </div>
+            {% endif %}
+            {% if post.heroText %}
+                <div class="Hero__text">{{ post.heroText }}</div>
+            {% endif %}
+            {% if post.heroLinkText %}
+                <a class="Hero__button Button Button--primary" href="{{ post.heroLink }}" {% if post.blue_button_new_tab == 'yes' %} target="_blank" {% endif %}>
+                    {{ post.heroLinkText }}
+                </a>
+            {% endif %}
+            {% if post.transparent_button_caption %}
+                <a class="Hero__button Button Button--white__outline" href="{{ post.transparent_button_link }}" {% if post.transparent_button_new_tab == 'yes' %} target="_blank" {% endif %}>
+                    {{ post.transparent_button_caption }}
+                </a>
+            {% endif %}
+        </div>
+    </div>
+{% endif %}

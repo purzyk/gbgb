@@ -1,0 +1,9 @@
+.MyKennel--register {
+  .MyKennelForm {
+    .Field {
+      &:last-of-type {
+        margin-bottom: 60px;
+      }
+    }
+  }
+}
